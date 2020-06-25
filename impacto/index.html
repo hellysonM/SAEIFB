@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Impacto Positivo</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <div class="navbar-fixed scrollspy " id="inicio">
+            <nav class="white z-depth-2" role="navigation" style="">
+                <div class="nav-wrapper container">
+                    <a id="logo-container" href="#" class="brand-logo"><img src="img/Impacto-Positivo-Logotipo-1.png" width="150" height="auto"></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li class=""><a href="#inicio">Início</a></li>
+                        <li class=""><a href="#sobre">Sobre</a></li>
+                        <li class=""><a href="#contato">Contato</a></li>
+                        <li class=""><a href="#localizacao">Localização</a></li>
+                        <li class=""><a href="#parceiros">Parceiros</a></li>
+                        <li><a class="dropdown-trigger" href="#produtos" data-target="dropdown1">Produtos<i class="material-icons right">arrow_drop_down</i></a></li>
+                    </ul>
+
+
+                    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                </div>
+            </nav>
+
+
+        </div>
+
+
+        <ul id="nav-mobile" class="sidenav">
+            <li class="sidenav-close"><a href="#inicio" class="active">Início<i class="material-icons">home</i></a></li>
+
+            <li class="no-padding cyan darken-1 " >
+                <ul class=" collapsible collapsible-accordion  ">
+                    <li>
+                        <a class="collapsible-header white-text waves-effect waves-blue active"><img class="material-icons" style="top: 5px;"  src="img/Icone_Impacto-1.png" width="auto" height="25">&nbsp;Produtos<i class="material-icons right white-text arrow-change" style="margin-right:0;">arrow_drop_down</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a class="cyan-text sidenav-close" href="#prefeitura"><img class="material-icons"  src="img/PrefeituraComVc-Android2.png" width="auto" height="25">&nbsp;Prefeitura.com.vc</a></li>
+
+                                <li><a class="orange-text sidenav-close" href="#nubium"><img class="material-icons"  src="img/Logo-N-1.png" width="auto" height="25">&nbsp;Nubium</a></li>
+
+                                <li><a class="blue-text sidenav-close" href="#dialox"><img class="material-icons"  src="img/ShortLogo-1.png" width="auto" height="20">&nbsp;Dialox</a></li>
+
+                                <li><a class="green-text sidenav-close" href="#escolasimples"><img class="material-icons"  src="img/Logo-Escola-Simples-1.png" width="auto" height="25">&nbsp;Escola Simples</a></li>
+
+                                <li><a class="blue-text sidenav-close" href="#gestorexpress"><img class="material-icons"  src="img/Icone-Gestor-Express-1.png" width="auto" height="20">&nbsp;Gestor Express</a></li>
+
+                                <li><a class="purple-text sidenav-close" href="#officeexpress"><img class="material-icons"  src="img/OfficeExpress-Short.png" width="auto" height="20">&nbsp;Office Express</a></li>
+
+                                <li class="divider" tabindex="-1"></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidenav-close"><a href="#sobre">Quem somos<i class="material-icons">location_city</i></a></li>
+            <li class="sidenav-close"><a href="#contato">Contato<i class="material-icons">email</i></a></li>
+            <li class="sidenav-close"><a href="#parceiros">Parceiros<i class="material-icons">people</i></a></li>
+
+            <li class="sidenav-close"><a href="#localizacao">Localização<i class="material-icons">map</i></a></li>
+        </ul>
+
+
+
+
+        <!-------------- DROPDOWN -->
+
+
+        <ul id="dropdown1" class="dropdown-content cyan-text">
+            <li><a class="cyan-text" href="#prefeitura"><img class="material-icons"  src="img/PrefeituraComVc-Android2.png" width="auto" height="25">&nbsp;Prefeitura.com.vc</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="orange-text" href="#nubium"><img class="material-icons"  src="img/Logo-N-1.png" width="auto" height="25">&nbsp;Nubium</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="blue-text" href="#dialox"><img class="material-icons"  src="img/ShortLogo-1.png" width="auto" height="20">&nbsp;Dialox</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="green-text" href="#escolasimples"><img class="material-icons"  src="img/Logo-Escola-Simples-1.png" width="auto" height="25">&nbsp;Escola Simples</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="blue-text" href="#gestorexpress"><img class="material-icons"  src="img/Icone-Gestor-Express-1.png" width="auto" height="20">&nbsp;Gestor Express</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="purple-text" href="#officeexpress"><img class="material-icons"  src="img/OfficeExpress-Short.png" width="auto" height="20">&nbsp;Office Express</a></li>
+
+
+        </ul>
+
+
+
+        <span id="produtos"></span>            
+
+
+        <div class="slider">
+            <ul class="slides z-depth-2">
+                <li>
+                    <img class="responsive-img" src="img/inicioslider.png"> <!-- random image -->
+                    <div class="caption center-align">
+                        <h3 style="text-shadow: 1px 1px black;">Impacto Positivo</h3>
+                        <h5 class="light" style="text-shadow: 1px 1px black;"><b>Soluções criativas e inteligentes.</b></h5>
+                    </div>
+                </li>
+
+                <li>
+                    <img class="responsive-img" src="img/element5-digital-OyCl7Y4y0Bk-unsplash.jpg"> <!-- random image -->
+                    <div class="caption center-align">
+                        <h3 style="text-shadow: 1px 1px black;">Impacto Positivo</h3>
+                        <h5 class="light grey-text text-lighten-3" style="text-shadow: 1px 1px black;"><b>Gestão em organizações públicas e privadas brasileiras.</b></h5>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <div class="container">
+            <div class="section">
+
+                <!--   Icon Section   -->
+                <div class="row">
+
+                    <div class="col  s6 xl4 " >
+
+                        <div class="icon-block">
+                            <h2 class="center brown-text"><img src="img/PrefeituraComVc-Android2.png" width="auto" height="50"></h2>
+                            <h5 class="center">Prefeitura.com.vc</h5>
+
+                            <br>
+                            <div class="container"><a class="waves-effect waves-light btn-small cyan  center-align modal-trigger col s12" href="#prefeitura">saiba mais</a></div>
+                        </div>
+                    </div>
+
+                    <div class="col s6 xl4 ">
+                        <div class="icon-block">
+                            <h2 class="center brown-text"><img src="img/Logo-N-1.png" width="auto" height="50"></h2>
+                            <h5 class="center">Nubium</h5>
+                            <br>
+                            <div class="container"><a class="waves-effect waves-light btn-small orange  center-align modal-trigger col s12" href="#nubium">saiba mais</a></div>
+                        </div>
+                    </div>
+
+                    <div class="col s6 xl4 ">
+                        <div class="icon-block">
+                            <h2 class="center brown-text"><img src="img/ShortLogo-1.png" width="auto" height="50"></h2>
+                            <h5 class="center">Dialox</h5>
+                            <br>
+                            <div class="container"><a class="waves-effect waves-light btn-small blue  center-align modal-trigger col s12" href="#dialox">saiba mais</a></div>
+                        </div>
+                    </div>
+
+                    <div class="col s6 xl4 ">
+                        <div class="icon-block">
+                            <h2 class="center brown-text"><img src="img/Logo-Escola-Simples-1.png" width="auto" height="50"></h2>
+                            <h5 class="center">Escola simples</h5>
+                            <br>
+                            <div class="container"><a class="waves-effect waves-light btn-small green  center-align modal-trigger col s12" href="#escolasimples">saiba mais</a></div>
+                        </div>
+                    </div>
+
+                    <div class="col s6 xl4 ">
+                        <div class="icon-block">
+                            <h2 class="center brown-text"><img src="img/Icone-Gestor-Express-1.png" width="auto" height="50"></h2>
+                            <h5 class="center">Gestor Express</h5>
+
+                            <br><div class="container"><a class="waves-effect waves-light btn-small blue  center-align modal-trigger col s12" href="#gestorexpress">saiba mais</a></div>
+                        </div>
+                    </div>
+
+
+                    <div class="col s6 xl4 ">
+                        <div class="icon-block">
+                            <h2 class="center brown-text"><img src="img/OfficeExpress-Short.png" width="auto" height="50"></h2>
+                            <h5 class="center">Office Express</h5>
+
+                            <br><div class="container"><a class="waves-effect waves-light btn-small purple  center-align modal-trigger col s12" href="#officeexpress">saiba mais</a></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="parallax-container valign-wrapper z-depth-2">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <div class="row center">
+                        <h5 class="header col s12 light" style="text-shadow: 1px 1px black;"><b>Nossa Visão é
+                                ser reconhecidos como uma empresa que desenvolve soluções criativas e inteligentes.</h5><br>
+                        </b> </div>
+                </div>
+            </div>
+            <div class="parallax"><img src="img/marvin-meyer-SYTO3xs06fU-unsplash.jpg" alt="Unsplashed background img 2"></div>
+        </div>
+
+        <div class="container">
+            <div class="section scrollspy" id="sobre">
+
+                <div class="row">
+                    <div class="col s12 center">
+
+                        <h4>Quem somos</h4>
+
+
+                        <p class="left-align light">
+
+
+                            É uma empresa que atua há 25 anos no mercado de Tecnologia da Informação. No começo se destacou desenvolvendo projetos de integração de educação e tecnologia, visando à melhoria de qualidade da educação. Por conta dessa atuação em Secretarias de Educação, detectou a necessidade que aqueles órgãos tinham de gerenciar os sistemas públicos de educação com mais informações em tempo real e, portanto, a partir dessa constatação, desenvolveu um sistema de gestão para educação. Hoje, desenvolvemos uma grande diversidade de projetos na área de tecnologia, que pode variar desde a terceirização de infraestrutura, fornecendo soluções de Data Center, passando por sistemas que facilitam a comunicação entre entidades públicas e privadas e seus clientes e consumidores.
+
+
+
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="parallax-container valign-wrapper z-depth-2 z-depth-2">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <div class="row center">
+                        <h5 class="header col s12 light " style="text-shadow: 1px 1px black;"><b>Nossa missão é
+                                simplificar os procedimentos das instituições e sofisticar o uso das informações na administração, contribuindo para a melhoria da gestão em organizações públicas e privadas brasileiras.</b></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax"><img src="img/element5-digital-OyCl7Y4y0Bk-unsplash.jpg" alt="Unsplashed background img 3"></div>
+        </div>
+
+        <div class="" >
+            <div class="container">
+                <div class="section scrollspy" id="contato">
+
+                    <div class="row">
+                        <div class="col s12 center">
+
+                            <h4>Contate-nos</h4>
+
+
+
+                            <div class="row">
+                                <form class="col s12" action="form.php" method="POST">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input  id="first_name" type="text" class="validate" name="nome" required>
+                                            <label for="first_name">Nome para contato</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="email" type="email" class="validate" required name="email">
+                                            <label for="email">Email</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input  id="subject" type="text" class="validate" name="subject" required>
+                                            <label for="subject">Assunto</label>
+
+
+                                        </div>
+
+
+                                        <div class="input-field col s6">
+                                            <textarea id="textarea2" class="" data-length="120" name="msg" placeholder="" cols="100" rows="50" required></textarea>
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <button class="btn waves-effect waves-light cyan" type="submit" name="action">Enviar
+
+                                    </button>
+
+
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container">
+            <div class="section scrollspy" id="localizacao">
+
+                <div class="row">
+                    <div class="col s12 center">
+
+                        <h4>Nossa localização</h4>
+
+                        <div class="row">
+
+                            <div class="col s12 m2 offset-m2">   
+                                <p class="left-align light">
+
+                                    CENTRO EMPRESARIAL DAS AMÉRICAS<br>
+                                    Avenida Nações Unidas, 17-17<br>
+                                    17013-905 - Bauru - SP<br>
+
+
+                                </p>
+                            </div>  
+
+                            <div class="col s12 m6 ">
+
+                                <img class="responsive-img" src="img/local.PNG">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="parallax-container valign-wrapper z-depth-2">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <div class="row center">
+                        <h5 class="header col s12 light" style="text-shadow: 1px 1px black;"><b>Conheça nossos produtos. 
+                            </b> </div>
+                </div>
+            </div>
+            <div class="parallax"><img src="img/startup-594091_1920.jpg" alt="Unsplashed background img 2"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="section scrollspy" id="prefeitura">
+
+                <div class="container">
+
+                    <h2 class="center brown-text"><img  src="img/LogoCompleto-PCV-1.png" width="auto" height="70"></h2>
+                    <div class="col s12 xl12">
+
+                        <h5> O que é? </h5><p>
+                            É uma plataforma de Governança Colaborativa para municípios se conectarem com os cidadãos, saberem das demandas em tempo real e conhecerem o desempenho das secretarias e setores que atendem diretamente as demandas da população.
+                        </p>
+
+                    </div>
+
+
+                    <div class="col s12 x12">
+                        <h5> Porque implantar?</h5>
+
+                        <p>
+                            Para otimizar os recursos e dar preferência no atendimento das demandas com maior número de solicitações; conhecer como as secretarias são avaliadas pela população; estabelecer um canal direto com a população; engajar o cidadão e acostumá-lo a se relacionar com o governo municipal; criar um Banco de Dados rico em informações sobre munícipes e suas necessidades;  fazer pesquisas de opinião e consultas online sobre orçamento participativo.
+                            Quais os benefícios?
+                            Usa o dispositivo que está na mão das pessoas 100% do tempo, o celular; cria uma inovação na forma de gerir a cidade e ouvir a população; fortalece a imagem do prefeito de gestor público democrático e comprometido com a cidade; reduz despesas com ouvidoria da prefeitura, bem como com a melhoria da máquina pública; implanta a fiscalização do munícipe, mais eficiente e presente em todos os cantos da cidade; cria um canal específico para tratar das demandas do cidadão, esvaziando as reclamações do Facebook e controla os serviços prestados por empresas terceirizadas.
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="col s12 xl12">
+
+                        <div class="container center-align">
+
+                            <div class='embed-container'>
+                                <iframe class="center-align responsive-img" width="500px" height="auto" src="https://www.youtube.com/embed/BSOKd5pzxZI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div> 
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="container center-align"> 
+
+
+
+            <div class=""><a class="waves-effect waves-light btn-small cyan  center-align col s12" href="http://www.prefeitura.com.vc" target="__blank">Ir para o site</a></div>
+
+            <br>
+            <br>
+            <div class="divider"></div>     
+        </div>
+
+
+        <div class="row">
+            <div class="section scrollspy" id="nubium">
+
+                <div class="container">
+
+                    <h2 class="center brown-text"><img  src="img/Logo-Nubium-Cinza.png" width="auto" height="70"></h2>
+                    <div class="col s12 xl12">
+
+                        <h5> O que é? </h5><p>
+                            É um ambiente projetado onde se localizam equipamentos de armazenamento e processamento de dados de alto desempenho. A Nubium Data Center abriga servidores e bancos de dados com alto nível de segurança e oferece serviços de aluguel de infraestrutura e backup de alta segurança.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="col s12 x12">
+                        <h5> Porque implantar?</h5>
+
+                        <p>
+                            Criar servidores em nuvem e integrar ambientes virtuais com o objetivo de acessar, sincronizar e compartilhar seus dados de acordo com sua necessidade, criando um ambiente tecnológico amigável para a colaboração, inclusive viabilizando o Home Office. Acessar tudo o que interessa onde você estiver, por qualquer dispositivo, inclusive permitindo o acesso off-line.
+
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="col s12 x12">
+                        <h5> Quais os benefícios?</h5>
+
+                        <p>
+                            Segurança, desempenho, elasticidade, disponibilidade, agilidade, redução de custos, preservação do meio ambiente, etc.
+
+                        </p>
+                    </div>
+
+
+                    <div class="col s12 xl12">
+
+                        <div class="container center-align">
+
+                            <div class='embed-container'>
+                                <iframe class="center-align responsive-img" width="500px" height="auto" src="https://www.youtube.com/embed/Y0qskSBZTIU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div> 
+
+
+                    </div>
+
+                </div>
+
+            </div> 
+
+        </div>
+
+        <div class="container center-align">
+            <div class=""><a class="waves-effect waves-light btn-small orange  center-align col s12" href="http://www.nubium.com.br/" target="__blank">Ir para o site</a></div>
+            <br>
+            <br>
+            <div class="divider"></div>  
+
+        </div>
+
+        <div class="row">
+            <div class="section scrollspy" id="dialox">
+
+                <div class="container">
+
+                    <h2 class="center brown-text"><img  src="img/Logo-Dialox-02-1.png" width="auto" height="70"></h2>
+                    <div class="col s12 xl12">
+
+                        <h5> O que é? </h5><p>
+                            Uma intuitiva plataforma WEB de envio e gerenciamento de mensagens de SMS  de forma rápida e direta e com confirmação de recebimento, podendo ser operada de qualquer dispositivo, como computador, tablets e smartphones.   
+
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="col s12 x12">
+                        <h5> Porque implantar?</h5>
+
+                        <p>
+                            Mais de 280 MILHÕES de celulares ativos; 80% dos usuários aceitam receber SMS (FONTE: TELEFONICA); 100% dos celulares recebem SMS; O SMS é 5X mais lido que o E-MAIL; SMS é 9X mais lido que a MALA DIRETA; 25% dos usuários encaminham promoções e ofertas para outras pessoas; 75% dos SMS são lidos até 3 minutos do recebimento
+
+
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="col s12 x12">
+                        <h5> Quais os benefícios?</h5>
+
+                        <p>
+                            É ACESSÍVEL (Compatível com todos os aparelhos); É FÁCIL (Todo mundo sabe como funciona); É INSTANTÂNEO (Mensagens entregues imediatamente); É ECONÔMICO (Custa menos que a grande maioria das mídias); É PRÁTICO (Não é necessário pacote de dados e saldo para receber); É DISCRETO (Tem interferência mínima nas atividades do usuário).
+
+
+                        </p>
+                    </div>
+
+
+                    <div class="col s12 xl12">
+
+                        <div class="container center-align">
+
+                            <div class='embed-container'>
+                                <iframe class="center-align responsive-img" width="500px" height="auto" src="https://www.youtube.com/embed/9jVdDIdDvmM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div> 
+
+
+                    </div>
+
+                </div>
+            </div> 
+
+        </div>
+
+        <div class="container center-align">
+            <div class=""><a class="waves-effect waves-light btn-small blue  center-align col s12" href="http://www.dialox.com.br/" target="__blank">Ir para o site</a></div>
+            <br>
+            <br>
+            <div class="divider"></div>  
+
+        </div>
+
+        <div class="row">
+            <div class="section scrollspy" id="escolasimples">
+
+                <div class="container">
+
+                    <h2 class="center brown-text"><img  src="img/Logotipo-horizontal-1.png" width="auto" height="70"></h2>
+                    <div class="col s12 xl12">
+
+                        <h5> O que é? </h5><p>
+                            O ESCOLA SIMPLES é um sistema de gestão escolar especializado para Redes Municipais de Ensino. Com ele é possível informatizar todos os processos de uma Rede de Ensino Municipal, independentemente do tamanho. 
+
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="col s12 x12">
+                        <h5> Porque implantar?</h5>
+
+                        <p>
+                            Organizar processos acadêmicos e administrativos, aumentar a produtividade dos servidores, fornecer informações confiáveis em tempo real, planejar melhor os investimentos na educação e melhorar a comunicação com a comunidade escolar.
+
+
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="col s12 x12">
+                        <h5> Quais os benefícios?</h5>
+
+                        <p>
+                            Aumenta o desempenho dos alunos pela maior agilidade entre avaliação e detecção de formação; elimina o retrabalho com dupla, às vezes tripla inserção de dados feita manualmente, reduz horas extras do pessoal administrativos, controla o desperdício com materiais de consumo e alimentos, aumenta a agilidade no fluxo de informações acadêmicas e administrativos, engaja a comunidade escolar, docentes, colaboradores, alunos e pais.
+
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <div class="col s12 xl12">
+
+                    </div>
+                </div>
+
+
+            </div> 
+
+
+
+        </div>
+        <div class="container center-align">
+            <div class=""><a class="waves-effect waves-light btn-small yellow grey-text center-align col s12" href="http://www.escolasimples.com.br" target="__blank">Ir para o site</a></div>
+            <br>
+            <br>
+            <div class="divider"></div>  
+
+        </div>
+
+        <div class="row">
+            <div class="section scrollspy" id="gestorexpress">
+
+                <div class="container">
+
+                    <h2 class="center brown-text"><img  src="img/LOGO-Gestor-Express-1.png" width="auto" height="70"></h2>
+                    <div class="col s12 xl12">
+
+                        <h5> O que é? </h5><p>
+                            O GESTOR EXPRESS é um automatizador de processos de negócios capaz de aumentar a eficiência das organizações, favorecendo a troca de informações mais rápida entre os diferentes departamentos envolvidos em um mesmo processo, garantindo que toda e qualquer tarefa seja executada dentro do prazo pelo colaborador para o qual ela for destinada.. 
+                            Com o auxílio do BPM - Gerenciamento de Processos de Negócios, mapeamos e automatizamos as rotinas empresariais.
+
+                        </p>
+
+                    </div>
+
+                    <div class="col s12 x12">
+                        <h5> Porque implantar?</h5>
+
+                        <p>
+                            Para aumentar a produtividade, para possibilitar o Home Office com monitoramento do desempenho do trabalho a distância, para rastrear os atrasos e falta de eficiência da equipe, para reduzir custos e aumentar a lucratividade.
+
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="col s12 x12">
+                        <h5> Quais os benefícios?</h5>
+
+                        <p>
+                            Agilidade; Produtividade; Eficiência e riscos reduzidos; Conformidade e transparência;  Foco no cliente; Consistência, repetibilidade e transferibilidade; Sustentabilidade; Mensurabilidade; Integração tecnológica; Redução de custos e muito mais.       
+
+
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="col s12 xl12">
+
+                        <div class="container center-align">
+
+                            <div class='embed-container'>
+                                <iframe class="center-align responsive-img" width="500px" height="auto" src="https://www.youtube.com/embed/iYLN5OCea7k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div> 
+
+
+                    </div>
+
+                </div>
+
+
+            </div> 
+
+        </div>
+
+        <div class="container center-align">
+            <div class=""><a class="waves-effect waves-light btn-small blue  center-align col s12" href="http://www.gestorexpress.com.br/" target="__blank">Ir para o site</a></div>
+            <br>
+            <br>
+            <div class="divider"></div>  
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="section scrollspy" id="officeexpress">
+
+                <div class="container">
+
+                    <h2 class="center brown-text"><img  src="img/OfficeExpress-IX.png" width="auto" height="50"></h2>
+                    <div class="col s12 xl12">
+
+                        <h5> O que é? </h5><p>
+                            Office Express é um espaço de trabalho em nuvem, destinado a reunir num único lugar todos os recursos e todas as informações que sua equipe necessita para trabalhar de forma segura, seja “in company”, seja em home office, sem riscos de vazamento de informações.
+
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="col s12 x12">
+                        <h5> Porque implantar?</h5>
+
+                        <p>
+                            Para organizar todos os arquivos e recursos necessários para a sua empresa trabalhar com alta produtividade num mesmo ambiente. Para proteger as informações que são vitais para a sua empresa e evitar vazamentos de informações.
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="col s12 x12">
+                        <h5> Quais os benefícios?</h5>
+
+                        <p>
+                            Compartilhe e colabore documentos, envie e receba e-mails, gerencie sua agenda, converse com vídeo sem vazamento de dados. Utilize dezenas de recursos para aumentar a produtividade da equipe.                
+
+
+
+                        </p>
+
+
+                    </div>
+                </div>
+
+
+            </div> 
+
+        </div>
+
+        <div class="container center-align">
+            <div class=""><a class="waves-effect waves-light btn-small purple  center-align col s12" href="http://www.officexpress.com.br" target="__blank">Ir para o site</a></div>
+            <br>
+            <br>
+            <div class="divider"></div>  
+
+        </div>
+
+
+        <div class="">
+            <div class="container">
+                <div class="section scrollspy" id="parceiros">
+
+                    <div class="row">
+                        <div class="col s12 center">
+
+                            <h4  >Parceiros</h4>
+
+                            <div class="row">
+
+                                <div class="col s12 m6">
+                                    <div class="icon-block">
+                                        <h3 class="center brown-text"><img src="img/Logo-GXZ-1.png" width="150" height="auto"></h3>
+                                        <h5 class="center">GXZ</h5>
+
+                                        <p class="light">Avenida Osíres Stenghel Guimarães, 449 - 3º piso<br>
+                                            87047-200 - Maringá - PR<br>
+                                            (44) 3224-9079<br></p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col s12 m6">
+                                    <div class="icon-block">
+                                        <h3 class="center brown-text"><img src="img/Icone-Bezerra-Oliveira-1.png" width="120" height="auto"></h3>
+                                        <h5 class="center">Bezerra Oliveira</h5>
+
+                                        <p class="light">
+
+                                            João Pessoa, Paraíba<br>
+                                            Avenida Sinésio Guimarães, 301<br>
+                                            Sala 6 - Torre<bR>
+
+                                            (83) 3508-3070<Br>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer cyan lighten-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text"><img src="img/Icone_Impacto-1.png" alt="" width="100"></h5>
+                        <p class="grey-text text-lighten-4">
+
+                            CENTRO EMPRESARIAL DAS AMÉRICAS <br>
+                            Avenida Nações Unidas, 17-17 <br>
+                            17013-905 - Bauru - SP <br>
+
+                            Fone (14) 2109-3400 <br> 
+                            falecom@impactopositivo.net.br <br>
+
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Mapa do Site</h5>
+                        <ul>
+                            <li class=""><a href="#inicio" class="active white-text cyan lighten-1">- Início</a></li>
+                            <li ><a href="#sobre" class="white-text">- Sobre</a></li>
+                            <li><a href="#contato" class="white-text">- Contato</a></li>
+                            <li><a href="#parceiros" class="white-text cyan lighten-1">- Parceiros</a></li>
+                            <li><a href="#produtos" class="white-text">- Produtos</a></li>
+                            <li><a href="#localizacao" class="white-text">- Localização</a></li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © Todos os direitos reservados Impacto positivo - 2020. By <a class="brown-text text-black" href="mailto:hellysonjk2022@gmail.com"> M. Dantas</a>  & <a class="brown-text text-black" href="http://materializecss.com">Materialize</a> 
+                </div>
+            </div>
+        </footer>
+
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="js/init.js"></script>
+
+        <script>
+            $(document).ready(function () {
+
+                $('.slider').slider();
+                $('.modal').modal();
+                $(".dropdown-trigger").dropdown({
+                    coverTrigger: false,
+                    alignment: 'left',
+                    constrainWidth: false
+                });
+                $('.collapsible').collapsible();
+
+
+
+                $('.scrollspy').scrollSpy({
+                    scrollOffset: 50
+                });
+
+            });
+
+
+            $('.collapsible-header').click(function () {
+
+                var parent_child = $(this);
+
+                parent_child.toggleClass('collapsed');
+
+                if (parent_child.hasClass('collapsed')) {
+                    parent_child.children('i.arrow-change').text('arrow_drop_up');
+                } else {
+                    parent_child.children('i.arrow-change').text('arrow_drop_down');
+                }
+
+            });
+
+
+        </script>
+
+
+    </body>
+</html>

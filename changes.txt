@@ -1,0 +1,14 @@
+- UsuarioDAO.class,TecnicoDAO.class,Tecnico.class,AlunoDAO.class, AdministradorDAO,PortalController.class(E Views/includes/Portal) removidos.
+
+
+
+
+
+-Melhoria na criação e destruição de sessões.
+
+-Alteração na mensagem de solicitação de aproveitamento
+
+-Inclusão de mensagem no caso de o aluno não possuir nenhuma solicitação na aba "Aluno/Acompanhar".
+-Inclusão de mensagem no caso do aluno já haver realizado sua solicitação na aba "Aluno/Solicitar".
+-Remoção das páginas ajuda e planos de ensino, volta em versão futura.
+-
