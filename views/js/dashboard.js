@@ -6,19 +6,13 @@ $(document).ready(function () {
     $('.slider').slider(); 
     
     $('.collapsible-header').click(function () {
-    
-
-
         var parent_child = $(this);
-
         parent_child.toggleClass('collapsed');
-
         if (parent_child.hasClass('collapsed')) {
             parent_child.children('i.arrow-change').text('arrow_drop_up');
         } else {
             parent_child.children('i.arrow-change').text('arrow_drop_down');
         }
-
     });
 
     var behavior = function (val) {
@@ -31,23 +25,13 @@ $(document).ready(function () {
             };
 
     $('#telefone').mask(behavior, options);
-
-
     $('.sidenav').sidenav();
-
     $('.collapsible').collapsible();
-
-
-
-
-
     $('select').formSelect();
 
 
-
-
     $('#inserir_aluno').submit(function (event) {
-        event.preventDefault(); // Prevent the form from submitting via the browser
+        event.preventDefault(); 
         var form = $(this);
         $.ajax({
             type: form.attr('method'),
@@ -55,14 +39,11 @@ $(document).ready(function () {
             data: form.serialize(),
             dataType: 'json',
             beforeSend: function () {
-
-
-
             },
             success: function (response) {
                 console.log('Submission was successful.');
                 console.log(response.mensagem);
-                if (response.codigo == 1) {
+                if(response.codigo==1) {
 
                     $.confirm({
                         title: 'Houve um erro ao cadastrar',
@@ -76,23 +57,14 @@ $(document).ready(function () {
                                 action: function () {
                                 }
                             },
-
                         }
                     });
-                } else {
-
+                }else {
                     window.location.href = "/Dashboard/Aluno/Welcome";
-
-
                 }
-
-
-
-
             },
             error: function (data) {
                 console.log('An error occurred.');
-
             },
             complete: function () {
                 $("#loading").addClass("hide");
@@ -100,31 +72,19 @@ $(document).ready(function () {
         })
     });
 
-
-
-
     $(document).on('click', '.perfil_ajax', function () {
         var file = $(this).attr('id');
 
         $.ajax({
             type: 'POST',
             url: '/Usuario/Perfil/' + file,
-
             beforeSend: function () {
-
                 $("#loader").removeClass("hide");
-
             },
-
-            success: function (data) {
-                
-                
+            success: function (data) {                
                 $("#conteudo").html("");
                 $("#conteudo").html(data);
-
-
-
-
+                
                 $("#password").on("focusout", function (e) {
                     if ($(this).val() != $("#passwordConfirm").val()) {
                         $("#passwordConfirm").removeClass("valid").addClass("invalid");
@@ -140,26 +100,15 @@ $(document).ready(function () {
                         $(this).removeClass("invalid").addClass("valid");
                     }
                 });
-
-
-
-
-
-
             }
         });
 
     });
 
 
-
-
-
-
-
     $('#alterar_email').submit(function (event) {
         
-        event.preventDefault(); // Prevent the form from submitting via the browser
+        event.preventDefault();
         var form = $(this);
         $.ajax({
             type: form.attr('method'),
@@ -185,7 +134,6 @@ $(document).ready(function () {
                                 action: function () {
                                 }
                             },
-
                         }
                     });
                 } else {
@@ -195,7 +143,6 @@ $(document).ready(function () {
             },
             error: function (data) {
                 console.log('An error occurred.');
-
             },
             complete: function () {
                 $("#loading").addClass("hide");
@@ -203,14 +150,10 @@ $(document).ready(function () {
         })
     });
     
-    
-    
-    
-    
-    
+
     $('#alterar_senha').submit(function (event) {
         
-        event.preventDefault(); // Prevent the form from submitting via the browser
+        event.preventDefault(); 
         var form = $(this);
         $.ajax({
             type: form.attr('method'),
@@ -240,31 +183,17 @@ $(document).ready(function () {
                         }
                     });
                 } else {
-
                     window.location.href = "/Dashboard/Usuario/Alterado";
                 }
             },
             error: function (data) {
                 console.log('An error occurred.');
-
             },
             complete: function () {
                 $("#loading").addClass("hide");
             }
         })
     });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 });

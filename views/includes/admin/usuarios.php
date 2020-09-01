@@ -11,22 +11,22 @@
             <div class="table-header">
               <span class="table-title">Lista de Usuários</span>
               <div class="actions">
-                <a href="#addClientes" class="modal-trigger waves-effect btn-flat nopadding"><i class="material-icons">person_add</i></a>
+               
                 <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
               </div>
             </div>
-            <table id="usuario">
+              <table id="usuario" class="centered">
               <thead>
                 <tr>
                     
-                  <th >Nome</th>
+                    <th class="all">Nome</th>
                   
                   <th>Email</th>
-                  <th>CPF</th>
-                  <th>DataRegistro</th>
+                  <th class="all">CPF</th>
+                  <th>Data registro</th>
                   
-                  <th style="" class="">Tipo</th>
-                  <th>Alterar</th>
+                  <th>Tipo</th>
+                  <th  class="all">Alterar</th>
                 
 
                 </tr>
@@ -93,7 +93,7 @@
                   <div class="input-field ">
                       <select class="browser-default" id="tipo" name="Tipo">
                       <option value="" disabled selected>Tipo de usuário</option>
-                      <option value="4">Administrador</option>
+                      <option value="5">Servidor</option>
                       <option value="1">Usuario</option>
                       <option value="3">Professor</option>
                       <option value="2">Aluno</option>

@@ -163,9 +163,9 @@ foreach ($retorno[0] as $linha){
                 if($materia['Status']==1){
                     echo "Deferido";
                 }elseif($materia['Status']==2){
-                    echo "Indeferido por carga";
+                    echo "Incompatibilidade de carga horária";
                 }elseif($materia['Status']==3){
-                    echo "Indeferido por conteúdo";
+                    echo "Incompatibilidade de conteúdo";
                 }else{
                     echo "Um erro ocorreu";
                 }

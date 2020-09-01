@@ -24,4 +24,10 @@ class ProfessorController {
         $this->professor->updateSolicitacao(3);
     }
 
+    
+     public function PerfilAction(){ 
+        
+        $this->professor->perfilAjax();
+        
+    }
 }

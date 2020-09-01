@@ -31,7 +31,7 @@ $usuario::isRegularUsuario();
                   <div class="background">
                      <img class="responsive-img" src="<?php echo HOME_URL ?>views/img/ifb-1.jpg">
                   </div>
-                  <a href="#user"><img class="circle" src="<?php echo HOME_URL ?>views/img/usuario.png"></a>
+                  <a href="#user"><img class="circle"></a>
                   <a href="#name"><span class="white-text name"><?=$_SESSION['nome'] ?></span></a>
                   <a href="#email"><span class="white-text email"><?=$_SESSION['tipoNome'] ?></span></a>
                </div>
@@ -43,7 +43,7 @@ $usuario::isRegularUsuario();
             </li>
             <li><a class="subheader">Menu</a></li>
             <li class="no-padding teal darken-1 " >
-               <ul class=" collapsible collapsible-accordion  ">
+               <ul class=" collapsible collapsible-accordion">
                   <li>
                      <a class="collapsible-header white-text waves-effect waves-blue active"><i class="material-icons white-text ">book</i>Aproveitamento de Estudos <i class="material-icons right white-text arrow-change" style="margin-right:0;">arrow_drop_down</i></a>
                      <div class="collapsible-body">
@@ -67,6 +67,7 @@ $usuario::isRegularUsuario();
       
       <main>
       <section class="section">
+          
          <?php
           if (isset(URL[2])) {
               switch (URL[2]) {
@@ -79,7 +80,7 @@ $usuario::isRegularUsuario();
                   
                   case "Welcome":
                       
-                      include 'views/includes/dashboard/main.php';
+                      include 'views/includes/usuario/inicio.php';
                       break;
                   
                    case "Alterado":
@@ -90,7 +91,7 @@ $usuario::isRegularUsuario();
                   
               }
           }else{
-          include 'views/includes/dashboard/main.php';    
+          include 'views/includes/usuario/inicio.php';    
               
           }
           ?>
@@ -104,13 +105,13 @@ $usuario::isRegularUsuario();
             <div class="row">
                 <div class="col l6 s12">
                   <h5 class="white-text">Sistema de Aproveitamento de Estudos - IFB </h5>
-                  <p class="grey-text text-lighten-4">Com o SAE, o aluno pode realizar digitalmente e acompanhar o processo de aproveitamento de seus estudos do Instituto Federal de Brasília.</p>
+                  <p class="grey-text text-lighten-4">Com o SAE, o aluno pode solicitar e acompanhar digitalmente o processo de aproveitamento de estudos no Instituto Federal de Brasília</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                   <h5 class="white-text">Mapa do Site</h5>
                   <ul>
-                    <li><a href="#" class="modal-trigger white-text" >- Solicitar</a> <a href="#" class="modal-trigger white-text" >- Planos de ensino</a></li>
-                    <li><a href="#" class="modal-trigger white-text" >- Acompanhar</a> <a href="#" class="modal-trigger white-text" >- Ajuda</a></li>
+                    <li><a href="CompletarRegistro" class="modal-trigger white-text" >- Solicitar</a> <a href="CompletarRegistro" class="modal-trigger white-text" >- Planos de ensino</a></li>
+                    <li><a href="CompletarRegistro" class="modal-trigger white-text" >- Acompanhar</a> <a href="CompletarRegistro" class="modal-trigger white-text" >- Ajuda</a></li>
                     
                   </ul>
                 </div>

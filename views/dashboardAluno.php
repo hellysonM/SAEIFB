@@ -12,6 +12,7 @@ $aluno = new Aluno();
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>views/css/dashboardAluno.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/materialize-stepper@3.1.0/dist/css/mstepper.min.css">
 
     </head>
     <body>
@@ -25,6 +26,9 @@ $aluno = new Aluno();
                     </ul>
                 </div>
             </nav>
+            <!--<div class="progress" style="position: absolute">
+                <div class="indeterminate"></div>-->
+            </div>
         </header>
         <div class="col s1">
             <ul id="slide-out" class="sidenav ">
@@ -52,6 +56,8 @@ $aluno = new Aluno();
                                 <ul>
                                     <li><a href="/Dashboard/Aluno/Solicitar">Solicitar<i class="material-icons">event_note</i></a></li>
                                     <li><a href="/Dashboard/Aluno/Acompanhar">Acompanhar<i class="material-icons">date_range</i></a></li>
+                                    <li><a href="/Dashboard/Aluno/Ajuda">Ajuda<i class="material-icons">help</i></a></li>
+                                    <li><a href="/Dashboard/Aluno/ProjetoPedagogico">Planos de Curso<i class="material-icons">school</i></a></li>
                                    
                                     <li>
                                         <div class="divider "></div>
@@ -65,7 +71,11 @@ $aluno = new Aluno();
         </div>
         <!-- Dropdown Structure -->
         <main>
+            
+           
+            
             <section class="section">
+                
                 <?php
                 if (isset(URL[2])) {
 
@@ -97,19 +107,31 @@ $aluno = new Aluno();
                             include 'views/includes/aluno/refazer.php';
 
                             break;
+                        
+                        case "Ajuda":
+
+                            include 'views/includes/aluno/ajuda.php';
+
+                            break;
+                        
+                        case "ProjetoPedagogico":
+
+                            include 'views/includes/aluno/planos_de_curso.php';
+
+                            break;
 
                         case "Welcome":
-                            include 'views/includes/dashboard/main.php';
+                            include 'views/includes/aluno/inicio.php';
 
                             break;
 
                         case "Alterado":
-                            include 'views/includes/dashboard/main.php';
+                            include 'views/includes/aluno/inicio.php';
 
                             break;
                     }
                 } else {
-                    include 'views/includes/dashboard/main.php';
+                    include 'views/includes/aluno/inicio.php';
                 }
                 ?>
 
@@ -117,23 +139,22 @@ $aluno = new Aluno();
         </main>
 
 
-
-
-
-
-
         <footer class="page-footer  cyan lighten-1">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
                         <h5 class="white-text">Sistema de Aproveitamento de Estudos - IFB </h5>
-                        <p class="grey-text text-lighten-4">Com o SAE, o aluno pode realizar digitalmente e acompanhar o processo de aproveitamento de seus estudos do Instituto Federal de Brasília.</p>
+                        <p class="grey-text text-lighten-4">Com o SAE, o aluno pode solicitar e acompanhar digitalmente o processo de aproveitamento de estudos no Instituto Federal de Brasília</p>
                     </div>
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Mapa do Site</h5>
                         <ul>
-                            <li><a href="#" class="modal-trigger white-text" >- Solicitar</a> <a href="#" class="modal-trigger white-text" >- Planos de ensino</a></li>
-                            <li><a href="#" class="modal-trigger white-text" >- Acompanhar</a> <a href="#" class="modal-trigger white-text" >- Ajuda</a></li>
+                            <li><a href="/Dashboard/aluno/Solicitar" class="modal-trigger white-text" >- Solicitar aproveitamento</a><br></li> 
+                            
+                            <li><a href="/Dashboard/aluno/ProjetoPedagogico" class="modal-trigger white-text" >- Planos de ensino</a></li>
+                            <li><a href="/Dashboard/aluno/Acompanhar" class="modal-trigger white-text" >- Acompanhar</a> </li>
+                           
+                            <li><a href="/Dashboard/aluno/Ajuda" class="modal-trigger white-text" >- Ajuda</a></li>
 
 
                         </ul>
@@ -172,28 +193,11 @@ $aluno = new Aluno();
             </div>
         </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script type="text/javascript" src="<?php echo HOME_URL ?>views/js/dashboardAluno.js"></script>
+        <script src="https://unpkg.com/materialize-stepper@3.1.0/dist/js/mstepper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+        <script type="text/javascript" src="<?php echo HOME_URL ?>views/js/dashboardAluno.js"></script> 
         <script>
 <?php
 if (isset(URL[2])) {

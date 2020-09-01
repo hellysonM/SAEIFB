@@ -16,8 +16,12 @@ class Usuario {
     private $functions;
 
     public function __construct() {
-        session_cache_expire(1);
-        session_start();
+        //session_cache_expire(1);
+        
+        if(!isset($_SESSION)) 
+           session_start();
+        
+        
         
         $this->con = new Connection();
         $this->functions = new Functions();
@@ -27,7 +31,7 @@ class Usuario {
     
     public static function authenticateUsuario(){
         session_start();
-        if (isset($_SESSION['login']) && $_SESSION['login'] == 'true') {
+        if (isset($_SESSION['login']) && $_SESSION['login'] == 'true' && URL[0]!="Portal") {
             header("Location: /Dashboard ");
         }
     }
@@ -36,7 +40,7 @@ class Usuario {
         
         if(!(isset($_SESSION['tipo'])) || !(isset($_SESSION['login'])) || $_SESSION['tipo'] != 1 || $_SESSION['login'] != 'true'){
             
-            require_once ABSPATH.'lib/includes/404.php';
+            header("Location: / ");
             
             exit();
             
@@ -282,7 +286,11 @@ class Usuario {
                 } else if ($resultado['Tipo'] == '3') {
                     $_SESSION['tipoNome'] = "Professor";
                     
-                } else {
+                }
+                else if ($resultado['Tipo'] == '4') {
+                    $_SESSION['tipoNome'] = "Administrador";
+                    
+                }else {
                     $_SESSION['tipoNome'] = "Servidor";
                    
                 }
@@ -364,6 +372,7 @@ class Usuario {
         $queryValidarMatricula->bindParam(":id", $_SESSION['id'], PDO::PARAM_STR);
         $queryValidarMatricula->execute(); 
          
+        $_SESSION['email'] = $_POST['Email'];
         
         $retorno = array('codigo' => 0, 'mensagem' => 'Sucesso');
                 echo json_encode($retorno);
@@ -471,4 +480,68 @@ class Usuario {
             $index_view->showContents();
         }
     }
+    
+    
+    
+    public function listNoticia(){
+        
+         $query = $this->con->con()->prepare("select usuario.Nome,noticia.ID,noticia.Titulo,noticia.Subtitulo,noticia.Conteudo,DATE_FORMAT(noticia.Data, '%d/%m/%Y %H:%i:%S') as Data from noticia INNER JOIN usuario on noticia.Autor= usuario.ID
+        order by id desc limit 5");
+        
+         //$query->bindValue(':id', $id, PDO::PARAM_STR);
+        $query->execute();
+        $retorno = $query->fetchAll();
+       
+       
+        
+        return $retorno;
+            
+
+
+    }
+    
+    public function listNoticiaById(){
+        
+        $titulo = URL[2];
+        
+         $query = $this->con->con()->prepare("select usuario.Nome as Autor,noticia.ID,noticia.Titulo,noticia.Subtitulo,noticia.Conteudo,DATE_FORMAT(noticia.Data, '%d/%m/%Y %H:%i') as Data from noticia INNER JOIN usuario on noticia.Autor= usuario.ID
+        where Titulo = :titulo");
+        
+         $query->bindValue(':titulo', $titulo ,PDO::PARAM_STR);
+        $query->execute();
+        $retorno = $query->fetchAll();
+        
+        
+        
+        if(count($retorno)!= 1){
+            header("Location: /");
+        }
+        
+       
+        
+        return $retorno;
+    }
+    
+    
+    public function listNoticiaPesquisa(){
+        
+        $pesquisa = $_POST['pesquisa'];
+        
+         $query = $this->con->con()->prepare("select usuario.Nome,noticia.ID,noticia.Titulo,noticia.Subtitulo,noticia.Conteudo,DATE_FORMAT(noticia.Data, '%d/%m/%Y %H:%i:%S') as Data from noticia INNER JOIN usuario on noticia.Autor= usuario.ID
+         where Titulo like :pesquisa order by id desc limit 5");
+        
+        $query->bindValue(':pesquisa', $pesquisa, PDO::PARAM_STR);
+        $query->execute();
+        $retorno = $query->fetchAll();
+       
+       
+        
+        return $retorno;
+            
+
+
+    }
+    
+    
+    
 }

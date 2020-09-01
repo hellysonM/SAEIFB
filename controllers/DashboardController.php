@@ -26,6 +26,10 @@ class DashBoardController {
                 case 4:
                     header('location: /Dashboard/Admin');
                     break;
+                
+                case 5:
+                    header('location: /Dashboard/Servidor');
+                    break;
             }
         } 
         
@@ -54,6 +58,12 @@ class DashBoardController {
     public function AlunoAction() {
 
         $index_view = new View(ABSPATH . '/views/dashboardAluno.php');
+        $index_view->showContents();
+    }
+    
+        public function ServidorAction() {
+
+        $index_view = new View(ABSPATH . '/views/dashboardServidor.php');
         $index_view->showContents();
     }
 

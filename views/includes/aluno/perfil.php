@@ -17,7 +17,7 @@
                 
             </ul>
             <nav>
-                <div class="nav-wrapper blue lighten-1">
+                <div class="nav-wrapper cyan lighten-1">
 
                     <ul class="left">
                         <li><a href="">Perfil</a></li>

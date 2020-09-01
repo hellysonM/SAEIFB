@@ -5,7 +5,7 @@
 * 
 * @package SAEIFB
 * @author Hellyson M. Dantas
-* @version 0.9.2-alpha
+* @version 1.0-beta
 * 
 * 
 * Arquivo - index.php

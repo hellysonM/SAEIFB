@@ -25,19 +25,17 @@
             
             if($retorno['Finalizado'] == 1){
                 
-                echo "<h5>Não existe período de inscrições em vigência.</h5>";
+                echo "<h6>Não existe período de solicitações em vigência.</h5>";
                 
             }else if(strtotime($date) < strtotime($retorno['DataInicio'])){
                 
-                echo "<h5>O período de inscrições não foi iniciado.</h5>";
+                echo "<h6>O período de solicitações não foi iniciado.</h5>";
                 
             }else if(strtotime($date) >= strtotime($retorno['DataTermino'])){
                 
-                echo "<h5>O período de inscrições terminou.</h5>";
+                echo "<h6>O período de solicitações terminou.</h5>";
                 
             }else{
-              
-            
             
             ?>
             
@@ -46,7 +44,7 @@
             
             if(count($resultado)==0){
             
-                echo "<h5>Você não possui curso disponível para solicitar.</h5>";
+                echo "<h6>Você não possui curso disponível para solicitar aproveitamento.</h6>";
                 
             }else{
             ?>

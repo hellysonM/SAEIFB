@@ -9,6 +9,14 @@ $admin = new Administrador();
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">   
         <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>views/css/dashboardAdmin.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src='https://cdn.tiny.cloud/1/8ppklswk6m1vj83qk7tmvqicbjpqjserh1qr49smf38q5k5o/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+        <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css"/>
+        </script>
+        <script>
+          tinymce.init({
+            selector: '#mytextarea'
+          });
+        </script>
     </head>
     <body>        
         <header>    
@@ -40,7 +48,7 @@ $admin = new Administrador();
                     <a href="#email"><span class="white-text email"><?= $_SESSION['tipoNome'] ?></span></a>
                 </div></li>
             <li><a href="/Usuario/Sair"><i class="material-icons">exit_to_app</i>Sair</a></li>
-            <li><a href="#!">Configurações<i class="material-icons">settings</i></a></li>
+            <li><a href="/Dashboard/Admin/Perfil">Perfil<i class="material-icons">assignment_ind</i></a></li>
             <li><div class="divider"></div></li>
             <li><a href="/">Início<i class="material-icons">home</i></a></li>
             <li class="no-padding blue darken-1 " >
@@ -50,10 +58,10 @@ $admin = new Administrador();
                         <div class="collapsible-body">
                             <ul>
                                 <li><a href="/Dashboard/Admin/Evento">Eventos<i class="material-icons">event</i></a></li>
-                                <li><a href="/Dashboard/Professor/Solicitacoes" class="red">PROF ALPHA 0.9.0  <i class="material-icons">assignment_late</i></a></li>
-                                <li><a href="/Dashboard/Admin/SolicitacoesAvaliadas">Solicitações<i class="material-icons">new_releases</i></a></li>
-                                <li><a href="/Dashboard/Admin/SolicitacoesAprovadas">Relatórios<i class="material-icons">event_note</i></a></li>
-                                <li><div class="divider "></div></li>
+                                <li><a href="/Dashboard/Admin/NovasSolicitacoes" class="">Novas solicitações<i class="material-icons">assignment_late</i></a></li>
+                                <li><a href="/Dashboard/Admin/SolicitacoesAvaliadas">Solicitações avaliadas<i class="material-icons">new_releases</i></a></li>
+                                <li><a href="/Dashboard/Admin/Resultados">Resultados<i class="material-icons">event_note</i></a></li>
+                                <li><div class="divider"></div></li>
 
                             </ul>
                         </div>
@@ -70,7 +78,7 @@ $admin = new Administrador();
                                 <li><a href="/Dashboard/Admin/Cursos">Cursos<i class="material-icons">collections_bookmark</i></a></li>
                                 <li><a href="/Dashboard/Admin/Materias">Materias<i class="material-icons">layers</i></a></li>
                                 <li><a href="/Dashboard/Admin/Usuarios">Usuários<i class="material-icons">person</i></a></li>
-                                <li><a href="#!">Notícias<i class="material-icons">note</i></a></li>               
+                                <li><a href="/Dashboard/Admin/Noticias">Notícias<i class="material-icons">note</i></a></li>               
                                 <li><div class="divider"></div></li>
 
                             </ul>
@@ -81,16 +89,8 @@ $admin = new Administrador();
         </ul>
 
 
-
-
-
         <main>  
             <section class="section">
-
-
-
-
-
 
                 <?php
                 if (isset(URL[2])) {
@@ -100,27 +100,22 @@ $admin = new Administrador();
                             break;
 
                         case "Evento" :
-
-                            //$admin = new Administrador();
-
-                           // if ($admin->statusEvento() == 0) {
-
-                           //     include 'views/includes/admin/evento2.php';
-                            //} else {
-
-                                include 'views/includes/admin/evento.php';
-                            //}
-
+                            include 'views/includes/admin/evento.php';
                             break;
 
-
                         case "Cursos":
-
 
                             include 'views/includes/admin/curso.php';
 
 
                             break;
+                        
+                        case "Perfil":
+                            
+                      include 'views/includes/admin/perfil.php';
+   
+                            
+                      break;
 
 
                         case "SolicitacoesAvaliadas":
@@ -135,44 +130,57 @@ $admin = new Administrador();
 
                             break;
 
-                        case "SolicitacoesAprovadas":
+                        case "Resultados":
 
-
-
-
-                            include 'views/includes/admin/solicitacoes_aprovadas.php';
+                            include 'views/includes/admin/resultados.php';
 
                             break;
-                        
+
                         case "NovasSolicitacoes":
                             if (isset(URL[3])) {
-                               include 'views/includes/admin/avaliar_nova_solicitacao.php';
+                                include 'views/includes/admin/avaliar_nova_solicitacao.php';
                             } else {
 
                                 include 'views/includes/admin/novas_solicitacoes.php';
                             }
+
+                            break;
+
+                        case "Materias":
+                            include 'views/includes/admin/materia.php';
+
+
+                            break;
+
+
+                        case "NovasSolicitacoes":
+
+                            if (isset(URL[3])) {
+
+                                include 'views/includes/professor/avaliar_nova_solicitacao.php';
+                            } else {
+                                include 'views/includes/professor/novas_solicitacoes.php';
+                            }
+
+                            break;
+
+                        case "Noticias":
                             
+                            if(isset(URL[3])){
+                                
+                            include 'views/includes/admin/noticias_editar.php'; 
+                                
+                            }else{
+                             include 'views/includes/admin/noticias.php';
+                            }
+
                             
 
                             break;
-                            
-                            
-                        case "Materias":
-                            include 'views/includes/admin/materia.php';
-                            
-                            
-                            break;
-                        
-                     
-                        
-                            
-                            
-                            
                     }
-                }else{
-                    
+                } else {
+
                     include "views/includes/admin/inicio.php";
-                    
                 }
                 ?>
 
@@ -192,10 +200,10 @@ $admin = new Administrador();
                 <div class="row">
                     <div class="col l6 s12">
                         <h5 class="white-text">Sistema de Aproveitamento de Estudos - IFB </h5>
-                        <p class="grey-text text-lighten-4">Com o SAE, o aluno pode realizar digitalmente e acompanhar o processo de aproveitamento de seus estudos do Instituto Federal de Brasília.</p>
+                        <p class="grey-text text-lighten-4">Com o SAE, o aluno pode solicitar e acompanhar digitalmente o processo de aproveitamento de estudos no Instituto Federal de Brasília</p>
                     </div>
                     <div class="col l4 offset-l2 s12">
-                        <h4 class="white-text"><b>Dashboard Servidor </b>
+                        <h4 class="white-text"><b>Dashboard Admin</b>
                         </h4>
 
                     </div>
@@ -233,9 +241,8 @@ $admin = new Administrador();
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
         <script type="text/javascript" src="<?php echo HOME_URL ?>views/js/dashboardAdmin.js"></script>
-
-
-
+        <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
+       
 
 
 <?php
@@ -264,9 +271,37 @@ if ((isset(URL[2])) && (URL[2] == "Welcome")) {
       ";
 }
 ?>
+        
+<?php
+if ((isset(URL[3])) && (URL[3] == "Alterado")) {
+
+    echo "
+      <script>
+      $( document ).ready(function() {      
+        $.confirm({
+
+          title: 'Concluido',
+          content: 'Seus dados foram atualizados',
+          type: 'green',
+          typeAnimated: true,
+          buttons: {
+              tryAgain: {
+                  text: 'Entendi',
+                  btnClass: 'btn-green',
+                  action: function(){
+                  }
+              }
+          }
+      });
+    }); 
+      </script>
+      ";
+}
+?>        
+        
 
 
 
 
-    </body>
+</body>
 </html>

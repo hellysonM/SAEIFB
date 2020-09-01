@@ -19,15 +19,15 @@
                 <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
               </div>
             </div>
-            <table id="materia">
+            <table id="materia" class="centered">
               <thead>
                 <tr>
                   
-                  <th>Nome</th>
-                  <th>Curso</th>
+                    <th class="all">Nome</th>
+                  <th >Curso</th>
                   <th>Semestre</th>
-                  <th>Excluir</th>
-                  <th>Alterar</th>
+                  <th class="all">Excluir</th>
+                  <th class="all">Alterar</th>
                
 
                 </tr>
@@ -41,127 +41,6 @@
   </div>
 </div>
          
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="modal3" class="modal">
-        <div class="close-modal right ">
-            <a href="#!" class="modal-close waves-effect  waves-green btn-flat"><i class="material-icons">close</i></a>
-        </div>
-        <div class="modal-content">
-            <h4>Alterar Curso</h4>
-            <div class="divider"></div>
-
-            <form action="/Admin/AlterarCurso" method="post" id="alterarcurso">
-
-            <div class="row">
-                <div class="input-field">
-                    <i class="material-icons prefix">create</i>
-                    <input type="text" name="Nome" id="Nome" required >
-                    <label for="name"></label>
-                    <span class="helper-text" data-error="" data-success=""></span>
-                </div>
-
-                <div class="input-field col s12">
-            <textarea id="textarea2" class="materialize-textarea" data-length="120" name="Descricao"></textarea>
-            <label for="textarea2"></label>
-          </div>
-
-          </div>
-
-
-<div class="container center-align">
-<button type="submit" class="waves-effect waves-light btn-small"><i class="material-icons left">done</i>Inserir</submit>
-</div>
-</form>
-
-        <div class="progress hide" id="loading">
-    <div class="indeterminate"></div>
-</div>
-        </div>
-</div>
-
-
-
-
-
-<div id="modal1" class="modal">
-        <div class="close-modal right ">
-            <a href="#!" class="modal-close waves-effect  waves-green btn-flat"><i class="material-icons">close</i></a>
-        </div>
-        <div class="modal-content">
-            <h4>Inserir Curso</h4>
-            <div class="divider"></div>
-
-            <form action="/Admin/InserirCurso" method="post" id="inserircurso">
-
-            <div class="row">
-                <div class="input-field">
-                    <i class="material-icons prefix">create</i>
-                    <input type="text" name="Nome" id="nome" required >
-                    <label for="nome">Nome do curso</label>
-                    <span class="helper-text" data-error="" data-success=""></span>
-                </div>
-
-                <div class="input-field col s12">
-            <textarea id="textarea2" class="materialize-textarea" data-length="120" name="Descricao"></textarea>
-            <label for="textarea2">Descricao</label>
-          </div>
-                <div class="input-field col s12">
-                <select name="Tipo" id="tipo">
-      <option value="" disabled selected>Tipo de curso</option>
-      <option value="1">Superior</option>
-      <option value="2">Técnico</option>
-      
-    </select>
-    <label for="tipo">Selecionar tipo de curso</label>
-                
-                </div>
-                
-                
-                
-      <div class="input-field col s12">
-  <p class="range-field">
-      <input type="range" id="curso_semestre" min="1" max="10" name="Semestres"/>
-    </p>
-
-    <label>Quantidade de semestres</labe> 
-  
-  </div>          
-                
-                
-          </div>
-
-
-<div class="container center-align">
-<button type="submit" class="waves-effect waves-light btn-small"><i class="material-icons left">done</i>Inserir</submit>
-</div>
-</form>
-
-        <div class="progress hide" id="loading">
-    <div class="indeterminate"></div>
-</div>
-        </div>
-</div>
-
-
-
-
-
-
-
-
-
 
 
 <div id="modal2" class="modal">
@@ -178,8 +57,8 @@
             
                 <div class="input-field">
                     <i class="material-icons prefix">create</i>
-                    <input type="text" name="Nome" id="nome_materia" required >
-                    <label for="nome_materia">Nome</label>
+                    <input type="text" name="Nome" id="nome_materia_inserir" required >
+                    <label for="nome_materia_inserir">Nome</label>
                     <span class="helper-text" data-error="" data-success=""></span>
                 </div>
 
@@ -188,7 +67,7 @@
     <select name="Curso">
 
     <option value="" disabled selected>Curso de Origem</option>
-      <?php $admin = new Administrador();
+      <?php 
             $resultado = $admin->listCursoSelect();
             foreach($resultado as $curso)
       {
@@ -243,7 +122,7 @@
                 <div class="input-field">
                     <i class="material-icons prefix">create</i>
                     <input type="text" name="Nome" id="nome_materia" required >
-                    <label for="name">Nome</label>
+                    <label for="nome_materia">Nome</label>
                     <span class="helper-text" data-error="" data-success=""></span>
                 </div>
 
@@ -252,7 +131,7 @@
     <select name="Curso" id="idcurso">
 
     <option value="" disabled selected>Curso de Origem</option>
-      <?php $admin = new Administrador();
+      <?php 
             $resultado = $admin->listCursoSelect();
             foreach($resultado as $curso)
       {

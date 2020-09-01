@@ -16,14 +16,14 @@
         <div class="input-field col s6 offset-s1">
             <input id="passwordConfirm" type="email" required>
             <label for="passwordConfirm">Repita</label>
-            <span class="helper-text" data-error="As senhas não coincidem" data-success="">Insira e-mails iguais</span>
+            <span class="helper-text" data-error="Os e-mail não coincidem" data-success="">Insira e-mails iguais</span>
         </div>
 
 
 
         <div class="input-field col s6 offset-s1">
 
-            <button id="finalizar" type="" class="waves-effect waves-light btn green" name="uploadform" value=""><i class="material-icons left"></i>Alterar</button>
+            <button id="" type="" class="waves-effect waves-light btn green" name="uploadform" value=""><i class="material-icons left"></i>Alterar</button>
 
         </div>
 
@@ -68,7 +68,7 @@
                         });
                     } else {
 
-                        window.location.href = "/Dashboard/Usuario/Alterado";
+                        window.location.href = "Perfil/Alterado";
                     }
                 },
                 error: function (data) {

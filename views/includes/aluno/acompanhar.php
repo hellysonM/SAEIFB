@@ -8,7 +8,7 @@
             $retorno = $aluno->listAcompanharSolicitacao();
             
             if(count($retorno)==0){
-             echo "<h5>Não há nehuma solicitação feita.<h5>" ;  
+             echo "<h6>Nenhuma solicitação foi realizada.<h6>" ;  
             }
             
             foreach ($retorno as $solicitacao) {
@@ -27,7 +27,8 @@
 
                             <li>
                                 <div class="collapsible-header">
-                                    <div class="progress">
+                                    
+                                    <div class="progress2">
                                         <div class="bar" style="width:<?= $solicitacao['Percent'] ?>%">
                                             <p class="percent"><?= $solicitacao['Percent'] ?>%</p>
                                         </div>

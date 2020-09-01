@@ -21,7 +21,7 @@ class Aluno extends Usuario {
         }
         else if(!(isset($_SESSION['tipo'])) || !(isset($_SESSION['login'])) || $_SESSION['tipo'] != 2 || $_SESSION['login'] != 'true'){
             
-            require_once ABSPATH.'lib/includes/404.php';
+            header("Location: / ");
             
             exit();
             
@@ -270,7 +270,7 @@ class Aluno extends Usuario {
                 if (!in_array($_FILES['fileToUpload']['type']['file'][$t], $valid_formats_server)) {
 
 
-                    $retorno = array('codigo' => 1, 'mensagem' => 'Seu arquivo está no formato invalido ou não foi enviado');
+                    $retorno = array('codigo' => 1, 'mensagem' => 'Arquivo em formato inválido. Somente são aceitos arquivos em PDF');
                     echo json_encode($retorno);
 
 
@@ -289,7 +289,7 @@ class Aluno extends Usuario {
                 mkdir($target_dir, 0777, true);
             }
 
-            $max_file_size = 5 * 1024 * 1024; //5MB
+            $max_file_size = 10 * 1024 * 1024; //5MB
             $count = 0; // nbr of successfully uploaded files
             $filenames = ''; //names of successfully uploaded files
             $files = count($_FILES['fileToUpload']['name']['file']); // number of files to upload
@@ -310,12 +310,12 @@ class Aluno extends Usuario {
                 }
                 if ($_FILES['fileToUpload']['size']['file'][$f] > $max_file_size) {
                     $message[] = "$name is too large!";
-                    $retorno = array('codigo' => 1, 'mensagem' => 'muito grande');
+                    $retorno = array('codigo' => 1, 'mensagem' => 'Seu arquivo excedeu o limite de 10mb');
                     echo json_encode($retorno);
                     return;
                 } elseif (!in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats)) {
 
-                    $retorno = array('codigo' => 1, 'mensagem' => 'formato errado');
+                    $retorno = array('codigo' => 1, 'mensagem' => 'Formato inválido');
                     echo json_encode($retorno);
 
                     return;

@@ -43,14 +43,14 @@
                                                 <option value="2015/2">2015/2</option>
                                                 <option value="2016/1">2016/1</option>
                                                 <option value="2016/2">2016/2</option>
-                                                <option value="1">2017/1</option>
+                                                <option value="2017/1">2017/1</option>
                                                 <option value="2017/1">2017/2</option>
                                                 <option value="2018/1">2018/1</option>
                                                 <option value="2018/2">2018/2</option>
                                                 <option value="2019/1">2019/1</option>
                                                 <option value="2019/2">2019/2</option>
                                                 <option value="2020/1">2020/1</option>
-                                                <option value="2021/2">2021/2</option>
+                                                <option value="2020/2">2020/2</option>
                                             </select>
                                             <label>Selecionar Ano de ingresso</label>
                                         </div>
@@ -92,18 +92,18 @@
                                         <div class="input-field col s12">
                                             <select name="Ingresso2">
                                                 <option value="" disabled selected>Ano de ingresso</option>
-                                                <option value="1">2015/1</option>
-                                                <option value="2">2015/2</option>
-                                                <option value="1">2016/1</option>
-                                                <option value="2">2016/2</option>
-                                                <option value="1">2017/1</option>
-                                                <option value="2">2017/2</option>
-                                                <option value="1">2018/1</option>
-                                                <option value="2">2018/2</option>
-                                                <option value="1">2019/1</option>
-                                                <option value="2">2019/2</option>
-                                                <option value="1">2020/1</option>
-                                                <option value="2">2021/2</option>
+                                                <option value="2015/1">2015/1</option>
+                                                <option value="2015/2">2015/2</option>
+                                                <option value="2016/1">2016/1</option>
+                                                <option value="2016/2">2016/2</option>
+                                                <option value="2017/1">2017/1</option>
+                                                <option value="2017/2">2017/2</option>
+                                                <option value="2018/1">2018/1</option>
+                                                <option value="2018/2">2018/2</option>
+                                                <option value="2019/1">2019/1</option>
+                                                <option value="2019/2">2019/2</option>
+                                                <option value="2020/1">2020/1</option>
+                                                <option value="2020/2">2020/2</option>
                                             </select>
                                             <label>Selecionar Ano de ingresso</label>
                                         </div>

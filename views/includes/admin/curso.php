@@ -16,17 +16,17 @@
                 
               </div>
             </div>
-            <table id="curso">
+            <table id="curso" class="centered">
               <thead>
                 <tr>
                  
-                  <th>Nome</th>
-                  <th>Descricao</th>
-                  <th>Num_Materias</th>
-                  <th>Num_Semestres</th>
+                    <th class="all">Nome</th>
+                  <th>Descrição</th>
+                  <th>Nº Materias</th>
+                  <th>Nº Semestres</th>
                   <th>Tipo</th>
-                  <th>Excluir</th>
-                  <th>Alterar</th>
+                  <th class="all">Excluir</th>
+                  <th class="all">Alterar</th>
                   
                 
 
@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="input-field col s12">
-            <textarea id="textarea2" class="materialize-textarea" data-length="120" name="Descricao"></textarea>
+            <textarea id="textarea2" class="materialize-textarea" data-length="500" name="Descricao"></textarea>
             <label for="textarea2">Descricao</label>
           </div>
                 <div class="input-field col s12">
@@ -173,129 +173,11 @@
 
 
 
-<div id="modal2" class="modal">
-        <div class="close-modal right ">
-            <a href="#!" class="modal-close waves-effect  waves-green btn-flat"><i class="material-icons">close</i></a>
-        </div>
-        <div class="modal-content">
-            <h4>Inserir Materia</h4>
-            <div class="divider"></div>
-
-            <div class="row">
-            <form action="/Admin/inserirMateria" method="post" id="inserirmateria">
-
-            
-                <div class="input-field">
-                    <i class="material-icons prefix">create</i>
-                    <input type="text" name="Nome" id="nome_materia" required >
-                    <label for="nome_materia">Nome</label>
-                    <span class="helper-text" data-error="" data-success=""></span>
-                </div>
-
-
-                <div class="input-field col s12">
-    <select name="Curso">
-
-    <option value="" disabled selected>Curso de Origem</option>
-      <?php $admin = new Administrador();
-            $resultado = $admin->listCursoSelect();
-            foreach($resultado as $curso)
-      {
-      ?>
-      <option value="<?= $curso['ID']?>"><?= $curso['Nome']?></option>
-
-      <?php } ?>
-    </select>
-    <label>Selecionar curso de Origem</label>
-  </div>  
-
-
-  <div class="input-field col s12">
-  <p class="range-field">
-      <input type="range" id="test5" min="1" max="10" name="Semestre"/>
-    </p>
-
-    <label>Semestre</labe> 
-  
-  </div>
-
-
-<div class="container center-align">
-<button type="submit" class="waves-effect waves-light btn-small"><i class="material-icons left">done</i>Inserir</submit>
-</div>
-</form>
-
-        <div class="progress hide" id="loading">
-    <div class="indeterminate"></div>
-</div>
-        </div>
-</div>
-    
-</div>
 
 
 
 
 
-<div id="modal4" class="modal">
-        <div class="close-modal right ">
-            <a href="#!" class="modal-close waves-effect  waves-green btn-flat"><i class="material-icons">close</i></a>
-        </div>
-        <div class="modal-content">
-            <h4>Alterar Materia</h4>
-            <div class="divider"></div>
-
-            <div class="row">
-            <form action="/Admin/alterarMateria" method="post" id="alterar_materia">
-
-            
-                <div class="input-field">
-                    <i class="material-icons prefix">create</i>
-                    <input type="text" name="Nome" id="nome_materia" required >
-                    <label for="name">Nome</label>
-                    <span class="helper-text" data-error="" data-success=""></span>
-                </div>
-
-
-                <div class="input-field col s12">
-    <select name="Curso" id="idcurso">
-
-    <option value="" disabled selected>Curso de Origem</option>
-      <?php $admin = new Administrador();
-            $resultado = $admin->listCursoSelect();
-            foreach($resultado as $curso)
-      {
-      ?>
-      <option value="<?= $curso['ID']?>"><?= $curso['Nome']?> </option>
-
-      <?php } ?>
-    </select>
-    <label>Selecionar curso de Origem</label>
-  </div>  
-
-
-  <div class="input-field col s12">
-  <p class="range-field">
-      <input type="range" id="semestre" min="1" max="10" name="Semestre"/>
-    </p>
-
-    <label>Semestre</labe> 
-  
-  </div>
-
-
-<div class="container center-align">
-<button type="submit" class="waves-effect waves-light btn-small"><i class="material-icons left">done</i>Inserir</submit>
-</div>
-</form>
-
-        <div class="progress hide" id="loading">
-    <div class="indeterminate"></div>
-</div>
-        </div>
-</div>
-    
-</div>
 
 
 

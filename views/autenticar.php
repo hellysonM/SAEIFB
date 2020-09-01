@@ -92,7 +92,7 @@
                 <div class="row">
                     <div class="col l6 s12">
                         <h5 class="white-text">Sistema de Aproveitamento de Estudos - IFB </h5>
-                        <p class="grey-text text-lighten-4">Com o SAE, o aluno pode realizar digitalmente e acompanhar o processo de aproveitamento de seus estudos do Instituto Federal de Brasília.</p>
+                        <p class="grey-text text-lighten-4">Com o SAE, o aluno pode solicitar e acompanhar digitalmente o processo de aproveitamento de estudos no Instituto Federal de Brasília</p>
                     </div>
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Mapa do Site</h5>

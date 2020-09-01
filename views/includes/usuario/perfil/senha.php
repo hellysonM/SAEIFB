@@ -25,7 +25,7 @@
 
         <div class="input-field col s6 offset-s1">
 
-            <button id="finalizar" type="" class="waves-effect waves-light btn green" name="uploadform" value=""><i class="material-icons left"></i>Alterar</button>
+            <button id="" type="" class="waves-effect waves-light btn green" name="uploadform" value=""><i class="material-icons left"></i>Alterar</button>
 
         </div>
     </form>
@@ -69,7 +69,7 @@
                         });
                     } else {
 
-                        window.location.href = "/Dashboard/Usuario/Alterado";
+                        window.location.href = "Perfil/Alterado";
                     }
                 },
                 error: function (data) {

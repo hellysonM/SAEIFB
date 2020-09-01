@@ -30,7 +30,7 @@ foreach ($retorno[0] as $solicitacao) {
 
 
             <div class="row">
-                <div class="col s6">
+                <div class="col s12 xl6">
                     <div class="card-panel grey lighten-5">
                         <span class="card-title"><h5>Curso<i class="material-icons">school</i></h5>
                             <div class="divider"></div>
@@ -41,7 +41,7 @@ foreach ($retorno[0] as $solicitacao) {
                         </span>
                     </div>
                 </div>
-                <div class="col s6">
+                <div class="col s12 xl6">
                     <div class="card-panel grey lighten-5">
                         <span class="card-title"><h5>Avaliação do professor<i class="material-icons"></i></h5>
                             <div class="divider"></div>
@@ -141,8 +141,8 @@ foreach ($retorno[0] as $solicitacao) {
                                     <thead>
                                         <tr>
 
-                                            <th>Matéria IFB</th>
-                                            <th>Matéria Origem</th>
+                                            <th>Componente IFB</th>
+                                            <th>Componente cursado</th>
                                             <th>Avaliação</th>
 
                                         </tr>
@@ -169,9 +169,9 @@ foreach ($retorno[0] as $solicitacao) {
 
                                                     echo "Deferido";
                                                 } else if ($materia['Status'] == "2") {
-                                                    echo "Indeferido por carga";
+                                                    echo "Incompatibilidade de carga horária";
                                                 } else {
-                                                    echo "Indeferido por conteúdo";
+                                                    echo "Incompatibilidade de conteúdo";
                                                 }
                                                 ?>
                                             </td>

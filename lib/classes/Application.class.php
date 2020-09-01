@@ -73,7 +73,7 @@ class Application
             require_once $st_controller_file;
         }
         else{
-            require_once ABSPATH.'lib/includes/404.php';
+            require_once ABSPATH.'/lib/includes/404.php';
             throw new Exception('Arquivo '.$st_controller_file.' nao encontrado');
                 
             }
@@ -90,7 +90,7 @@ class Application
         if(method_exists($o_class,$st_method))
             $o_class->$st_method();
         else{
-            require_once ABSPATH.'lib/includes/404.php';
+            require_once ABSPATH.'/lib/includes/404.php';
             throw new Exception("Metodo '$st_method' nao existe na classe $st_class'");
         }
     }

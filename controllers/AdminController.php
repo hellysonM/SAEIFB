@@ -3,11 +3,20 @@
 class AdminController {
 
     private $admin;
+    
+    
 
     public function __construct() {
 
         $this->admin = new Administrador();
     }
+    
+     public function PerfilAction(){ 
+        
+        $this->admin->perfilAjax();
+        
+    }
+    
 
     public function ListarUsuariosAction() {
 
@@ -109,6 +118,51 @@ class AdminController {
     public function deletarEventoAction() {
 
         $this->admin->delEvento();
+    }
+    
+    
+    
+    //CRUD DO PROFESSOR
+    
+    public function listarSolicitacaoAction() {
+
+        $this->admin->listSolicitacao();
+    }
+
+    public function avaliarSolicitacaoAction() {
+
+        $this->admin->updateSolicitacao(2);
+    }
+
+    public function avaliarSolicitacaoDocIncAction() {
+
+        $this->admin->updateSolicitacao(3);
+    }
+    
+    
+    //CRUD NOTICIA
+    
+    
+    public function inserirNoticiaAction(){
+        
+        $this->admin->insertNoticia("/Dashboard/Admin/Noticias");
+        
+    }
+    
+    public function listarNoticiaAction(){
+        
+        $this->admin->listNoticiaTable();
+        
+    }
+    
+    public function atualizarNoticiaAction(){
+        
+        $this->admin->updateNoticia("/Dashboard/Admin/Noticias");
+    }
+    
+    public function deletarNoticiaAction(){
+        $this->admin->delNoticia();
+        
     }
 
 }
