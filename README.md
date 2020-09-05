@@ -7,11 +7,13 @@
 #Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.2.31
 
 ###############################################################################################################
-# INSTALAÇÃO: - IMPORTE O ARQUIVO SQL PARA SEU BANCO DE DADOS.
+# INSTALAÇÃO 
 
-# - CONFIGURE O NOME DO SEU BANCO DE DADOS COM USUARIO E SENHA EM /lib/ini-config.ini
+IMPORTE O ARQUIVO SQL PARA SEU BANCO DE DADOS.
 
-# - REGISTRE-SE COMO USUÁRIO. Mude o campo Usuario.Tipo do banco de dados para 4(Usuário administrador). 
+CONFIGURE O NOME DO SEU BANCO DE DADOS COM USUARIO E SENHA EM /lib/ini-config.ini
 
-# OBS : TIPO 1 (USUARIO COMUM) TIPO 2 (ALUNO) - TIPO 3 (PROFESSOR) - TIPO 4 (ADMINISTRADOR) - TIPO 5 (SERVIDOR).
+REGISTRE-SE COMO USUÁRIO. Mude o campo Usuario.Tipo do banco de dados para 4(Usuário administrador). 
+
+OBS : TIPO 1 (USUARIO COMUM) TIPO 2 (ALUNO) - TIPO 3 (PROFESSOR) - TIPO 4 (ADMINISTRADOR) - TIPO 5 (SERVIDOR).
 
