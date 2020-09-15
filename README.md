@@ -1,6 +1,6 @@
 # SAEIFB-1.0-BETA
 
-#Programa Web Para Gestão escolar para o Insitituto Federal de Brasília Utilizando PHP JQUERY JAVASCRIPT CSS3 HTML5 PHPMAILER DOMPDF E MATERIALIZE FRAMEWORK
+#Programa Web Para Gestão escolar para o Insitituto Federal de Brasília Utilizando PHP MVC OO JQUERY JAVASCRIPT CSS3 HTML5 PHPMAILER DOMPDF E MATERIALIZE FRAMEWORK
 #Dependências Materialize, CSS ,JQUERY PHP MAILER, DOMPDF.
 
 #10.4.13-MariaDB UTF-8 Unicode (utf8mb4)
