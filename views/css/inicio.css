@@ -1,0 +1,32 @@
+
+body{
+    
+    background-image: url("../img/prism.png");
+       display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+
+  main {
+    flex: 1 0 auto;
+  }
+     
+
+#barra_buscar{
+    display:none;
+}
+
+
+#logo{
+    
+    height: 50px
+    
+}
+
+#middle{
+    
+    z-index: 1;
+}
+  
+
