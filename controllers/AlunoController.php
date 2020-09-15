@@ -12,7 +12,7 @@ class AlunoController {
     public function InserirSolicitacaoAction() {
         
         $this->aluno->checkSolicitacao(2);
-        $this->aluno->insertSolicitacao();
+        $this->aluno->insertSolicitacao(false);
     }
     
      public function PerfilAction(){

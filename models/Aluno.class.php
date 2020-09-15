@@ -92,6 +92,24 @@ class Aluno extends Usuario {
                 header("Location: / ");
                 exit();
             };
+       
+        /*    
+        $id_aluno_curso = URL[2];
+        
+        $query = $this->con->con()->prepare("SELECT aluno_curso.Status FROM aluno_curso where sha1(ID) = :id");
+        $query->bindParam(":id", $id_aluno_curso, PDO::PARAM_STR);
+
+        $query->execute();
+        $retorno = $query->fetch();
+        
+        if($retorno['Status']==1){
+            exit();
+        }
+           */ 
+            
+            
+            
+            
         }
     }
 
@@ -142,13 +160,22 @@ class Aluno extends Usuario {
         return $retorno;
     }
 
-    public function insertSolicitacao() {
-
-
-
+    public function insertSolicitacao($refazer) {
+        
         $id_aluno_curso = URL[2];
-
-
+                        
+        
+        //Se refazer for falso, ele não checa se ja há um solicitação pra aquele aluno_curso. Porque se refazer for true, isso não importará e ele excluirá o último curso sempre.
+        if(!$refazer){
+        $query = $this->con->con()->prepare("SELECT Status FROM aluno_curso where sha1(ID) = :id ");
+        $query->bindParam(":id", $id_aluno_curso, PDO::PARAM_STR);
+        $query->execute();
+        $retorno = $query->fetch();
+        $status = $retorno[0]; 
+        if($status==1){
+         exit();
+        }}
+        
 
         $query = $this->con->con()->prepare("SELECT ID FROM aluno_curso where sha1(ID) = :id ");
         $query->bindParam(":id", $id_aluno_curso, PDO::PARAM_STR);
@@ -157,15 +184,6 @@ class Aluno extends Usuario {
         $retorno = $query->fetch();
 
         $id_aluno_curso = $retorno[0];
-
-
-
-
-        $query = $this->con->con()->prepare("UPDATE aluno_curso set aluno_curso.Status = '1' where ID = :id");
-        $query->bindParam(":id", $id_aluno_curso, PDO::PARAM_INT);
-
-        $query->execute();
-
 
 
 
@@ -179,8 +197,6 @@ class Aluno extends Usuario {
 
 
 
-
-
         $query = $this->con->con()->prepare("SELECT ID FROM `solicitacao` where IDAluno_curso = :id ORDER BY `ID` DESC LIMIT 1");
         $query->bindParam(":id", $id_aluno_curso, PDO::PARAM_INT);
 
@@ -190,8 +206,6 @@ class Aluno extends Usuario {
 
 
         $id_solicitacao = $retorno[0];
-
-
 
 
 
@@ -215,28 +229,6 @@ class Aluno extends Usuario {
         }
 
 
-        //ENVIO DE ARQUIVOSSSSSSSSSSSSSSSSS    
-
-
-        /*
-
-
-          if (isset($_POST['UploadForm'])) {
-          echo 'post =<br>' ;
-          print_r($_POST);
-          echo '<br>files =<br>' ;
-          print_r($_FILES);
-          echo '<hr>' ;
-          echo 'nbr files to upload = ' . (count($_FILES['fileToUpload']['name']['file']));
-          echo '<br>' ;
-          print_r($_FILES['fileToUpload']);
-          echo '<br>' ;
-          print_r($_FILES['fileToUpload']['error']['file']);
-          echo '<hr>' ;
-          // die();
-          }
-          // ********************************************************
-         */
 
         if (isset($_POST['UploadForm']) && count($_FILES['fileToUpload']['tmp_name']['file']) == 0) {
 
@@ -253,19 +245,11 @@ class Aluno extends Usuario {
 
 
             $valid_formats = array("pdf");
-// $valid_formats = array("rar","zip","7z","pdf","xlsx","xls","docx","doc", "ppt", "txt", "jpeg", "jpg", "png", "gif",);
             $valid_formats_server = array(
                 "application/pdf",
-//	"application/octet-stream",
-//	"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-//	"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-//	"application/msword",
-//	"application/vnd.ms-excel",
-//	"application/nd.ms-powerpoint",
-//	"text/plain"
+
             );
 
-//prevent uploading of wrong file types 
             foreach ($_FILES['fileToUpload']['type']['file'] as $t => $Type) {
                 if (!in_array($_FILES['fileToUpload']['type']['file'][$t], $valid_formats_server)) {
 
@@ -273,8 +257,9 @@ class Aluno extends Usuario {
                     $retorno = array('codigo' => 1, 'mensagem' => 'Arquivo em formato inválido. Somente são aceitos arquivos em PDF');
                     echo json_encode($retorno);
 
-
-
+                    $query = $this->con->con()->prepare("DELETE FROM solicitacao where ID = :id ");
+                    $query->bindParam(":id", $id_solicitacao, PDO::PARAM_INT);
+                    $query->execute();               
                     return 0;
                 }
             }
@@ -284,7 +269,6 @@ class Aluno extends Usuario {
 
             $target_dir = "views/uploads/" . sha1($_SESSION['id']) . "/";
 
-// create upload directory if it doesn't already exist
             if (!is_dir($target_dir)) {
                 mkdir($target_dir, 0777, true);
             }
@@ -293,31 +277,45 @@ class Aluno extends Usuario {
             $count = 0; // nbr of successfully uploaded files
             $filenames = ''; //names of successfully uploaded files
             $files = count($_FILES['fileToUpload']['name']['file']); // number of files to upload
-//paaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-// UPLOAD EACH FILE
-// loop thru all files
+
             foreach ($_FILES['fileToUpload']['name']['file'] as $f => $name) {
                 if ($_FILES['fileToUpload']['error']['file'][$f] == 4) {
 
-                    //$message[] = $_FILES['fileToUpload']['error'][$f];
 
                     $retorno = array('codigo' => 1, 'mensagem' => 'erro 4');
                     echo json_encode($retorno);
+                    
+                    $query = $this->con->con()->prepare("DELETE FROM solicitacao where ID = :id ");
+                    $query->bindParam(":id", $id_solicitacao, PDO::PARAM_INT);
+                    $query->execute();               
+                    return 0;
 
-
-                    // Skip file if any error found, go to next file in loop
                     continue;
                 }
                 if ($_FILES['fileToUpload']['size']['file'][$f] > $max_file_size) {
                     $message[] = "$name is too large!";
                     $retorno = array('codigo' => 1, 'mensagem' => 'Seu arquivo excedeu o limite de 10mb');
                     echo json_encode($retorno);
+                    
+                    
+                    $query = $this->con->con()->prepare("DELETE FROM solicitacao where ID = :id ");
+                    $query->bindParam(":id", $id_solicitacao, PDO::PARAM_INT);
+                    $query->execute();               
+                    return 0;
+                    
                     return;
                 } elseif (!in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats)) {
 
                     $retorno = array('codigo' => 1, 'mensagem' => 'Formato inválido');
                     echo json_encode($retorno);
-
+                    
+                    $query = $this->con->con()->prepare("DELETE FROM solicitacao where ID = :id ");
+                    $query->bindParam(":id", $id_solicitacao, PDO::PARAM_INT);
+                    $query->execute();               
+                    return 0;
+                    
+                    
+                    
                     return;
                 } else { // No error found! Move uploaded files
                     // rename file to remove unsafe characters
@@ -343,11 +341,6 @@ class Aluno extends Usuario {
 
                         $descricao = $_POST['fileToUpload']['description'][$f];
 
-
-
-
-
-
                         $query = $this->con->con()->prepare("INSERT INTO `arquivo_solicitacao` (`IDSolicitacao`,`Caminho`,`Descricao`) values (:id,:caminho,:descri)");
                         $query->bindParam(":id", $id_solicitacao, PDO::PARAM_INT);
                         $query->bindParam(":caminho", $rename, PDO::PARAM_STR);
@@ -356,6 +349,10 @@ class Aluno extends Usuario {
                     }
                 }
             }
+            
+            $query = $this->con->con()->prepare("UPDATE aluno_curso set aluno_curso.Status = '1' where ID = :id");
+            $query->bindParam(":id", $id_aluno_curso, PDO::PARAM_INT);
+            $query->execute();
 
             $retorno = array('codigo' => 0, 'mensagem' => 'Solicitação realizada com sucesso!');
             echo json_encode($retorno);
@@ -432,14 +429,14 @@ class Aluno extends Usuario {
     public function refazerSolicitacao(){
         
         $id = URL[3];
+       
+        $this->insertSolicitacao(true);
+        
         
         $query = $this->con->con()->prepare("DELETE FROM solicitacao where sha1(id) = :id");
         $query->bindParam(":id", $id, PDO::PARAM_STR);
       
         $query->execute();
-        
-        
-        $this->insertSolicitacao();
         
         
     }
