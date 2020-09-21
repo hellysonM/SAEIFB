@@ -9,7 +9,6 @@ require_once 'lib/api/phpmailer/Exception.php';
 
 use Dompdf\Dompdf;
 
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;

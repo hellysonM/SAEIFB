@@ -9,20 +9,12 @@
 * Essa função garante que todas as classes 
 * da pasta lib serão carregadas automaticamente
 */
-
-
-
-
-
 /**
 * Verifica qual classe controlador (Controller) o usuário deseja chamar
 * e qual método dessa classe (Action) deseja executar
 * Caso o controlador (controller) não seja especificado, o IndexControllers será o padrão
 * Caso o método (Action) não seja especificado, o indexAction será o padrão
 * 
-* @package Exemplo simples com MVC
-* @author Hellyson
-* @version 0.1.1
 **/
 class Application
 {
