@@ -2,9 +2,6 @@
  /**
  * Classe designada a validacao de formato de dados
  * 
- * @package Exemplo simples com MVC
- * @author DigitalDev
- * @version 0.1.1
  * 
  * Diretório Pai - lib
  * Arquivo - DataValidator.php
