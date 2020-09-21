@@ -13,6 +13,7 @@ Correção de bugs
 Melhorias e pequenas correções
 
 -UsuarioDAO.class,TecnicoDAO.class,Tecnico.class,AlunoDAO.class, AdministradorDAO,PortalController.class(E Views/includes/Portal) removidos.
+-A classe Administrador é concernente ao usuário Coordenador.
 -Melhoria na criação e destruição de sessões.
 -Alteração na mensagem de solicitação de aproveitamento
 -Inclusão de mensagem no caso de o aluno não possuir nenhuma solicitação na aba "Aluno/Acompanhar".
