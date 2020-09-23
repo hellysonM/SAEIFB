@@ -21,8 +21,6 @@ class Usuario {
         if(!isset($_SESSION)) 
            session_start();
         
-        
-        
         $this->con = new Connection();
         $this->functions = new Functions();
         
@@ -42,11 +40,8 @@ class Usuario {
             
             header("Location: / ");
             
-            exit();
-            
-        }
-
-        
+            exit();     
+        }   
     }
 
     public function __set($att, $value) {
@@ -124,9 +119,7 @@ class Usuario {
             $query->bindParam(":dataCadastro", $this->dataCadastro, PDO::PARAM_STR);
             $query->execute();
             
-            
             $this->loginUsuario();
-
             
         } catch (PDOException $e) {
             return 'Error: ' . $e->getMessage();
@@ -146,7 +139,6 @@ class Usuario {
             return 0;
         }
 
-
         if ((empty($_POST['Curso1'])) && (empty($_POST['Curso2']))) {
 
             $retorno = array('codigo' => 1, 'mensagem' => 'Selecione pelo menos um curso');
@@ -165,7 +157,6 @@ class Usuario {
                 $ingresso = $_POST['Ingresso1'];
             }
         } else if ((empty($_POST['Curso1'])) && (!empty($_POST['Curso2']))) {
-
 
             if (empty($_POST['Ingresso2'])) {
                 $retorno = array('codigo' => 1, 'mensagem' => 'Selecione o ano de ingresso do curso técnico');
@@ -206,8 +197,7 @@ class Usuario {
         $_SESSION['tipo'] = 2;
 
         $query->execute();
-
-
+        
         $queryIDAluno = $this->con->con()->prepare("SELECT `ID` from `aluno` where `IDUsuario` = :idusuario ");
 
         $queryIDAluno->bindParam(":idusuario", $_SESSION['id'], PDO::PARAM_INT);
@@ -225,17 +215,12 @@ class Usuario {
 
             $query->bindParam(":idaluno", $resultado[0], PDO::PARAM_STR);
             $query->bindParam(":curso1", $_POST['Curso1'], PDO::PARAM_STR);
-
-
-
             $query->bindParam(":ingresso1", $_POST['Ingresso1'], PDO::PARAM_STR);
             $query->bindParam(":curso2", $_POST['Curso2'], PDO::PARAM_STR);
             $query->bindParam(":ingresso2", $_POST['Ingresso2'], PDO::PARAM_STR);
 
-
             $query->execute();
         }
-
 
         $retorno = array('codigo' => 0, 'mensagem' => 'Sucesso');
 
@@ -268,7 +253,7 @@ class Usuario {
                 $retorno = array('codigo' => 1, 'mensagem' => 'Nome de usuário ou senha incorretos');
                 echo json_encode($retorno);
             } else {
-
+                
                 $resultado = $query->fetch();
 
                 $_SESSION['login'] = 'true';
@@ -291,8 +276,7 @@ class Usuario {
                     $_SESSION['tipoNome'] = "Administrador";
                     
                 }else {
-                    $_SESSION['tipoNome'] = "Servidor";
-                   
+                    $_SESSION['tipoNome'] = "Servidor";        
                 }
 
                 $retorno = array('codigo' => 0, 'mensagem' => 'Logado com sucesso');
@@ -312,9 +296,6 @@ class Usuario {
     public function statusUsuario($logado) {
 
         try {
-
-            
-
             $this->dataUltimoLogin = $this->functions->dataAtual();
             $this->ip = $this->functions->IP();
             $this->logado = $logado;
@@ -344,9 +325,7 @@ class Usuario {
     }
     
     public function updateEmail(){
-        
-       
-        
+   
         if (!(filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL))) {
 
                 $retorno = array('codigo' => 1, 'mensagem' => 'Alteração na integridade do formulário');
@@ -379,14 +358,11 @@ class Usuario {
                 return 0;
         
         }
-       
-        
-        
+           
     }
     
     
     public function updateSenha(){
-        
         
         $queryValidarSenha = $this->con->con()->prepare("Select Senha from usuario where id  = :id");
        
@@ -399,8 +375,7 @@ class Usuario {
             $retorno = array('codigo' => 1, 'mensagem' => 'Senha incorreta');
             echo json_encode($retorno);
             return 0;
-            
-            
+ 
         }else{
             
           $senha =   sha1($_POST['nova_senha']);
@@ -414,16 +389,8 @@ class Usuario {
             echo json_encode($retorno);
             return 0;
             
-        }
-        
-        
-        
-        
+        } 
     }
-    
-    
-    
-    
     
     public function sendPasswd(){
         
@@ -432,15 +399,12 @@ class Usuario {
        
        $email =   $_POST['email'];
        
-          $query = $this->con->con()->prepare("UPDATE usuario set Senha = :senha where Email = :email");
+        $query = $this->con->con()->prepare("UPDATE usuario set Senha = :senha where Email = :email");
        
         $query->bindParam(":email", $email, PDO::PARAM_STR);
         $query->bindParam(":senha", $senha_sha1, PDO::PARAM_STR);
         $query->execute();
-        
-   
-        
-        
+
      $query = $this->con->con()->prepare("Select Nome from usuario where Email = :email");
        
         $query->bindParam(":email", $email, PDO::PARAM_STR);
@@ -450,18 +414,16 @@ class Usuario {
         
         $nome = $nome[0];
     
-    $assunto = "Nova senha";
-    $corpo = "<h1>Nova Senha gerada</h1>Olá $nome, uma nova senha foi gerada para você: <strong>$senha</strong>.";
+        $assunto = "Nova senha";
+        $corpo = "<h1>Nova Senha gerada</h1>Olá $nome, uma nova senha foi gerada para você: <strong>$senha</strong>.";
     
-    $this->functions->sendMail($email,$corpo,$assunto);
+        $this->functions->sendMail($email,$corpo,$assunto);
     
     
-    $retorno = array('codigo' => 0, 'mensagem' => 'Sua nova senha foi enviada ao seu E-mail com sucesso');
+        $retorno = array('codigo' => 0, 'mensagem' => 'Sua nova senha foi enviada ao seu E-mail com sucesso');
             echo json_encode($retorno);
             return 0;
-            
-        
-    
+ 
    }  
    
    public function destroySession() {
@@ -481,8 +443,6 @@ class Usuario {
         }
     }
     
-    
-    
     public function listNoticia(){
         
          $query = $this->con->con()->prepare("select usuario.Nome,noticia.ID,noticia.Titulo,noticia.Subtitulo,noticia.Conteudo,DATE_FORMAT(noticia.Data, '%d/%m/%Y %H:%i:%S') as Data from noticia INNER JOIN usuario on noticia.Autor= usuario.ID
@@ -491,37 +451,28 @@ class Usuario {
          //$query->bindValue(':id', $id, PDO::PARAM_STR);
         $query->execute();
         $retorno = $query->fetchAll();
-       
-       
         
         return $retorno;
-            
-
-
+  
     }
     
     public function listNoticiaById(){
         
         $titulo = URL[2];
         
-         $query = $this->con->con()->prepare("select usuario.Nome as Autor,noticia.ID,noticia.Titulo,noticia.Subtitulo,noticia.Conteudo,DATE_FORMAT(noticia.Data, '%d/%m/%Y %H:%i') as Data from noticia INNER JOIN usuario on noticia.Autor= usuario.ID
+        $query = $this->con->con()->prepare("select usuario.Nome as Autor,noticia.ID,noticia.Titulo,noticia.Subtitulo,noticia.Conteudo,DATE_FORMAT(noticia.Data, '%d/%m/%Y %H:%i') as Data from noticia INNER JOIN usuario on noticia.Autor= usuario.ID
         where Titulo = :titulo");
         
          $query->bindValue(':titulo', $titulo ,PDO::PARAM_STR);
         $query->execute();
         $retorno = $query->fetchAll();
-        
-        
-        
+   
         if(count($retorno)!= 1){
             header("Location: /");
         }
-        
-       
-        
+ 
         return $retorno;
     }
-    
     
     public function listNoticiaPesquisa(){
         
@@ -533,15 +484,8 @@ class Usuario {
         $query->bindValue(':pesquisa', $pesquisa, PDO::PARAM_STR);
         $query->execute();
         $retorno = $query->fetchAll();
-       
-       
-        
+   
         return $retorno;
-            
-
-
     }
-    
-    
-    
+
 }
