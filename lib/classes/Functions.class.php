@@ -6,7 +6,6 @@ require_once 'lib/api/phpmailer/PHPMailer.php';
 require_once 'lib/api/phpmailer/SMTP.php';
 require_once 'lib/api/phpmailer/Exception.php';
 
-
 use Dompdf\Dompdf;
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -16,7 +15,6 @@ use PHPMailer\PHPMailer\Exception;
 class Functions {
 
     public function encode($att) {
-
         return sha1($att);
     }
 
@@ -68,7 +66,6 @@ class Functions {
 
     public function IP() {
 
-
         $ipaddress = '';
         if (getenv('HTTP_CLIENT_IP'))
             $ipaddress = getenv('HTTP_CLIENT_IP');
@@ -89,44 +86,19 @@ class Functions {
 
     public function gerarPDF($file) {
 
-
-// instanciando o dompdf
-
         $dompdf = new Dompdf();
-
-        // $html = file_get_contents($file);
-
-
-
-
-
-        ob_start();
-
+	    
+	ob_start();
         require $file;
-
         $pdf = ob_get_clean();
-
         $dompdf->load_html($pdf);
-
-
-
-
-
-
-
+	    
         $dompdf->set_paper('A4', 'portrait');
-
-        // O arquivo é convertido
         $dompdf->render();
-
-        // Salvo no diretório temporário do sistema
-        // e exibido para o usuário
         $dompdf->stream("nome-do-arquivo.pdf", ["Attachment" => false]);
     }
     
-    
-    
-    
+
     public function geraSenha($tamanho = 8, $maiusculas = true, $numeros = true, $simbolos = false) {
         $lmin = 'abcdefghijklmnopqrstuvwxyz';
         $lmai = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -153,8 +125,7 @@ class Functions {
     
     
     public function sendMail($to,$msg,$subject){
-        
-        
+         
         $mail = new PHPMailer(false);
         //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
@@ -176,10 +147,7 @@ class Functions {
 		//echo 'Email enviado com sucesso';
 	} else {
 		//echo 'Email nao enviado';
-	}
-        
-        
-        
+	}    
         
     }
 
