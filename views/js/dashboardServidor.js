@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    const PATH_NAME = window.location.pathname
+    const HOME_URL = PATH_NAME.replace(/\/Dashboard.*/,'')
     
     $('.slider').slider();
     $('select').formSelect();
@@ -262,7 +265,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Servidor/ListarSolicitacaoAvaliada",
+            "url": HOME_URL+"/Servidor/ListarSolicitacaoAvaliada",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -296,7 +299,7 @@ $(document).ready(function () {
 
                         $.ajax({
                             type: 'POST',
-                            url: '/Servidor/avaliarSolicitacaoFinalizar/' + id,
+                            url: HOME_URL+'/Servidor/avaliarSolicitacaoFinalizar/' + id,
 
                             beforeSend: function () {
 
@@ -340,13 +343,13 @@ $(document).ready(function () {
 
                         $.ajax({
                             type: 'POST',
-                            url: '/Servidor/avaliarSolicitacaoRetornarProfessor/' + id,
+                            url: HOME_URL+'/Servidor/avaliarSolicitacaoRetornarProfessor/' + id,
                             beforeSend: function () {
 
                             },
                             success: function (response) {
                                 console.log('Submission was successful.');
-                                window.location.href = "/Dashboard/Servidor/SolicitacoesAvaliadas";
+                                window.location.href = HOME_URL+"/Dashboard/Servidor/SolicitacoesAvaliadas";
 
                             },
                             error: function (data) {
@@ -392,7 +395,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Servidor/listarSolicitacoesAprovadas",
+            "url": HOME_URL+"/Servidor/listarSolicitacoesAprovadas",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -435,7 +438,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Servidor/ListarCurso",
+            "url": HOME_URL+"/Servidor/ListarCurso",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -477,7 +480,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Servidor/ListarMateria",
+            "url": HOME_URL+"/Servidor/ListarMateria",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -518,7 +521,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Servidor/ListarNoticia",
+            "url": HOME_URL+"/Servidor/ListarNoticia",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -554,7 +557,7 @@ $(document).ready(function () {
                     action: function () {
 
                         $.ajax({
-                            url: "/Servidor/DeletarNoticia",
+                            url: HOME_URL+"/Servidor/DeletarNoticia",
                             method: "POST",
                             data: {ID: ID},
 
@@ -659,7 +662,7 @@ $(document).ready(function () {
                     action: function () {
 
                         $.ajax({
-                            url: "/Servidor/DeletarCurso",
+                            url: HOME_URL+"/Servidor/DeletarCurso",
                             method: "POST",
                             data: {ID: ID},
 
@@ -701,7 +704,7 @@ $(document).ready(function () {
                     action: function () {
 
                         $.ajax({
-                            url: "/Servidor/DeletarMateria",
+                            url: HOME_URL+"/Servidor/DeletarMateria",
                             method: "POST",
                             data: {ID: ID},
 
@@ -733,7 +736,7 @@ $(document).ready(function () {
         var ID = $(this).attr('id');
 
         $.ajax({
-            url: "/Servidor/ListarCursoModal",
+            url: HOME_URL+"/Servidor/ListarCursoModal",
             method: "POST",
             data: {ID: ID},
             dataType: "json",
@@ -773,20 +776,13 @@ $(document).ready(function () {
                 }
             })
         });
-
-
-
-
-
     });
-
-
 
     $(document).on('click', '.alterar_materia', function () {
         var ID = $(this).attr('id');
 
         $.ajax({
-            url: "/Servidor/ListarMateriaModal",
+            url: HOME_URL+"/Servidor/ListarMateriaModal",
             method: "POST",
             data: {ID: ID},
             dataType: "json",

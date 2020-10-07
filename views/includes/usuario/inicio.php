@@ -4,16 +4,12 @@
             <div class="section ">
                 <div class="slider ">
                     <ul class="slides">
-                        
-                        
-                        
+
                         <?php 
                         
-                        $usuario = new Usuario();
-                        
+                        $usuario = new Usuario();               
                         $resultado = $usuario->listNoticia();
-                        
-                        
+             
                         foreach ($resultado as $k){
                         ?>
                         <li>
@@ -24,7 +20,6 @@
                             </div>
                         </li>
                         <?php } ?>
-                        
                         
                     </ul>
                 </div>

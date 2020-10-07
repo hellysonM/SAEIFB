@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    const PATH_NAME = window.location.pathname
+    const HOME_URL = PATH_NAME.replace(/\/Dashboard.*/,'')
+    alert(HOME_URL)
 
     $('.dropdown-trigger').dropdown();
     $('.tabs').tabs();
@@ -60,7 +63,7 @@ $(document).ready(function () {
                         }
                     });
                 }else {
-                    window.location.href = "/Dashboard/Aluno/Welcome";
+                    window.location.href = HOME_URL+"/Dashboard/Aluno/Welcome";
                 }
             },
             error: function (data) {
@@ -77,7 +80,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/Usuario/Perfil/' + file,
+            url: HOME_URL+'/Usuario/Perfil/' + file,
             beforeSend: function () {
                 $("#loader").removeClass("hide");
             },
@@ -138,7 +141,7 @@ $(document).ready(function () {
                     });
                 } else {
 
-                    window.location.href = "/Dashboard/Usuario/Alterado";
+                    window.location.href = HOME_URL+"/Dashboard/Usuario/Alterado";
                 }
             },
             error: function (data) {
@@ -183,7 +186,7 @@ $(document).ready(function () {
                         }
                     });
                 } else {
-                    window.location.href = "/Dashboard/Usuario/Alterado";
+                    window.location.href =  HOME_URL+"/Dashboard/Usuario/Alterado";
                 }
             },
             error: function (data) {

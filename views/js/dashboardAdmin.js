@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+    const PATH_NAME = window.location.pathname
+    const HOME_URL = PATH_NAME.replace(/\/Dashboard.*/,'')
+
+
 $('.collapsible-header').click(function () {
     
         var parent_child = $(this);
@@ -34,7 +38,7 @@ $('.collapsible-header').click(function () {
             weekdaysAbbrev: ["D", "S", "T", "Q", "Q", "S", "S"]
         }
     });
-});
+
 
 (function (window, document, undefined) {
 
@@ -204,8 +208,6 @@ $('.collapsible-header').click(function () {
 
 })(window, document);
 
-$(document).ready(function () {
-
     $('#usuario').dataTable({
         "oLanguage": {
             "sStripClasses": "",
@@ -229,7 +231,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Admin/ListarUsuarios",
+            "url": HOME_URL+"/Admin/ListarUsuarios",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -269,7 +271,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Admin/ListarCurso",
+            "url": `${HOME_URL}/Admin/ListarCurso`,
             "type": "POST"
         },
         bAutoWidth: false,
@@ -311,7 +313,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Admin/ListarMateria",
+            "url": HOME_URL+"/Admin/ListarMateria",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -352,7 +354,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Admin/ListarNoticia",
+            "url": HOME_URL+"/Admin/ListarNoticia",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -449,7 +451,7 @@ $(document).ready(function () {
                     action: function () {
 
                         $.ajax({
-                            url: "/Admin/DeletarCurso",
+                            url: HOME_URL+"/Admin/DeletarCurso",
                             method: "POST",
                             data: {ID: ID},
 
@@ -491,7 +493,7 @@ $(document).ready(function () {
                     action: function () {
 
                         $.ajax({
-                            url: "/Admin/DeletarMateria",
+                            url: HOME_URL+"/Admin/DeletarMateria",
                             method: "POST",
                             data: {ID: ID},
 
@@ -523,7 +525,7 @@ $(document).ready(function () {
         var ID = $(this).attr('id');
 
         $.ajax({
-            url: "/Admin/ListarCursoModal",
+            url: HOME_URL+"/Admin/ListarCursoModal",
             method: "POST",
             data: {ID: ID},
             dataType: "json",
@@ -576,7 +578,7 @@ $(document).ready(function () {
         var ID = $(this).attr('id');
 
         $.ajax({
-            url: "/Admin/ListarMateriaModal",
+            url: HOME_URL+"/Admin/ListarMateriaModal",
             method: "POST",
             data: {ID: ID},
             dataType: "json",
@@ -648,7 +650,7 @@ $(document).ready(function () {
         var ID = $(this).attr('id');
 
         $.ajax({
-            url: "/Admin/listarUsuarioModal",
+            url: HOME_URL+"/Admin/listarUsuarioModal",
             method: "POST",
             data: {ID: ID},
             dataType: "json",
@@ -730,7 +732,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Admin/ListarSolicitacaoAvaliada",
+            "url": HOME_URL+"/Admin/ListarSolicitacaoAvaliada",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -766,14 +768,14 @@ $(document).ready(function () {
 
                         $.ajax({
                             type: 'POST',
-                            url: '/Admin/avaliarSolicitacaoFinalizar/' + id,
+                            url: HOME_URL+'/Admin/avaliarSolicitacaoFinalizar/' + id,
 
                             beforeSend: function () {
 
                             },
                             success: function (response) {
                                 console.log('Submission was successful.');
-                                window.location.href = "/Dashboard/Admin/SolicitacoesAvaliadas";
+                                window.location.href = HOME_URL+"/Dashboard/Admin/SolicitacoesAvaliadas";
 
                             },
                             error: function (data) {
@@ -810,7 +812,7 @@ $(document).ready(function () {
 
                         $.ajax({
                             type: 'POST',
-                            url: '/Admin/avaliarSolicitacaoRetornarProfessor/' + id,
+                            url: HOME_URL+'/Admin/avaliarSolicitacaoRetornarProfessor/' + id,
                             beforeSend: function () {
 
                             },
@@ -863,7 +865,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Admin/listarSolicitacoesAprovadas",
+            "url": HOME_URL+"/Admin/listarSolicitacoesAprovadas",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -908,7 +910,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Admin/ListarSolicitacao/",
+            "url": HOME_URL+"/Admin/ListarSolicitacao/",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -942,7 +944,7 @@ $(document).ready(function () {
 
                         $.ajax({
                             type: 'POST',
-                            url: '/Admin/avaliarSolicitacao/' + id,
+                            url: HOME_URL+'/Admin/avaliarSolicitacao/' + id,
                             data: form_data,
 
                             contentType: false,
@@ -951,7 +953,7 @@ $(document).ready(function () {
                             },
                             success: function (response) {
                                 console.log('Submission was successful.');
-                                window.location.href = "/Dashboard/Admin/NovasSolicitacoes";
+                                window.location.href = HOME_URL+"/Dashboard/Admin/NovasSolicitacoes";
 
                             },
                             error: function (data) {
@@ -993,7 +995,7 @@ $(document).ready(function () {
 
                         $.ajax({
                             type: 'POST',
-                            url: '/Admin/avaliarSolicitacaoDocInc/' + id,
+                            url: HOME_URL+'/Admin/avaliarSolicitacaoDocInc/' + id,
                             data: form_data,
 
                             contentType: false,
@@ -1002,7 +1004,7 @@ $(document).ready(function () {
                             },
                             success: function (response) {
                                 console.log('Submission was successful.');
-                                window.location.href = "/Dashboard/Admin/NovasSolicitacoes";
+                                window.location.href = HOME_URL+"/Dashboard/Admin/NovasSolicitacoes";
 
                             },
                             error: function (data) {
@@ -1052,7 +1054,7 @@ $('#voltar').on('click', function(e) {
                     action: function () {
 
                         $.ajax({
-                            url: "/Admin/DeletarNoticia",
+                            url: HOME_URL+"/Admin/DeletarNoticia",
                             method: "POST",
                             data: {ID: ID},
 
@@ -1084,7 +1086,7 @@ $('#voltar').on('click', function(e) {
 
         $.ajax({
             type: 'POST',
-            url: '/Admin/Perfil/' + file,
+            url: HOME_URL+'/Admin/Perfil/' + file,
 
             beforeSend: function () {
 

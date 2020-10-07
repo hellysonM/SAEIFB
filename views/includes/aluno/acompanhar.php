@@ -20,7 +20,7 @@
                         <p>Ingresso: <?= $solicitacao['Ingresso'] ?><br>
                             Data da solicitação: <?= $solicitacao['Data'] ?>
                         </p>
-                        <a href="/Dashboard/Aluno/Refazer/<?php echo sha1($solicitacao['AlunoCurso_id']).'/'.sha1($solicitacao['ID']) ?>" class=" secondary-content">Refazer</a>
+                        <a href="<?=HOME_URL?>/Dashboard/Aluno/Refazer/<?php echo sha1($solicitacao['AlunoCurso_id']).'/'.sha1($solicitacao['ID']) ?>" class=" secondary-content">Refazer</a>
                     </li>
                     <div class="col s12" >
                         <ul class="collapsible tooltipped" data-position="top" data-tooltip="clique para detalhar">
@@ -49,7 +49,7 @@
                                             <?php
                                             if ($solicitacao['Status'] == 4 || $solicitacao['Status'] == 6) {
 
-                                                echo '<spam class="cyan-text text-darken-2">Comprovante</spam> <a class="btn-floating btn-small waves-effect waves-light green" onclick="return abrirPopup(\' /Aluno/gerarRelatorio/' . sha1($solicitacao["ID"]) . '  \', 1280, 720) "><i class="material-icons">assignment</i></a>';
+                                                echo '<spam class="cyan-text text-darken-2">Comprovante</spam> <a class="btn-floating btn-small waves-effect waves-light green" onclick="return abrirPopup(\'/Aluno/gerarRelatorio/' . sha1($solicitacao["ID"]) . '  \', 1280, 720) "><i class="material-icons">assignment</i></a>';
                                             }
                                             ?>
                                         </div>    

@@ -52,7 +52,7 @@
             <div class="divider"></div>
 
             <div class="row">
-            <form action="/Servidor/inserirMateria" method="post" id="inserirmateria">
+            <form action="<?=HOME_URL?>/Servidor/inserirMateria" method="post" id="inserirmateria">
 
             
                 <div class="input-field">

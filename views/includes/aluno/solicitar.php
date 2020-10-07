@@ -70,7 +70,7 @@
                         <tr>
                             <td><?= $curso['Nome']; ?> </td>
                             <td><?= $curso['Ingresso'] ?></td>
-                            <td>  <a class="btn-floating btn-small waves-effect waves-light darken-3 blue" href="/Dashboard/Aluno/Solicitar/<?= sha1($curso['ID']) ?>"><i class="material-icons">add</i></a>
+                            <td>  <a class="btn-floating btn-small waves-effect waves-light darken-3 blue" href="<?=HOME_URL?>/Dashboard/Aluno/Solicitar/<?= sha1($curso['ID']) ?>"><i class="material-icons">add</i></a>
                             </td>
                         </tr>
 

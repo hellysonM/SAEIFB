@@ -7,7 +7,7 @@
             <div class="divider"></div>
             <br>
             <div class="row">
-                <form id="inserir_aluno" class="col s12" method="POST" action="/Usuario/RegistrarAluno">
+                <form id="inserir_aluno" class="col s12" method="POST" action="<?=HOME_URL?>/Usuario/RegistrarAluno">
 
                     <div class="col s12">
                         Curso matriculado(é possível selecionar mais de uma opção)   

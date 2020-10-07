@@ -20,7 +20,7 @@
                 <div class="nav-wrapper green">
 
                     <ul class="left">
-                        <li><a href="/Dashboard/Servidor/Perfil">Perfil</a></li>
+                        <li><a href="<?=HOME_URL?>/Dashboard/Servidor/Perfil">Perfil</a></li>
 
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Preferências<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -45,7 +45,7 @@
                     <div class="col xl4 offset-xl1">
                         <div class="card">
                             <div class="card-image">
-                                <img src="/views/img/ifb-1.jpg">
+                                <img src="<?=HOME_URL?>/views/img/ifb-1.jpg">
                                 <span class="card-title"><?= $_SESSION['nome'] ?></span>
                             </div>
                             <div class="card-content">

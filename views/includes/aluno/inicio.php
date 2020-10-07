@@ -4,9 +4,7 @@
             <div class="section ">
                 <div class="slider ">
                     <ul class="slides">
-                        
-                        
-                        
+  
                         <?php 
                         
                         $usuario = new Usuario();
@@ -24,8 +22,7 @@
                             </div>
                         </li>
                         <?php } ?>
-                        
-                        
+ 
                     </ul>
                 </div>
             </div>

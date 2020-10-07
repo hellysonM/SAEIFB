@@ -3,7 +3,7 @@
 <head>     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>views/css/inicio.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>/views/css/inicio.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -24,7 +24,7 @@
             </ul>
         </div> 
         <div class="nav-wrapper " id="barra_buscar">
-            <form method="POST" action="/Portal/Pesquisa">
+            <form method="POST" action="<?=HOME_URL?>/Portal/Pesquisa">
                 <div class="input-field ">
                     <input id="search" type="search" name="pesquisa" >
                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
@@ -60,7 +60,7 @@
         <div class="modal-content">
             <h4>Entrar</h4>
             <div class="divider"></div>
-            <form action="/Usuario/Logar" method="post" id="logar">
+            <form action="<?=HOME_URL?>/Usuario/Logar" method="post" id="logar">
                 
                 <div class="input-field">
                     <i class="material-icons prefix">person</i>
@@ -103,7 +103,7 @@
         <div class="modal-content">
             <h4>Cadastre-se</h4>
         <div class="divider"></div>
-        <form id="cadastrar" class="col s12" method="post" action="/Usuario/Registrar">
+        <form id="cadastrar" class="col s12" method="post" action="<?=HOME_URL?>/Usuario/Registrar">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">face</i>
                     <input type="text" id="nome" name="nome" class="validate" required pattern="[A-Za-zÀ-ú\s]+$"  minlength="2" maxlength="100">
@@ -172,7 +172,7 @@
                         <li>
                         <img src="" class='teal lighten-2 responsive-img'> 
                             <div class="caption center-align">
-                                <h3 ><a class="white-text" href="/Portal/Noticia/<?=$k['Titulo']?>"><?=$k['Titulo']?></a></h3>
+                                <h3 ><a class="white-text" href="<?=HOME_URL?>Portal/Noticia/<?=$k['Titulo']?>"><?=$k['Titulo']?></a></h3>
                               <h5 class="light teal-text text-darken-2"><?=$k['Subtitulo']?></h5>
                             </div>
                         </li>
@@ -272,7 +272,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
-    <script type="text/javascript" src="<?php echo HOME_URL ?>views/js/inicio.js"></script>
+    <script type="text/javascript" src="<?php echo HOME_URL ?>/views/js/inicio.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 </body>

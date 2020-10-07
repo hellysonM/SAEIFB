@@ -7,14 +7,12 @@
             <div class="divider"></div>
             <br>
 
-
             <!-- Dropdown Structure -->
             <ul id="dropdown1" class="dropdown-content">
                 <li><a href="#" class="perfil_ajax" id="Senha">Senha</a></li>
                 <li class="divider"></li>
                 <li><a href="#" class="perfil_ajax" id="Email">E-mail</a></li>
-                
-                
+                    
             </ul>
             <nav>
                 <div class="nav-wrapper teal darken-2">
@@ -30,22 +28,17 @@
 
             <div class="grey lighten-4" id="conteudo">
 
-
-
                 <div id="loader" class="hide">
                     <div class="progress">
                         <div class="indeterminate"></div>
                     </div>
                 </div>
-                    
-                
-
-
+           
                 <div class="row">
                     <div class="col xl4 offset-xl1">
                         <div class="card">
                             <div class="card-image">
-                                <img src="/views/img/ifb-1.jpg">
+                                <img src="<?=HOME_URL?>/views/img/ifb-1.jpg">
                                 <span class="card-title"><?= $_SESSION['nome'] ?></span>
                             </div>
                             <div class="card-content">
@@ -67,37 +60,14 @@
                                         <input disabled value="<?=$_SESSION['tipoNome']?>" id="disabled3" type="text" class="validate">
                                         <label for="disabled">Tipo de registro</label>
                                     </div>
-
-
-                                    
-                                </div>
-                              
+   
+                                </div> 
                             </div>
                         </div>
                     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
-
-
             </div>
-
-
-
-
         </div>
         <div>
         </div>

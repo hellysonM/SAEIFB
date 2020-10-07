@@ -95,7 +95,7 @@ class Functions {
 	    
         $dompdf->set_paper('A4', 'portrait');
         $dompdf->render();
-        $dompdf->stream("nome-do-arquivo.pdf", ["Attachment" => false]);
+        $dompdf->stream("Aproveitamento_de_estudos_IFB.pdf", ["Attachment" => false]);
     }
     
 

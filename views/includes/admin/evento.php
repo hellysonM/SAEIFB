@@ -6,7 +6,7 @@
             <div class="divider"></div>
             <br>
 
-            <form  method="POST" action="/Admin/inserirEvento">
+            <form  method="POST" action="<?=HOME_URL?>/Admin/inserirEvento">
             <div class="card blue">
                 <div class="card-content white-text">
                     <p>Para permitir que novas solicitações sejam enviadas é necessários definir um novo evento com período de tempo pré determinado.

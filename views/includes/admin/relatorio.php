@@ -5,22 +5,19 @@
 	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
 </head>
 <style>
-    
-    
+  
     body{
         margin: 10px;
         font-family: "Trebuchet MS", Helvetica, sans-serif;
 
         
     }
-    
-    
+       
     h1{
         text-align: center;
         
     }
     
-   
 #table {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -43,10 +40,7 @@
   background-color: #4CAF50;
   color: white;
 }
-
-    
    
-    
 </style>
 
 <body>
@@ -61,8 +55,6 @@ $admin = new Administrador();
 $retorno = $admin->aproveitamentoPDF();
 
 foreach ($retorno[0] as $linha){
-
-
 
 ?>
         <tr>
@@ -89,10 +81,6 @@ foreach ($retorno[0] as $linha){
             <td>Data da solicitação</td>
             <td><?=$linha['Data']?></td> 
         </tr>
-        
-     
-
-
     </table>
     
     
@@ -101,9 +89,6 @@ foreach ($retorno[0] as $linha){
     
     
      <table id="table">
-
-
-
 
         <tr>
             <td>Professor</td>
@@ -127,8 +112,6 @@ foreach ($retorno[0] as $linha){
          <?php 
  
  }
- 
-
  
  ?>
 
@@ -157,8 +140,7 @@ foreach ($retorno[0] as $linha){
    ?>     <tr>
             <td><?=$materia['Nome']?></td>
             <td><?=$materia['Origem']?></td>
-            <td><?php
-                
+            <td><?php    
                 
                 if($materia['Status']==1){
                     echo "Deferido";
@@ -169,13 +151,7 @@ foreach ($retorno[0] as $linha){
                 }else{
                     echo "Um erro ocorreu";
                 }
-           
-           
-           
-           
-           
-           
-           
+          
            ?></td> 
         </tr>
         
@@ -192,7 +168,7 @@ foreach ($retorno[0] as $linha){
     <br>
     <footer>
         
-        <img src="views/img/assCampusBrasilia.png">
+        <img src="<?=HOME_URL?>/views/img/assCampusBrasilia.png">
         
     </footer>
     

@@ -5,7 +5,7 @@
         </div>
     
         
-    <form  method="POST" action="/Usuario/AlterarEmail" id="alterar_email">
+    <form  method="POST" action="<?=HOME_URL?>/Usuario/AlterarEmail" id="alterar_email">
                     <div class="input-field col s6 offset-s1">
                         
                         <input id="password" name="Email" type="email" class="validate" required minlength="" maxlength="">
@@ -69,7 +69,7 @@
                         });
                     } else {
 
-                        window.location.href = "/Dashboard/Aluno/Alterado";
+                        window.location.href = "<?=HOME_URL?>/Dashboard/Aluno/Alterado";
                     }
                 },
                 error: function (data) {

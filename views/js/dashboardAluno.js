@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    const PATH_NAME = window.location.pathname
+    const HOME_URL = PATH_NAME.replace(/\/Dashboard.*/,'')
+
 /*
 $(window).on('load', function() {
             $('.progress').delay(300).fadeOut('slow');
@@ -67,7 +70,7 @@ $(window).on('load', function() {
                     });
                 } else {
 
-                    window.location.href = "/Dashboard/Aluno/Acompanhar";
+                    window.location.href = HOME_URL+"/Dashboard/Aluno/Acompanhar";
 
 
                 }
@@ -119,7 +122,7 @@ $(window).on('load', function() {
 
         $.ajax({
             type: 'POST',
-            url: '/Aluno/Perfil/' + file,
+            url: HOME_URL+'/Aluno/Perfil/' + file,
 
             beforeSend: function () {
 

@@ -128,7 +128,7 @@ abstract class UsuarioAdministrador extends Usuario {
         $query->execute();
 
 
-        header("Location: /Dashboard/Admin/Evento");
+        header("Location: ".HOME_URL."/Dashboard/Admin/Evento");
     }
 
     public function listEvento() {
@@ -151,7 +151,7 @@ abstract class UsuarioAdministrador extends Usuario {
         $query->bindParam(":id", $id, PDO::PARAM_STR);
         $query->execute();
 
-        header("Location: /Dashboard/Admin/Evento");
+        header("Location:".HOME_URL." /Dashboard/Admin/Evento");
     }
 
     public function statusEvento() {
@@ -727,7 +727,7 @@ abstract class UsuarioAdministrador extends Usuario {
                 "Servidor" => $row['Servidor'],
                 "Professor" => $row['Professor'],
                 "DataServidor" => $row['DataServidor'],
-                "Relatório" => '<a href="#"  id="' . $row["ID"] . '" onclick="return abrirPopup(\'/'.URL[0].'/gerarRelatorio/' . sha1($row["ID"]) . '  \', 1280, 720) "><i class="material-icons"> &nbsp;&nbsp;assignment</i></a>',
+                "Relatório" => '<a href="#"  id="' . $row["ID"] . '" onclick="return abrirPopup(\''.HOME_URL.'/'.URL[0].'/gerarRelatorio/' . sha1($row["ID"]) . '\', 1280, 720) "><i class="material-icons"> &nbsp;&nbsp;assignment</i></a>',
             );
         }
 

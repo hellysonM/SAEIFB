@@ -19,15 +19,9 @@ $aluno->checkSolicitacao(3);
 
 
 
-            <form action="/Aluno/InserirSolicitacao/<?= URL[3] ?>" id="inserir_solicitacao" method="POST" enctype="multipart/form-data" class="">  
+            <form action="<?=HOME_URL?>/Aluno/InserirSolicitacao/<?=URL[3]?>" id="inserir_solicitacao" method="POST" enctype="multipart/form-data" class="">  
                 <div class="row">
                     <div class="divider"></div>
-
-
-
-                   
-
-
 
                         <div class="section grey lighten-5">
                             <div class="container">

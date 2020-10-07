@@ -15,13 +15,13 @@ class Aluno extends Usuario {
         
         if(isset($_SESSION['tipo']) && isset($_SESSION['login']) && $_SESSION['tipo'] == 1 && $_SESSION['login'] == 'true' ){
             
-         header("Location: /Dashboard/Usuario/CompletarRegistro ");
+         header("Location:".HOME_URL."/Dashboard/Usuario/CompletarRegistro ");
          exit();
             
         }
         else if(!(isset($_SESSION['tipo'])) || !(isset($_SESSION['login'])) || $_SESSION['tipo'] != 2 || $_SESSION['login'] != 'true'){
             
-            header("Location: / ");
+            header("Location: ".HOME_URL."/ ");
             
             exit();
             
@@ -68,15 +68,15 @@ class Aluno extends Usuario {
 
         if ($retorno['Finalizado'] == 1) {
 
-            header("Location: / ");
+            header("Location: ".HOME_URL."/ ");
             exit();
         } else if (strtotime($date) < strtotime($retorno['DataInicio'])) {
 
-            header("Location: / ");
+            header("Location:".HOME_URL." / ");
             exit();
         } else if (strtotime($date) >= strtotime($retorno['DataTermino'])) {
 
-            header("Location: / ");
+            header("Location: ".HOME_URL." / ");
             exit();
         } else {
 
@@ -89,7 +89,7 @@ class Aluno extends Usuario {
             $retorno = $queryValidarURL->fetchAll();
 
             if (count($retorno) != 1) {
-                header("Location: / ");
+                header("Location: ".HOME_URL." / ");
                 exit();
             };
        
@@ -214,10 +214,7 @@ class Aluno extends Usuario {
 
             foreach ($_POST['materia'] as $materia) {
 
-
                 if (!empty($materia['origem'])) {
-
-
 
                     $query = $this->con->con()->prepare("INSERT INTO `solicitacao_materia` (`IDMateria`,`MateriaOrigem`,`IDSolicitacao`) values (:id,:origem,:idsol)");
                     $query->bindParam(":id", $materia['ifb'], PDO::PARAM_INT);
@@ -228,15 +225,10 @@ class Aluno extends Usuario {
             }
         }
 
-
-
         if (isset($_POST['UploadForm']) && count($_FILES['fileToUpload']['tmp_name']['file']) == 0) {
-
-
 
             $retorno = array('codigo' => 1, 'mensagem' => 'Você não enviou nenhum arquivo');
             echo json_encode($retorno);
-
 
             return 0;
         }
@@ -267,7 +259,7 @@ class Aluno extends Usuario {
 
 
 
-            $target_dir = "views/uploads/" . sha1($_SESSION['id']) . "/";
+            $target_dir = UPABSPATH ."/". sha1($_SESSION['id']) . "/";
 
             if (!is_dir($target_dir)) {
                 mkdir($target_dir, 0777, true);
@@ -389,15 +381,15 @@ class Aluno extends Usuario {
 
         if ($retorno['Finalizado'] == 1) {
 
-            header("Location: / ");
+            header("Location:".HOME_URL." / ");
             exit();
         } else if (strtotime($date) < strtotime($retorno['DataInicio'])) {
 
-            header("Location: / ");
+            header("Location:".HOME_URL." / ");
             exit();
         } else if (strtotime($date) >= strtotime($retorno['DataTermino'])) {
 
-            header("Location: / ");
+            header("Location:".HOME_URL." / ");
             exit();
         } else {
             
@@ -413,7 +405,7 @@ class Aluno extends Usuario {
             $retorno = $queryValidarURL->fetchAll();
 
             if (count($retorno) != 1) {
-                header("Location: / ");
+                header("Location: ".HOME_URL."/ ");
                 exit();
             };
             

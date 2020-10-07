@@ -52,7 +52,7 @@
             <div class="divider"></div>
 
             <div class="row">
-            <form action="/Admin/inserirMateria" method="post" id="inserirmateria">
+            <form action="<?=HOME_URL?>/Admin/inserirMateria" method="post" id="inserirmateria">
 
             
                 <div class="input-field">
@@ -116,7 +116,7 @@
             <div class="divider"></div>
 
             <div class="row">
-            <form action="/Admin/alterarMateria" method="post" id="alterar_materia">
+            <form action="<?=HOME_URL?>/Admin/alterarMateria" method="post" id="alterar_materia">
 
             
                 <div class="input-field">

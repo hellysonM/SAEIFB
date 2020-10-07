@@ -30,7 +30,7 @@ class Usuario {
     public static function authenticateUsuario(){
         session_start();
         if (isset($_SESSION['login']) && $_SESSION['login'] == 'true' && URL[0]!="Portal") {
-            header("Location: /Dashboard ");
+            header("Location:".HOME_URL."/Dashboard ");
         }
     }
     
@@ -233,7 +233,7 @@ class Usuario {
         try {
             
             if (!isset($_POST['cpf']) || !isset($_POST['senha'])) {
-                header("Location: /");
+                header("Location:".HOME_URL." /");
                 return 0;
             }
 
@@ -290,7 +290,7 @@ class Usuario {
     public function logoutUsuario() {
         session_unset();
         session_destroy();
-        header("Location: / ");
+        header("Location:".HOME_URL." / ");
     }
 
     public function statusUsuario($logado) {
@@ -428,7 +428,7 @@ class Usuario {
    
    public function destroySession() {
         session_destroy();
-        header("Location: / ");
+        header("Location:".HOME_URL."/");
     }
 
     

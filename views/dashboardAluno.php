@@ -11,7 +11,7 @@ $aluno = new Aluno();
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>views/css/dashboardAluno.css"/>
+        <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>/views/css/dashboardAluno.css"/>
         <link rel="stylesheet" href="https://unpkg.com/materialize-stepper@3.1.0/dist/css/mstepper.min.css">
 
     </head>
@@ -21,7 +21,7 @@ $aluno = new Aluno();
                 <div class="nav-wrapper  cyan darken-1">
                     <a data-target="slide-out" class=" sidenav-trigger show-on-large btn-floating btn-large waves-effect waves-light  cyan darken-1"><i class="material-icons">menu</i></a>
                     <!-- <a href="#" data-target="slide-out" class="waves-light  sidenav-trigger show-on-large"><i class="material-icons">menu</i></a> -->
-                    <a href="/" class="brand-logo center">Sae-IFB</a>
+                    <a href="<?=HOME_URL?>/" class="brand-logo center">Sae-IFB</a>
                     <ul id="nav-mobile" class="">
                     </ul>
                 </div>
@@ -35,15 +35,15 @@ $aluno = new Aluno();
                 <li>
                     <div class="user-view">
                         <div class="background">
-                            <img class="responsive-img" src="<?php echo HOME_URL ?>views/img/ifb-1.jpg">
+                            <img class="responsive-img" src="<?php echo HOME_URL ?>/views/img/ifb-1.jpg">
                         </div>
                         <a href="#user"><img class="circle"></a>
                         <a href="#name"><span class="white-text name"><?= $_SESSION['nome'] ?></span></a>
                         <a href="#email"><span class="white-text email"><?= $_SESSION['tipoNome'] ?></span></a>
                     </div>
                 </li>
-                <li><a href="/Usuario/Sair"><i class="material-icons">exit_to_app</i>Sair</a></li>
-                <li><a href="/Dashboard/Aluno/Perfil">Perfil<i class="material-icons">assignment_ind</i></a></li>
+                <li><a href="<?=HOME_URL?>/Usuario/Sair"><i class="material-icons">exit_to_app</i>Sair</a></li>
+                <li><a href="<?=HOME_URL?>/Dashboard/Aluno/Perfil">Perfil<i class="material-icons">assignment_ind</i></a></li>
                 <li>
                     <div class="divider"></div>
                 </li>
@@ -54,10 +54,10 @@ $aluno = new Aluno();
                             <a class="collapsible-header white-text waves-effect waves-blue active"><i class="material-icons white-text ">book</i>Aproveitamento de Estudos <i class="material-icons right white-text arrow-change" style="margin-right:0;">arrow_drop_down</i></a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="/Dashboard/Aluno/Solicitar">Solicitar<i class="material-icons">event_note</i></a></li>
-                                    <li><a href="/Dashboard/Aluno/Acompanhar">Acompanhar<i class="material-icons">date_range</i></a></li>
-                                    <li><a href="/Dashboard/Aluno/Ajuda">Ajuda<i class="material-icons">help</i></a></li>
-                                    <li><a href="/Dashboard/Aluno/ProjetoPedagogico">Planos de Curso<i class="material-icons">school</i></a></li>
+                                    <li><a href="<?=HOME_URL?>/Dashboard/Aluno/Solicitar">Solicitar<i class="material-icons">event_note</i></a></li>
+                                    <li><a href="<?=HOME_URL?>/Dashboard/Aluno/Acompanhar">Acompanhar<i class="material-icons">date_range</i></a></li>
+                                    <li><a href="<?=HOME_URL?>/Dashboard/Aluno/Ajuda">Ajuda<i class="material-icons">help</i></a></li>
+                                    <li><a href="<?=HOME_URL?>/Dashboard/Aluno/ProjetoPedagogico">Planos de Curso<i class="material-icons">school</i></a></li>
                                    
                                     <li>
                                         <div class="divider "></div>
@@ -149,12 +149,12 @@ $aluno = new Aluno();
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Mapa do Site</h5>
                         <ul>
-                            <li><a href="/Dashboard/aluno/Solicitar" class="modal-trigger white-text" >- Solicitar aproveitamento</a><br></li> 
+                            <li><a href="<?=HOME_URL?>/Dashboard/aluno/Solicitar" class="modal-trigger white-text" >- Solicitar aproveitamento</a><br></li> 
                             
-                            <li><a href="/Dashboard/aluno/ProjetoPedagogico" class="modal-trigger white-text" >- Planos de ensino</a></li>
-                            <li><a href="/Dashboard/aluno/Acompanhar" class="modal-trigger white-text" >- Acompanhar</a> </li>
+                            <li><a href="<?=HOME_URL?>/Dashboard/aluno/ProjetoPedagogico" class="modal-trigger white-text" >- Planos de ensino</a></li>
+                            <li><a href="<?=HOME_URL?>/Dashboard/aluno/Acompanhar" class="modal-trigger white-text" >- Acompanhar</a> </li>
                            
-                            <li><a href="/Dashboard/aluno/Ajuda" class="modal-trigger white-text" >- Ajuda</a></li>
+                            <li><a href="<?=HOME_URL?>/Dashboard/aluno/Ajuda" class="modal-trigger white-text" >- Ajuda</a></li>
 
 
                         </ul>
@@ -197,7 +197,7 @@ $aluno = new Aluno();
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="https://unpkg.com/materialize-stepper@3.1.0/dist/js/mstepper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-        <script type="text/javascript" src="<?php echo HOME_URL ?>views/js/dashboardAluno.js"></script> 
+        <script type="text/javascript" src="<?php echo HOME_URL ?>/views/js/dashboardAluno.js"></script> 
         <script>
 <?php
 if (isset(URL[2])) {

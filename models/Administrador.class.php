@@ -14,7 +14,7 @@ class Administrador extends UsuarioAdministrador {
 
         if(!(isset($_SESSION['tipo'])) || !(isset($_SESSION['login'])) || $_SESSION['tipo'] != 4 || $_SESSION['login'] != 'true'){
             
-            header("Location: / ");
+            header("Location:".HOME_URL." / ");
             
             exit();
             

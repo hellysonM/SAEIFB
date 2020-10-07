@@ -12,23 +12,23 @@ class DashBoardController {
                 
                 case 1:
             
-                    header('location: /Dashboard/Usuario');
+                    header('location:' .HOME_URL. '/Dashboard/Usuario');
                     break;
 
                 case 2:
-                    header('location: /Dashboard/Aluno');
+                    header('location: ' .HOME_URL. '/Dashboard/Aluno');
                     break;
 
                 case 3:
-                    header('location: /Dashboard/Professor');
+                    header('location: ' .HOME_URL. '/Dashboard/Professor');
                     break;
 
                 case 4:
-                    header('location: /Dashboard/Admin');
+                    header('location: ' .HOME_URL. '/Dashboard/Admin');
                     break;
                 
                 case 5:
-                    header('location: /Dashboard/Servidor');
+                    header('location: ' .HOME_URL. '/Dashboard/Servidor');
                     break;
             }
         } 

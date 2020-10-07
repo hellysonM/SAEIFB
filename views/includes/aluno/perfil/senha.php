@@ -1,6 +1,6 @@
 <div class="row">
     
-    <form  method="POST" action="/Usuario/AlterarSenha" id="alterar_senha">
+    <form  method="POST" action="<?=HOME_URL?>/Usuario/AlterarSenha" id="alterar_senha">
     <div class="input-field col s6 offset-s1">
         <input value="" id="disabled" type="password" class="validate" name="senha_atual" required>
         <label for="disabled">Senha atual</label>
@@ -69,7 +69,7 @@
                         });
                     } else {
 
-                        window.location.href = "/Dashboard/Aluno/Alterado";
+                        window.location.href = "<?=HOME_URL?>/Dashboard/Aluno/Alterado";
                     }
                 },
                 error: function (data) {

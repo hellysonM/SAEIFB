@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+    const URL = window.location.pathname
+    console.log(URL)
               
     $("#buscar").click(function () {
 
@@ -14,9 +17,6 @@ $(document).ready(function(){
         });
 
     });
-    
-  
-      
        
     $("a").on('click', function (event) {
         if (this.hash !== "") {
@@ -78,7 +78,7 @@ $(document).ready(function(){
                 success: function (response) {
     
                     if (response.codigo == "0") {
-                        window.location.href = "/Dashboard";
+                        window.location.href = URL+"/Dashboard";
                     } else {
 
                         $.dialog({
@@ -86,7 +86,6 @@ $(document).ready(function(){
                             icon: 'fa fa-warning',
                             title: 'Erro ao processar',
                             content: response.mensagem,
-
                         });                                              
                     }
                 },
@@ -126,7 +125,7 @@ $(document).ready(function(){
                         });
                         
                     }else {
-                        window.location.href = "/Dashboard/Usuario/Welcome";
+                        window.location.href = URL+"/Dashboard/Usuario/Welcome";
                     }
 
                 },
@@ -143,7 +142,7 @@ $(document).ready(function(){
             columnClass: 'col s12 m6 offset-m3',
             title: 'Recuperar Senha',
             content: 'Digite seu E-mail para uma nova senha gerada ser enviada' +
-                    '<form action="/Usuario/NovaSenha" method="POST" class="formName" id="recuperar_senha">' +
+                    '<form action="'+URL+'/Usuario/NovaSenha" method="POST" class="formName" id="recuperar_senha">' +
                     '<div class="form-group">' +
                     '<input type="email" placeholder="Seu E-mail" class="name form-control" name="email" required />' +
                     '</div>' +
@@ -215,16 +214,4 @@ $(document).ready(function(){
         });
     });
 
-
-
-      
-
-
-
-
-
-
-
-
-              
 });

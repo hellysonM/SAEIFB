@@ -6,7 +6,8 @@ $config = parse_ini_file('ini-config.ini');
 
 
 define( 'ABSPATH', $config['ABSPATH'] );
-define( 'UP_ABSPATH', $config['UP_ABSPATH'] );
+define( 'UPABSPATH', $config['UPABSPATH'] );
+define( 'UPLOAD_URL', $config['UPLOAD_URL'] );
 define( 'HOME_URL', $config['HOME_URL']);
 define( 'HOSTNAME', $config['HOSTNAME']);
 define( 'DB_NAME', $config['DB_NAME'] );

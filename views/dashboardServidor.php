@@ -7,7 +7,7 @@ $servidor = new Servidor();
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">   
-        <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>views/css/dashboardServidor.css"/>
+        <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>/views/css/dashboardServidor.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script src='https://cdn.tiny.cloud/1/8ppklswk6m1vj83qk7tmvqicbjpqjserh1qr49smf38q5k5o/tinymce/5/tinymce.min.js' referrerpolicy="origin">
             <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css"/>
@@ -190,7 +190,7 @@ $servidor = new Servidor();
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
             <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-            <script type="text/javascript" src="<?php echo HOME_URL ?>views/js/dashboardServidor.js"></script>
+            <script type="text/javascript" src="<?php echo HOME_URL ?>/views/js/dashboardServidor.js"></script>
 
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>

@@ -71,7 +71,7 @@
             <h4>Alterar Curso</h4>
             <div class="divider"></div>
 
-            <form action="/Admin/AlterarCurso" method="post" id="alterarcurso">
+            <form action="<?=HOME_URL?>/Admin/AlterarCurso" method="post" id="alterarcurso">
 
             <div class="row">
                 <div class="input-field">
@@ -112,7 +112,7 @@
             <h4>Inserir Curso</h4>
             <div class="divider"></div>
 
-            <form action="/Admin/InserirCurso" method="post" id="inserircurso">
+            <form action="<?=HOME_URL?>/Admin/InserirCurso" method="post" id="inserircurso">
 
             <div class="row">
                 <div class="input-field">
@@ -162,7 +162,6 @@
 </div>
         </div>
 </div>
-
 
 
 

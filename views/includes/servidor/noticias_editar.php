@@ -16,7 +16,7 @@
                 
                 ?>
                 
-                <form id="inserir_noticia_form" class="col s12 xl6" method="POST" action="/Servidor/atualizarNoticia">
+                <form id="inserir_noticia_form" class="col s12 xl6" method="POST" action="<?=HOME_URL?>/Servidor/atualizarNoticia">
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">title</i>

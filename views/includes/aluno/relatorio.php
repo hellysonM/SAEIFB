@@ -194,7 +194,7 @@ foreach ($retorno[0] as $linha){
     <br>
     <footer>
         
-        <img src="views/img/assCampusBrasilia.png">
+        <img src="<?=HOME_URL?>/views/img/assCampusBrasilia.png">
         
     </footer>
     

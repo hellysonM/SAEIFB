@@ -20,7 +20,7 @@
                 <div class="nav-wrapper deep-orange">
 
                     <ul class="left">
-                        <li><a href="/Dashboard/Professor/Perfil">Perfil</a></li>
+                        <li><a href="<?=HOME_URL?>/Dashboard/Professor/Perfil">Perfil</a></li>
 
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Preferências<i class="material-icons right">arrow_drop_down</i></a></li>

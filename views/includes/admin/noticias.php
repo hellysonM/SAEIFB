@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 
-                <form id="inserir_noticia_form" class="col s12 xl6 hide" method="POST" action="/Admin/inserirNoticia">
+                <form id="inserir_noticia_form" class="col s12 xl6 hide" method="POST" action="<?=HOME_URL?>/Admin/inserirNoticia">
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">title</i>

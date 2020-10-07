@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-
+    const PATH_NAME = window.location.pathname
+    const HOME_URL = PATH_NAME.replace(/\/Dashboard.*/,'')
 
   $('.collapsible-header').click(function () {
         var parent_child = $(this);
@@ -48,7 +49,6 @@ $(document).ready(function () {
     });
 
 
-});
 
 (function (window, document, undefined) {
 
@@ -233,9 +233,6 @@ $(document).ready(function () {
 
 })(window, document);
 
-$(document).ready(function () {
-
-  
     $('#nova_solicitacao').dataTable({
         "oLanguage": {
             "sStripClasses": "",
@@ -260,7 +257,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "/Professor/ListarSolicitacao/",
+            "url": HOME_URL+"/Professor/ListarSolicitacao/",
             "type": "POST"
         },
         bAutoWidth: false,
@@ -294,7 +291,7 @@ $(document).ready(function () {
 
                         $.ajax({
                             type: 'POST',
-                            url: '/Professor/avaliarSolicitacao/' + id,
+                            url: HOME_URL+'/Professor/avaliarSolicitacao/' + id,
                             data: form_data,
 
                             contentType: false,
@@ -303,7 +300,7 @@ $(document).ready(function () {
                             },
                             success: function (response) {
                                 console.log('Submission was successful.');
-                                window.location.href = "/Dashboard/Professor/NovasSolicitacoes";
+                                window.location.href = HOME_URL+"/Dashboard/Professor/NovasSolicitacoes";
 
                             },
                             error: function (data) {
@@ -345,7 +342,7 @@ $(document).ready(function () {
 
                         $.ajax({
                             type: 'POST',
-                            url: '/Professor/avaliarSolicitacaoDocInc/' + id,
+                            url: HOME_URL+'/Professor/avaliarSolicitacaoDocInc/' + id,
                             data: form_data,
 
                             contentType: false,
@@ -354,7 +351,7 @@ $(document).ready(function () {
                             },
                             success: function (response) {
                                 console.log('Submission was successful.');
-                                window.location.href = "/Dashboard/Professor/NovasSolicitacoes";
+                                window.location.href = HOME_URL+"/Dashboard/Professor/NovasSolicitacoes";
 
                             },
                             error: function (data) {
@@ -382,7 +379,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/Professor/Perfil/' + file,
+            url: HOME_URL+'/Professor/Perfil/' + file,
 
             beforeSend: function () {
                 $("#loader").removeClass("hide");

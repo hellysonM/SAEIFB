@@ -92,7 +92,7 @@ $professor->checkSolicitacao(3);
 
                             foreach ($retorno[0] as $caminho) {
 
-                                $caminho_final = "/views/uploads/" . sha1($id_usuario) . "/" . $caminho['Caminho'];
+                                $caminho_final = HOME_URL."/views/uploads/" . sha1($id_usuario) . "/" . $caminho['Caminho'];
                                 ?>
 
                                 <tr>

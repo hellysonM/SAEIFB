@@ -4,7 +4,7 @@
         <div class="row">
 
             <div class="row">
-                <form id="alterar_curso" class="col s12" method="POST" action="/Aluno/AlterarCurso">
+                <form id="alterar_curso" class="col s12" method="POST" action="<?=HOME_URL?>/Aluno/AlterarCurso">
 
                     <div class="col s12">
                         <b>Curso matriculado(é possível selecionar mais de uma opção).</b><br>
@@ -102,11 +102,7 @@
                                             </select>
                                             <label>Selecionar Ano de ingresso</label>
                                         </div>
-
-
                                     </div>         
-
-
                                 </span></div>
                         </li>
 
@@ -115,29 +111,13 @@
                     <div class="container center-align">
                         <button type="submit" class="waves-effect waves-light btn blue" ><i class="material-icons left">exit_to_app</i>Alterar</button >
                     </div>
-
-
                 </form>
             </div>
-
-
-
-
-
-
-
         </div>
-
-
-
-
     </div>
     <div>
     </div>
-
 </div>
-
-
 
 <script>
   $(document).ready(function(){
@@ -177,9 +157,7 @@
                     });
                 } else {
 
-                    window.location.href = "/Dashboard/Aluno/Alterado";
-
-
+                    window.location.href = "<?=HOME_URL?>/Dashboard/Aluno/Alterado";
                 }
 
             },
@@ -191,16 +169,6 @@
                 $("#loading").addClass("hide");
             }
         })
-    });
- 
-     
-     
-     
-     
-     
-     
-     
-     
-     
+    }); 
   });
 </script>
