@@ -25,7 +25,7 @@ $professor = new Professor();
 
                         <a data-target="slide-out" class=" sidenav-trigger show-on-large btn-floating btn-large waves-effect waves-light deep-orange darken-1"><i class="material-icons">menu</i></a>
                           <!-- <a href="#" data-target="slide-out" class="waves-light  sidenav-trigger show-on-large"><i class="material-icons">menu</i></a> -->
-                        <a href="/" class="brand-logo center">Sae-IFB</a>
+                        <a href="<?=HOME_URL?>/" class="brand-logo center">Sae-IFB</a>
 
                         <ul id="nav-mobile" class="">
 
@@ -34,33 +34,26 @@ $professor = new Professor();
                 </nav>
             </header>
 
-
-
-
-
             <ul id="slide-out" class="sidenav ">
                 <li><div class="user-view">
                         <div class="background">
-                            <img class="responsive-img" src="<?php echo HOME_URL ?>views/img/ifb-1.jpg">
+                            <img class="responsive-img" src="<?php echo HOME_URL ?>/views/img/ifb-1.jpg">
                         </div>
                         <a href="#user"><img></a>
                         <a href="#name"><span class="white-text name"><?= $_SESSION['nome'] ?></span></a>
                         <a href="#email"><span class="white-text email"><?= $_SESSION['tipoNome'] ?></span></a>
                     </div></li>
-                <li><a href="/Usuario/Sair"><i class="material-icons">exit_to_app</i>Sair</a></li>
-                <li><a href="/Dashboard/Professor/Perfil">Perfil<i class="material-icons">assignment_ind</i></a></li>
+                <li><a href="<?=HOME_URL?>/Usuario/Sair"><i class="material-icons">exit_to_app</i>Sair</a></li>
+                <li><a href="<?=HOME_URL?>/Dashboard/Professor/Perfil">Perfil<i class="material-icons">assignment_ind</i></a></li>
                 <li><div class="divider"></div></li>
-                <li><a href="/">Início<i class="material-icons">home</i></a></li>
+                <li><a href="<?=HOME_URL?>/">Início<i class="material-icons">home</i></a></li>
                 <li class="no-padding deep-orange darken-1 " >
                     <ul class=" collapsible collapsible-accordion  ">
                         <li>
                             <a class="collapsible-header white-text waves-effect waves-deep-orange active"><i class="material-icons white-text ">book</i>Aproveitamento de Estudos <i class="material-icons right white-text arrow-change" style="margin-right:0;">arrow_drop_down</i></a>
                             <div class="collapsible-body">
                                 <ul>
-
-
-                                    <li><a href="/Dashboard/Professor/NovasSolicitacoes">Novas Solicitações<i class="material-icons">new_releases</i></a></li>
-                                   
+                                    <li><a href="<?=HOME_URL?>/Dashboard/Professor/NovasSolicitacoes">Novas Solicitações<i class="material-icons">new_releases</i></a></li>      
                                     <li><div class="divider"></div></li>
 
                                 </ul>
@@ -68,9 +61,7 @@ $professor = new Professor();
                         </li>
                     </ul>
                 </li>
-              
             </ul>
-
 
             <main>  
                 <section class="section">
@@ -78,9 +69,7 @@ $professor = new Professor();
                     <?php
                     if (isset(URL[2])) {
                         switch (URL[2]) {
-                            
-                        
-
+                                 
                             case "Perfil":
                                 include 'views/includes/professor/perfil.php';
                                 break;
@@ -94,8 +83,6 @@ $professor = new Professor();
                             }
 
                             break;
-
-                            
                            
                         }
                     } else {
@@ -103,12 +90,6 @@ $professor = new Professor();
                         include "views/includes/professor/inicio.php";
                     }
                     ?>
-
-
-
-
-
-
 
                 </section>
 
@@ -132,29 +113,9 @@ $professor = new Professor();
                 <div class="footer-copyright">
                     <div class="container">
                         © 2020 SAE-IFB - Todos os direitos reservados - Melhor visualizado em 1920x1080.
-
-
-
-
-
-
-
-
                     </div>
                 </div>
             </footer>
-
-
-
-
-
-
-
-
-
-
-
-
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
@@ -190,10 +151,5 @@ $professor = new Professor();
       ";
             }
             ?>        
-
-
-
-
-
         </body>
     </html>

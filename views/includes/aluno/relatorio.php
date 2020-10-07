@@ -63,9 +63,6 @@ $aluno = new Aluno();
 $retorno = $aluno->aproveitamentoPDF();
 
 foreach ($retorno[0] as $linha){
-
-
-
 ?>
         <tr>
             <td>Aluno</td>
@@ -92,21 +89,13 @@ foreach ($retorno[0] as $linha){
             <td><?=$linha['Data']?></td> 
         </tr>
         
-     
-
-
     </table>
     
     
     <br>
-    <br>
-    
+    <br> 
     
      <table id="table">
-
-
-
-
         <tr>
             <td>Professor</td>
             <td><?=$linha['Professor']?></td> 
@@ -129,8 +118,6 @@ foreach ($retorno[0] as $linha){
          <?php 
  
  }
- 
-
  
  ?>
 
@@ -172,12 +159,6 @@ foreach ($retorno[0] as $linha){
                     echo "Um erro ocorreu";
                 }
            
-           
-           
-           
-           
-           
-           
            ?></td> 
         </tr>
         
@@ -194,7 +175,7 @@ foreach ($retorno[0] as $linha){
     <br>
     <footer>
         
-        <img src="<?=HOME_URL?>/views/img/assCampusBrasilia.png">
+        <img src="views/img/assCampusBrasilia.png">
         
     </footer>
     

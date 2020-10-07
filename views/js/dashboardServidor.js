@@ -212,7 +212,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/Servidor/Perfil/' + file,
+            url: HOME_URL+'/Servidor/Perfil/' + file,
 
             beforeSend: function () {
                 $("#loader").removeClass("hide");
@@ -306,7 +306,7 @@ $(document).ready(function () {
                             },
                             success: function (response) {
                                 console.log('Submission was successful.');
-                                window.location.href = "/Dashboard/Servidor/SolicitacoesAvaliadas";
+                                window.location.href = HOME_URL+"/Dashboard/Servidor/SolicitacoesAvaliadas";
 
                             },
                             error: function (data) {

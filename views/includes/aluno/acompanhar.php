@@ -49,7 +49,7 @@
                                             <?php
                                             if ($solicitacao['Status'] == 4 || $solicitacao['Status'] == 6) {
 
-                                                echo '<spam class="cyan-text text-darken-2">Comprovante</spam> <a class="btn-floating btn-small waves-effect waves-light green" onclick="return abrirPopup(\'/Aluno/gerarRelatorio/' . sha1($solicitacao["ID"]) . '  \', 1280, 720) "><i class="material-icons">assignment</i></a>';
+                                                echo '<spam class="cyan-text text-darken-2">Comprovante</spam> <a class="btn-floating btn-small waves-effect waves-light green" onclick="return abrirPopup(\''.HOME_URL.'/Aluno/gerarRelatorio/' . sha1($solicitacao["ID"]) . '  \', 1280, 720) "><i class="material-icons">assignment</i></a>';
                                             }
                                             ?>
                                         </div>    
