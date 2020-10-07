@@ -2,7 +2,6 @@ $(document).ready(function () {
 
     const PATH_NAME = window.location.pathname
     const HOME_URL = PATH_NAME.replace(/\/Dashboard.*/,'')
-    alert(HOME_URL)
 
     $('.dropdown-trigger').dropdown();
     $('.tabs').tabs();

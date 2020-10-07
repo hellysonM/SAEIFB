@@ -1,10 +1,6 @@
 $(document).ready(function(){
 
      var HOME_URL = window.location.pathname
-     if(HOME_URL=="/"){
-        HOME_URL = ""
-     }
-         
 
     $("#buscar").click(function () {
 
@@ -81,7 +77,7 @@ $(document).ready(function(){
                 success: function (response) {
     
                     if (response.codigo == "0") {
-                        window.location.href = HOME_URL+"/Dashboard";
+                        window.location.href = HOME_URL+"Dashboard";
                     } else {
 
                         $.dialog({
@@ -128,7 +124,7 @@ $(document).ready(function(){
                         });
                         
                     }else {
-                        window.location.href = HOME_URL+"/Dashboard/Usuario/Welcome";
+                        window.location.href = HOME_URL+"Dashboard/Usuario/Welcome";
                     }
 
                 },
@@ -145,7 +141,7 @@ $(document).ready(function(){
             columnClass: 'col s12 m6 offset-m3',
             title: 'Recuperar Senha',
             content: 'Digite seu E-mail para uma nova senha gerada ser enviada' +
-                    '<form action="'+HOME_URL+'/Usuario/NovaSenha" method="POST" class="formName" id="recuperar_senha">' +
+                    '<form action="'+HOME_URL+'Usuario/NovaSenha" method="POST" class="formName" id="recuperar_senha">' +
                     '<div class="form-group">' +
                     '<input type="email" placeholder="Seu E-mail" class="name form-control" name="email" required />' +
                     '</div>' +
