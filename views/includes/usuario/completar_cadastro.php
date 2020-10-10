@@ -64,8 +64,6 @@
                             <div class="collapsible-header"><i class="material-icons">build</i>Técnico</div>
                             <div class="collapsible-body"><span>
 
-
-
                                     <div class="row">
 
                                         <div class="input-field col s12">
@@ -80,10 +78,6 @@
                                                     <option value="<?= $curso['ID'] ?>"><?= $curso['Nome'] ?></option>
 
                                                 <?php } ?>
-
-
-
-
 
                                             </select>
                                             <label>Selecionar curso</label>
@@ -107,26 +101,17 @@
                                             </select>
                                             <label>Selecionar Ano de ingresso</label>
                                         </div>
-
-
                                     </div>         
-
-
                                 </span></div>
                         </li>
-
                     </ul>
-
-
-
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_box</i>
                         <input type="text" id="numero" name="Matricula" class="validate"  pattern="[0-9]+$" minlength="12" maxlength="12" required>
-                        <span class="helper-text" data-error="Insira somente números" data-success="">Insira sua matricula</span>
+                        <span class="helper-text" data-error="Matrícula incorreta. A matrícula possui 12 números" data-success="">Insira sua matricula</span>
                         <label for="numero">Matricula</label>
                     </div>    
-
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">call</i>
@@ -139,23 +124,10 @@
                         <button type="submit" class="waves-effect waves-light btn" ><i class="material-icons left">exit_to_app</i>Cadastrar-se</button >
                     </div>
 
-
                 </form>
             </div>
-
-
-
-
-
-
-
         </div>
-
-
-
-
     </div>
     <div>
     </div>
-
 </div>

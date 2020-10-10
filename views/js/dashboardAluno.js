@@ -3,13 +3,6 @@ $(document).ready(function () {
     const PATH_NAME = window.location.pathname
     const HOME_URL = PATH_NAME.replace(/\/Dashboard.*/,'')
 
-/*
-$(window).on('load', function() {
-            $('.progress').delay(300).fadeOut('slow');
-            $('.indeterminate').delay(300).fadeOut();
-            $('section').delay(300).fadeIn('slow');
-        });*/
-
     $('.dropdown-trigger').dropdown();
     $('.tabs').tabs();
     $('select').formSelect();
@@ -31,6 +24,7 @@ $(window).on('load', function() {
 
     });
 
+    $('#aluno_collapsible').collapsible('open', 0);
 
     $('#inserir_solicitacao').submit(function (event) {
         event.preventDefault(); 
@@ -45,8 +39,6 @@ $(window).on('load', function() {
             contentType: false,
             processData: false,
             beforeSend: function () {
-
-
             },
             success: function (response) {
                 console.log('Submission was successful.');
@@ -65,30 +57,23 @@ $(window).on('load', function() {
                                 action: function () {
                                 }
                             },
-
                         }
                     });
                 } else {
 
                     window.location.href = HOME_URL+"/Dashboard/Aluno/Acompanhar";
-
-
                 }
 
 
             },
             error: function (data) {
                 console.log('An error occurred.');
-
             },
             complete: function () {
                 $("#loading").addClass("hide");
             }
         })
     });
-
-
-
 
     var max_fields = 5; 
     var wrapper = $("#div_adicionar"); 
@@ -105,15 +90,9 @@ $(window).on('load', function() {
 
     $(wrapper).on("click", ".remove_field", function (e) {
 
-
         e.preventDefault();
-
         var id = $(this).attr("data-id");
-
-
-
         $(`#${id}`).remove();
-
         x--;
     });
 
@@ -125,9 +104,7 @@ $(window).on('load', function() {
             url: HOME_URL+'/Aluno/Perfil/' + file,
 
             beforeSend: function () {
-
                 $("#loader").removeClass("hide");
-
             },
 
             success: function (data) {
@@ -150,12 +127,9 @@ $(window).on('load', function() {
                         $(this).removeClass("invalid").addClass("valid");
                     }
                 });
-
             }
         });
-
     });
-
 
     $('#alterar_email').submit(function (event) {
 
@@ -185,11 +159,9 @@ $(window).on('load', function() {
                                 action: function () {
                                 }
                             },
-
                         }
                     });
                 } else {
-
                     window.location.href = "/Dashboard/Aluno/Alterado";
                 }
             },
@@ -231,7 +203,6 @@ $(window).on('load', function() {
                                 action: function () {
                                 }
                             },
-
                         }
                     });
                 } else {
@@ -263,9 +234,6 @@ $(window).on('load', function() {
             contentType: false,
             processData: false,
             beforeSend: function () {
-
-
-
             },
             success: function (response) {
                 console.log('Submission was successful.');
@@ -288,11 +256,8 @@ $(window).on('load', function() {
                         }
                     });
                 } else {
-
                     window.location.href = "/Dashboard/Aluno/Acompanhar";
-
                 }
-
 
             },
             error: function (data) {
@@ -304,9 +269,7 @@ $(window).on('load', function() {
             }
         })
     });
-        
-        
-       
+              
 function toogleCheckBox() {
     
      var checkboxId = $(this).attr('id');
@@ -314,7 +277,6 @@ function toogleCheckBox() {
      
     if($(this).is(':checked')) {
        
-
       $(`#abaixo_do_${checkboxId}`).removeClass("hide");
       $(`#abaixo_do_${checkboxId} input`).attr('required','required');
  
@@ -326,9 +288,7 @@ function toogleCheckBox() {
        
     }
 }
-
     $('input[type=checkbox]').each(toogleCheckBox).change(toogleCheckBox);
-
 
 });
 
@@ -348,8 +308,6 @@ function noThing(destroyFeedback) {
 
 
 function validationFunction(stepperForm, activeStepContent) {
-   
-    
     
    var validation = true;
    var itens = document.querySelectorAll('input[type=checkbox]:checked');
@@ -404,8 +362,6 @@ function validationFunction(stepperForm, activeStepContent) {
        
    }
    
-   
-   
    var inputs = activeStepContent.querySelectorAll('input[type=file]');
  
    for (let i = 0; i < inputs.length; i++){
@@ -427,17 +383,10 @@ function validationFunction(stepperForm, activeStepContent) {
                 }
             }
         });
-          
-          return false;
-           
-       }
-       
-   }
-     
-  
-   return true; 
-    
- 
+          return false;         
+       }   
+   }   
+   return true;  
 }
 
 var stepperDiv = document.querySelector('.stepper');
