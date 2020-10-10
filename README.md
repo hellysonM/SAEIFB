@@ -5,7 +5,6 @@ Dependências Materialize, CSS ,JQUERY PHP MAILER, DOMPDF.
 10.4.13-MariaDB UTF-8 Unicode (utf8mb4)
 Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.2.31
 
-###############################################################################################################
 # INSTALAÇÃO 
 
 IMPORTE O ARQUIVO SQL PARA SEU BANCO DE DADOS.
