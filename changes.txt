@@ -29,7 +29,7 @@ Melhorias e pequenas correções
 -Correção de um problema de sintaxe envolvendo as tabelas e pesquisas ajax que fazia com que nenhum resultado fosse filtrado.
 -Alteração no design de algumas páginas.
 - Corrigido um bug critico que fazia com que ouvessem duplicatas da mesma solicitação quando enviada uma nova e o problema acontecia também quando uma solicitação era refeita.
-
+- Sistema de rotas corrigido. Agora os caminhos definidos no ini.config funcionam perfeitamente.
 
 Novas funcionalidades
 
