@@ -9,9 +9,15 @@ Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.2.31
 
 IMPORTE O ARQUIVO SQL PARA SEU BANCO DE DADOS.
 
-CONFIGURE O NOME DO SEU BANCO DE DADOS COM USUARIO E SENHA EM /lib/ini-config.ini
+CONFIGURE O NOME DO SEU BANCO DE DADOS COM USUARIO E SENHA EM /lib/ini-config.ini e o sistema de roteamento.
 
 REGISTRE-SE COMO USUÁRIO. Mude o campo Usuario.Tipo do banco de dados para 4(Usuário administrador). 
 
 OBS : TIPO 1 (USUARIO COMUM) TIPO 2 (ALUNO) - TIPO 3 (PROFESSOR) - TIPO 4 (ADMINISTRADOR) - TIPO 5 (SERVIDOR).
 
+OBS : Certifique-se que o strict mode do mysql esteja desabilitado.
+Do contrário, execute a seguinte linha no terminal do mysql:
+```
+SET GLOBAL sql_mode = '';
+
+```
