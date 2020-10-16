@@ -38,7 +38,7 @@ class Usuario {
         
         if(!(isset($_SESSION['tipo'])) || !(isset($_SESSION['login'])) || $_SESSION['tipo'] != 1 || $_SESSION['login'] != 'true'){
             
-            header("Location: / ");
+            header("Location:".HOME_URL." / ");
             
             exit();     
         }   
@@ -57,7 +57,7 @@ class Usuario {
 
         try {
             if (!isset($_POST['nome']) || !isset($_POST['email']) || !isset($_POST['cpf']) || !isset($_POST['senha'])) {
-                header("Location: /");
+                header("Location:".HOME_URL." /");
                 return 0;
             }
 
@@ -474,7 +474,7 @@ class Usuario {
         $retorno = $query->fetchAll();
    
         if(count($retorno)!= 1){
-            header("Location: /");
+            header("Location: ".HOME_URL." /");
         }
  
         return $retorno;
