@@ -15,6 +15,7 @@ define( 'DB_USER', $config['DB_USER'] );
 define( 'DB_PASSWD', $config['DB_PASSWD'] );
 define( 'DB_CHARSET', 'utf8' );
 define( 'DEBUG', $config['DEBUG']);
+define( 'MAINTENANCE', $config['MAINTENANCE']);
 
 
 ini_set('display_errors', DEBUG);
@@ -61,8 +62,11 @@ function loadClass($class_name) {
 spl_autoload_register("loadClass");
 
 //Início do Programa
+if(!MAINTENANCE)
 $app = new Application();
-
+else{
+    require_once ABSPATH . '/lib/includes/Maintenance/index.php';
+}
 
 
 
