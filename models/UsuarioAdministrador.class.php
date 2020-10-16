@@ -88,9 +88,6 @@ abstract class UsuarioAdministrador extends Usuario {
             );
         }
 
-
-
-
         ## Response
         $response = array(
             "draw" => intval($draw),
@@ -104,14 +101,10 @@ abstract class UsuarioAdministrador extends Usuario {
 
     public function insertEvento() {
 
-
         $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
         $datainicio = $this->functions->dataEmSql($_POST['data_inicio']);
         $datatermino = $this->functions->dataEmSql($_POST['data_fim']);
-
-
-
 
         $query = $this->con->con()->prepare("UPDATE evento set Finalizado =  1");
         $query->execute();
@@ -126,7 +119,6 @@ abstract class UsuarioAdministrador extends Usuario {
         $query->bindParam(":datatermino", $datatermino, PDO::PARAM_STR);
 
         $query->execute();
-
 
         header("Location: ".HOME_URL."/Dashboard/Admin/Evento");
     }
@@ -156,7 +148,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
     public function statusEvento() {
 
-
         $var = '0';
 
         $query = $this->con->con()->prepare("SELECT `Nome` from `evento` where `Finalizado` = :finalizado");
@@ -171,7 +162,6 @@ abstract class UsuarioAdministrador extends Usuario {
     }
 
     public function listCurso() {
-
 
         ## Read value
         $draw = $_POST['draw'];
@@ -220,8 +210,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $data = array();
 
-
-
         foreach ($empRecords as $row) {
 
             if ($row['Tipo'] == 1) {
@@ -241,9 +229,6 @@ abstract class UsuarioAdministrador extends Usuario {
             );
         }
 
-
-
-
         ## Response
         $response = array(
             "draw" => intval($draw),
@@ -259,12 +244,9 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $query = $this->con->con()->prepare("SELECT Nome,Descricao from `curso` where ID = :id");
 
-
         $query->bindValue(':id', $_POST['ID'], PDO::PARAM_INT);
         $query->execute();
         $retorno = $query->fetch();
-
-
 
         echo json_encode($retorno);
     }
@@ -303,9 +285,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
     public function updateCurso() {
 
-
-
-
         $query = $this->con->con()->prepare("UPDATE `curso` SET `Nome` = :nome, `Descricao` = :descricao
             where `ID` = :id");
 
@@ -336,8 +315,7 @@ abstract class UsuarioAdministrador extends Usuario {
         $query->execute();
     }
 
-    public function listMateria() {
-
+    public function listMateria(){
 
         ## Read value
         $draw = $_POST['draw'];
@@ -386,8 +364,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $data = array();
 
-
-
         foreach ($empRecords as $row) {
 
             $query = $this->con->con()->prepare("SELECT Nome from `curso` where ID = :id");
@@ -408,9 +384,6 @@ abstract class UsuarioAdministrador extends Usuario {
             );
         }
 
-
-
-
         ## Response
         $response = array(
             "draw" => intval($draw),
@@ -426,20 +399,14 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $query = $this->con->con()->prepare("SELECT Nome,Semestre,IDCurso from `materia` where ID = :id");
 
-
         $query->bindValue(':id', $_POST['ID'], PDO::PARAM_INT);
         $query->execute();
         $retorno = $query->fetch();
-
-
 
         echo json_encode($retorno);
     }
 
     public function updateMateria() {
-
-
-
 
         $query = $this->con->con()->prepare("UPDATE `materia` SET `Nome` = :nome, `Semestre` = :semestre,`IDCurso` = :curso
             where `ID` = :id");
@@ -453,15 +420,11 @@ abstract class UsuarioAdministrador extends Usuario {
 
     public function listUsuarioModal() {
 
-
         $query = $this->con->con()->prepare("SELECT Nome,Email,CPF,Tipo from `usuario` where ID = :id");
-
 
         $query->bindValue(':id', $_POST['ID'], PDO::PARAM_INT);
         $query->execute();
         $retorno = $query->fetch();
-
-
 
         echo json_encode($retorno);
     }
@@ -481,9 +444,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
     public function listSolicitacaoAvaliada() {
 
-
-
-
         ## Read value
         $draw = $_POST['draw'];
         $row = $_POST['start'];
@@ -494,8 +454,6 @@ abstract class UsuarioAdministrador extends Usuario {
         $searchValue = $_POST['search']['value']; // Search value
 
         $searchArray = array();
-
-
 
         ## Search 
         $searchQuery = " ";
@@ -536,12 +494,7 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $data = array();
 
-
-
         foreach ($empRecords as $row) {
-
-
-
             $data[] = array(
                 "Curso" => $row['Curso'],
                 "Nome" => $row['Nome'],
@@ -553,9 +506,6 @@ abstract class UsuarioAdministrador extends Usuario {
             );
         }
 
-
-
-
         ## Response
         $response = array(
             "draw" => intval($draw),
@@ -566,9 +516,7 @@ abstract class UsuarioAdministrador extends Usuario {
 
         echo json_encode($response);
     }
-
  
-
     public function listSolicitacaoDetalhes() {
 
         $id_solicitacao = URL[3];
@@ -579,18 +527,11 @@ abstract class UsuarioAdministrador extends Usuario {
         $query->execute();
         $retorno = $query->fetchAll();
 
-
-
-
         $query = $this->con->con()->prepare("SELECT materia.Nome as Nome,solicitacao_materia.MateriaOrigem as Origem,solicitacao_materia.Status as Status FROM solicitacao INNER JOIN solicitacao_materia on solicitacao_materia.IDSolicitacao = solicitacao.ID inner join materia on solicitacao_materia.IDMateria = materia.ID WHERE sha1(solicitacao.ID) = :id
 ");
         $query->bindParam(":id", $id_solicitacao, PDO::PARAM_STR);
         $query->execute();
         $retorno_materias = $query->fetchAll();
-
-
-
-
 
         return array($retorno, $retorno_materias);
     }
@@ -602,9 +543,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $query = $this->con->con()->prepare("SELECT usuario.ID as id_do_usuario from solicitacao INNER JOIN aluno_curso on solicitacao.IDAluno_curso = 
             aluno_curso.ID INNER JOIN aluno on aluno_curso.IDAluno = aluno.ID inner join usuario on aluno.IDUsuario = usuario.ID where sha1(solicitacao.id) = :id
-
-
-
 ");
         $query->bindParam(":id", $id_solicitacao, PDO::PARAM_STR);
         $query->execute();
@@ -614,8 +552,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
 
         $query = $this->con->con()->prepare("select Caminho,Descricao from arquivo_solicitacao where sha1(IDSolicitacao) = :id");
-
-
 
         $query->bindParam(":id", $id_solicitacao, PDO::PARAM_STR);
         $query->execute();
@@ -638,16 +574,10 @@ abstract class UsuarioAdministrador extends Usuario {
             $query->execute();
             $retorno = $query->fetch();
 
-
-
-
             if ($retorno[0] == "3") {
                 $status = 6;
             }
         }
-
-
-
 
         $query = $this->con->con()->prepare("update solicitacao set solicitacao.Status = :status,solicitacao.DataServidor = :data,solicitacao.IDServidor = :id_servidor  where sha1(ID) = :id");
 
@@ -663,7 +593,6 @@ abstract class UsuarioAdministrador extends Usuario {
     }
 
     public function listSolicitacaoAprovada() {
-
 
         ## Read value
         $draw = $_POST['draw'];
@@ -716,8 +645,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $data = array();
 
-
-
         foreach ($empRecords as $row) {
          
 
@@ -730,9 +657,6 @@ abstract class UsuarioAdministrador extends Usuario {
                 "Relatório" => '<a href="#"  id="' . $row["ID"] . '" onclick="return abrirPopup(\''.HOME_URL.'/'.URL[0].'/gerarRelatorio/' . sha1($row["ID"]) . '\', 1280, 720) "><i class="material-icons"> &nbsp;&nbsp;assignment</i></a>',
             );
         }
-
-
-
 
         ## Response
         $response = array(
@@ -747,21 +671,12 @@ abstract class UsuarioAdministrador extends Usuario {
 
     public function aproveitamentoPDF() {
 
-
-
-
         $id_solicitacao = URL[2];
-
 
         $query = $this->con->con()->prepare("SELECT solicitacao.ID as ID,usuario.Nome as Nome,aluno_curso.Ingresso as Ingresso,usuario.CPF as CPF,aluno.Matricula as Matricula,curso.Nome as Curso,(select usuario.nome from usuario where id = solicitacao.IDServidor) Servidor,(select usuario.nome from usuario where id = solicitacao.IDProfessor) Professor,DATE_FORMAT(solicitacao.DataProfessor, '%d/%m/%Y %H:%i:%S') as DataProfessor,DATE_FORMAT(solicitacao.DataServidor, '%d/%m/%Y %H:%i:%S') as DataServidor,DATE_FORMAT(solicitacao.Data, '%d/%m/%Y %H:%i:%S') as Data,solicitacao.Status as Status FROM solicitacao INNER JOIN aluno_curso on solicitacao.IDAluno_curso = aluno_curso.ID INNER JOIN aluno on aluno_curso.IDAluno = aluno.ID INNER JOIN usuario ON aluno.IDUsuario = usuario.ID inner JOIN curso ON aluno_curso.IDCurso = curso.ID where sha1(solicitacao.ID) = :id");
         $query->bindParam(":id", $id_solicitacao, PDO::PARAM_STR);
         $query->execute();
         $retorno = $query->fetchAll();
-
-
-
-
-
 
         $query = $this->con->con()->prepare("SELECT materia.Nome as Nome,solicitacao_materia.MateriaOrigem as Origem,solicitacao_materia.Status as Status FROM solicitacao INNER JOIN solicitacao_materia on solicitacao_materia.IDSolicitacao = solicitacao.ID inner join materia on solicitacao_materia.IDMateria = materia.ID WHERE sha1(solicitacao.ID) = :id
 ");
@@ -782,10 +697,6 @@ abstract class UsuarioAdministrador extends Usuario {
             }
         }
 
-
-
-
-
         return array($retorno, $retorno_materias);
     }
 
@@ -796,9 +707,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $query->execute();
         $retorno1 = $query->fetchAll();
-
-
-
 
         $query = $this->con->con()->prepare("select COUNT(solicitacao.ID) as solicitacao_total,(SELECT COUNT(solicitacao.ID) FROM solicitacao WHERE solicitacao.Status = 1) as nova_solicitacao,(SELECT COUNT(solicitacao.ID) FROM solicitacao WHERE solicitacao.Status = 4 || solicitacao.Status = 6) as solicitacao_finalizada,(SELECT COUNT(solicitacao.ID) FROM solicitacao WHERE solicitacao.Status = 5 || solicitacao.Status = 2 || solicitacao.Status = 3) as solicitacao_aguardando FROM solicitacao");
 
@@ -816,15 +724,10 @@ abstract class UsuarioAdministrador extends Usuario {
         $query->execute();
         $retorno4 = $query->fetchAll();
 
-
-
         return array($retorno1, $retorno2,$retorno3,$retorno4);
     }
 
     //NOVAS SOLICITAÇÕES
-
-
-
 
     public function listSolicitacao() {
 
@@ -839,8 +742,6 @@ abstract class UsuarioAdministrador extends Usuario {
         $searchValue = $_POST['search']['value']; // Search value
 
         $searchArray = array();
-
-
 
         ## Search 
         $searchQuery = " ";
@@ -884,11 +785,7 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $data = array();
 
-
-
         foreach ($empRecords as $row) {
-
-
 
             $data[] = array(
                 "Curso" => $row['Curso'],
@@ -898,9 +795,6 @@ abstract class UsuarioAdministrador extends Usuario {
                 "Avaliar" => '<a href="NovasSolicitacoes/' . sha1($row['ID']) . '" id="' . $row['ID'] . '" class="modal-trigger alterar_usuario" data-target="modal"><i class="material-icons">&nbspcreate</i></a>'
             );
         }
-
-
-
 
         ## Response
         $response = array(
@@ -924,8 +818,7 @@ abstract class UsuarioAdministrador extends Usuario {
 
         if (count($retorno) != 1) {
 
-
-            header("Location: /");
+            header("Location:".HOME_URL." /");
         }
     }
 
@@ -945,12 +838,10 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $id = URL[3];
 
-
         $query = $this->con->con()->prepare("select materia.Nome,solicitacao_materia.ID,solicitacao_materia.MateriaOrigem from solicitacao_materia inner JOIN solicitacao on solicitacao_materia.IDSolicitacao = solicitacao.ID INNER JOIN materia ON solicitacao_materia.IDMateria = materia.ID where sha1(solicitacao.ID) = :id");
         $query->bindParam(":id", $id, PDO::PARAM_STR);
         $query->execute();
         $retorno = $query->fetchAll();
-
 
         return $retorno;
     }
@@ -958,12 +849,8 @@ abstract class UsuarioAdministrador extends Usuario {
     public function listNovaSolicitacaoAvaliarArquivos() {
 
         $id_solicitacao = URL[3];
-
-
         $query = $this->con->con()->prepare("SELECT usuario.ID as id_do_usuario from solicitacao INNER JOIN aluno_curso on solicitacao.IDAluno_curso = 
             aluno_curso.ID INNER JOIN aluno on aluno_curso.IDAluno = aluno.ID inner join usuario on aluno.IDUsuario = usuario.ID where sha1(solicitacao.id) = :id
-
-
 
 ");
         $query->bindParam(":id", $id_solicitacao, PDO::PARAM_STR);
@@ -972,10 +859,7 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $id_usuario = $retorno[0];
 
-
         $query = $this->con->con()->prepare("select Caminho,Descricao from arquivo_solicitacao where sha1(IDSolicitacao) = :id");
-
-
 
         $query->bindParam(":id", $id_solicitacao, PDO::PARAM_STR);
         $query->execute();
@@ -992,32 +876,17 @@ abstract class UsuarioAdministrador extends Usuario {
 
         echo $n;
 
-
-
-
         foreach ($_POST['solicitacao_materia'] as $materia) {
 
-
-
-
-
             $query = $this->con->con()->prepare("update solicitacao_materia set Status = :status  where ID = :id");
-
-
-
             $query->bindParam(":id", $materia['id'], PDO::PARAM_STR);
             $query->bindParam(":status", $materia['status'], PDO::PARAM_STR);
             $query->execute();
         }
 
-
-
-
         $query = $this->con->con()->prepare("update solicitacao set Status = :status,IDProfessor = :id_prof,DataProfessor = :data  where sha1(ID) = :id");
 
         $data = $this->functions->dataAtual();
-
-
 
         $query->bindParam(":id", $id, PDO::PARAM_STR);
         $query->bindParam(":id_prof", $_SESSION['id'], PDO::PARAM_INT);
@@ -1026,18 +895,13 @@ abstract class UsuarioAdministrador extends Usuario {
         $query->execute();
     }
     
-    
-    
     //CRUD NOTICIA
-    
     
     public function deleteNoticia(){
         
         $query = $this->con->con()->prepare("update solicitacao set Status = :status,IDProfessor = :id_prof,DataProfessor = :data  where sha1(ID) = :id");
 
         $data = $this->functions->dataAtual();
-
-
 
         $query->bindParam(":id", $id, PDO::PARAM_STR);
        
@@ -1049,8 +913,6 @@ abstract class UsuarioAdministrador extends Usuario {
     
     public function insertNoticia($url){
         
-     
-        
         $titulo = $_POST['titulo'];
         $subtitulo = $_POST['subtitulo'];
         $conteudo = $_POST['conteudo'];
@@ -1058,12 +920,7 @@ abstract class UsuarioAdministrador extends Usuario {
         $autor = $_SESSION['id'];
         
                 
-        
         $query = $this->con->con()->prepare("insert into noticia(Titulo,Subtitulo,Autor,Conteudo,Data) values (:titulo,:subtitulo,:autor,:conteudo,:data)");
-
-        
-
-
 
         $query->bindParam(":titulo", $titulo, PDO::PARAM_STR);
         $query->bindParam(":subtitulo", $subtitulo, PDO::PARAM_STR);
@@ -1079,7 +936,6 @@ abstract class UsuarioAdministrador extends Usuario {
     
     public function listNoticiaTable(){
         
-
         ## Read value
         $draw = $_POST['draw'];
         $row = $_POST['start'];
@@ -1129,8 +985,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $data = array();
 
-
-
         foreach ($empRecords as $row) {
 
             $data[] = array(
@@ -1143,9 +997,6 @@ abstract class UsuarioAdministrador extends Usuario {
             );
         }
 
-
-
-
         ## Response
         $response = array(
             "draw" => intval($draw),
@@ -1154,9 +1005,7 @@ abstract class UsuarioAdministrador extends Usuario {
             "aaData" => $data
         );
 
-        echo json_encode($response);
-        
-        
+        echo json_encode($response);  
         
     }
     
@@ -1177,8 +1026,6 @@ abstract class UsuarioAdministrador extends Usuario {
              exit(0);
         }
         
-       
-        
         return $retorno;
         
     }
@@ -1189,9 +1036,7 @@ abstract class UsuarioAdministrador extends Usuario {
         $subtitulo = $_POST['subtitulo'];
         $conteudo = $_POST['conteudo'];
        
-     
         $id = $_POST['id'];
-        
         
         $query = $this->con->con()->prepare("update noticia set `Titulo` = :titulo, `Subtitulo` = :subtitulo,Conteudo = :conteudo where sha1(ID) = :id");
         
@@ -1200,12 +1045,9 @@ abstract class UsuarioAdministrador extends Usuario {
         $query->bindParam(":conteudo", $conteudo, PDO::PARAM_STR);
         $query->bindValue(':id', $id, PDO::PARAM_STR);
         
-        
         $query->execute();
     
-        
         header("Location: ".$url);
-        
         
     }
     
@@ -1213,21 +1055,13 @@ abstract class UsuarioAdministrador extends Usuario {
         
         $id = $_POST['ID'];
         
-        
         $query = $this->con->con()->prepare("delete from noticia where ID = :id");
-        
       
         $query->bindValue(':id', $id, PDO::PARAM_STR);
         
-        
         $query->execute();
     
-        
     }
-    
-
-    
-
 }
 
 ?>
