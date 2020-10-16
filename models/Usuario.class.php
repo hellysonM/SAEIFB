@@ -69,6 +69,14 @@ class Usuario {
             $this->senha = sha1($this->senha);
             $this->cpf = $this->functions->validaCPF($this->cpf);
 
+
+
+            if($this->senha!=sha1($_POST['senhaConfirm'])){
+                $retorno = array('codigo' => 1, 'mensagem' => 'As senhas não coincidem.');
+                echo json_encode($retorno);
+                return 0;
+            }
+
             if (!(filter_var($this->email, FILTER_VALIDATE_EMAIL)) || !(preg_match('/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/', $this->nome)) || !(preg_match('/^[0-9]{11}$/', $this->cpf))
             ) {
 

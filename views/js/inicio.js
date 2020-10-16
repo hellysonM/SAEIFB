@@ -41,8 +41,6 @@ $(document).ready(function(){
     $('.slider').slider();
     $('.parallax').parallax('');
     $('.sidenav').sidenav();
-  
-
     $("#password").on("focusout", function (e) {
         if ($(this).val() != $("#passwordConfirm").val()) {
             $("#passwordConfirm").removeClass("valid").addClass("invalid");

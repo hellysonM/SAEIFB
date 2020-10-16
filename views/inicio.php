@@ -112,7 +112,7 @@
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">email</i>
-                   <input id="email" name="email" type="email" class="validate" required title="This field should not be left blank.">
+                   <input id="email" name="email" type="email" class="validate" required title="Não pode ser vazio">
                    <label for="email">Email</label>
                    <span class="helper-text" data-error="Esse não é um E-mail válido" data-success="">Insira um e-mail válido</span>
                 </div>
@@ -133,7 +133,7 @@
                         <span class="helper-text" data-error="Insira uma Senha válida com no mínimo 8 caracteres" data-success="">Deve possuir 8 caracteres </span>
                     </div>
                     <div class="input-field col s6">
-                        <input id="passwordConfirm" type="password">
+                        <input id="passwordConfirm" name="senhaConfirm" type="password" required>
                         <label for="passwordConfirm">Repita</label>
                         <span class="helper-text" data-error="As senhas não coincidem" data-success="">Insira senhas iguais</span>
                     </div>
