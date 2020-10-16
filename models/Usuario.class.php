@@ -69,8 +69,6 @@ class Usuario {
             $this->senha = sha1($this->senha);
             $this->cpf = $this->functions->validaCPF($this->cpf);
 
-
-
             if($this->senha!=sha1($_POST['senhaConfirm'])){
                 $retorno = array('codigo' => 1, 'mensagem' => 'As senhas não coincidem.');
                 echo json_encode($retorno);
