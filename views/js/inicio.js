@@ -98,7 +98,7 @@ $(document).ready(function(){
             })
         });
     });
-
+    
     $(function () {
         $('#cadastrar').submit(function (event) {
             event.preventDefault();

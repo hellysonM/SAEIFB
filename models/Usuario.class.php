@@ -60,7 +60,24 @@ class Usuario {
                 header("Location:".HOME_URL." /");
                 return 0;
             }
+            
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,
+            "secret=".RECAPT_PRIVATE_KEY."&response=".$_POST['g-recaptcha-response']);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $server_output = curl_exec($ch);
+            curl_close ($ch);
 
+            $resposta = json_decode($server_output);
+
+            if(($resposta->{'success'})!='true'){
+                $retorno = array('codigo' => 1, 'mensagem' => 'A verificação recaptcha está incorreta ou foi expirada.');
+                echo json_encode($retorno);
+                return 0;
+            }
+            
             $this->nome = $_POST['nome'];
             $this->email = $_POST['email'];
             $this->cpf = $_POST['cpf'];
@@ -242,11 +259,29 @@ class Usuario {
                 header("Location:".HOME_URL." /");
                 return 0;
             }
+            
 
             $this->cpf = $_POST['cpf'];
             $this->senha = sha1($_POST['senha']);
 
             $this->cpf = $this->functions->validaCPF($this->cpf);
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,
+            "secret=".RECAPT_PRIVATE_KEY."&response=".$_POST['g-recaptcha-response']);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $server_output = curl_exec($ch);
+            curl_close ($ch);
+
+            $resposta = json_decode($server_output);
+
+            if(($resposta->{'success'})!='true'){
+                $retorno = array('codigo' => 1, 'mensagem' => 'A verificação recaptcha está incorreta ou foi expirada.');
+                echo json_encode($retorno);
+                return 0;
+            }
 
             $query = $this->con->con()->prepare("SELECT `ID`, `Email`,`Nome`,`CPF`,`Tipo` FROM `usuario` WHERE `CPF` = :cpf AND `Senha` = :senha;");
 

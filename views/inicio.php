@@ -6,6 +6,7 @@
     <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>/views/css/inicio.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>SAE-IFB</title>
 </head>
@@ -53,7 +54,7 @@
     </ul>
     
      <!-- MODAL 1 LOGIN  -->  
-    <div id="modal1" class="modal">
+    <div id="modal1" class="modal" style="overflow:hidden">
         <div class="close-modal right ">
             <a href="#" class="modal-close waves-effect  waves-green btn-flat"><i class="material-icons">close</i></a>
         </div>
@@ -76,12 +77,14 @@
                     <span class="helper-text" data-error="" data-success="">Insira sua senha</span>
             
                 </div>
-                <label>
-                    <input type="checkbox" class="filled-in" checked="checked" />
-                    <span>Manter-me conectado</span>
-                </label>
+
+
+                
+                <div class="g-recaptcha" data-sitekey="<?=RECAPT_PUBLIC_KEY?>"></div><br>
+                 
+
                 <div class="container center-align">
-                <button type="submit" class="waves-effect waves-light btn" /><i class="material-icons left">exit_to_app</i>Ir
+            <button  type="submit" class="waves-effect waves-light btn" /><i class="material-icons left">exit_to_app</i>Ir
                 </div>
             </form>
             <div class="progress hide" id="loading">
@@ -98,7 +101,7 @@
      <!-- MODAL 2 CADASTRO  --> 
     <div id="modal2" class="modal ">
         <div class="close-modal right ">
-        <a href="#!" class="modal-close waves-effect  waves-green btn-flat"><i class="material-icons">close</i></a>
+        <a href="#" class="modal-close waves-effect  waves-green btn-flat"><i class="material-icons">close</i></a>
         </div>
         <div class="modal-content">
             <h4>Cadastre-se</h4>
@@ -137,16 +140,24 @@
                         <label for="passwordConfirm">Repita</label>
                         <span class="helper-text" data-error="As senhas não coincidem" data-success="">Insira senhas iguais</span>
                     </div>
+
+
+
                 </div>
                     
+               
+                <div class="g-recaptcha" data-sitekey="<?=RECAPT_PUBLIC_KEY?>"></div>
+                
+                    
                     <div class="container center-align">
+                   
                 <button type="submit" class="waves-effect waves-light btn" ><i class="material-icons left">exit_to_app</i>Cadastrar-se</button >
                 </div>
             </form>
         </div>
         <div class="divider"></div>
         <div class="modal-footer">
-        <a href="#!" class="waves-effect waves-green btn-flat">Precisa de ajuda?</a>
+        <a href="#" class="waves-effect waves-green btn-flat">Precisa de ajuda?</a>
         </div>
     </div>
      
@@ -157,16 +168,13 @@
             <div class="section ">
                 <div class="slider ">
                     <ul class="slides">
-                        
-                        
-                        
+                             
                         <?php 
                         
                         $usuario = new Usuario();
                         
                         $resultado = $usuario->listNoticia();
-                        
-                        
+  
                         foreach ($resultado as $k){
                         ?>
                         <li>
@@ -264,11 +272,16 @@
         </div>
     </footer>
     
+    <script type="text/javascript" src="<?=HOME_URL?>/views/js/ajax.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
     <script type="text/javascript" src="<?=HOME_URL?>/views/js/inicio.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
     
 </body>
 </html>

@@ -6,8 +6,6 @@
         <label for="disabled">Senha atual</label>
     </div>
 
-
-
     <div class="input-field col s6 offset-s1">
 
         <input id="password" name="nova_senha" type="password" class="validate"  minlength="8" maxlength="50" required>

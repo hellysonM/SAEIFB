@@ -17,6 +17,9 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DEBUG', $config['DEBUG']);
 define( 'MAINTENANCE', $config['MAINTENANCE']);
 
+define( 'RECAPT_PUBLIC_KEY', $config['RECAPT_PUBLIC_KEY']);
+define( 'RECAPT_PRIVATE_KEY', $config['RECAPT_PRIVATE_KEY']);
+
 
 ini_set('display_errors', DEBUG);
 error_reporting(E_ALL);
