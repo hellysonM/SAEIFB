@@ -14,7 +14,7 @@
                         <span class="helper-text" data-error="Insira um E-mail válido" data-success=""></span>
                     </div>
                     <div class="input-field col s6 offset-s1">
-                        <input id="passwordConfirm" type="email" required>
+                        <input id="passwordConfirm" name="Email2" type="email" required>
                         <label for="passwordConfirm">Repita</label>
                         <span class="helper-text" data-error="As senhas não coincidem" data-success="">Insira e-mails iguais</span>
                     </div>

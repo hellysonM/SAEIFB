@@ -2,6 +2,14 @@ $(document).ready(function(){
 
      var HOME_URL = window.location.pathname
 
+     $("#passwordConfirm").on("keyup", function (e) {
+        if ($("#password").val() != $(this).val()) {
+            $(this).removeClass("valid").addClass("invalid");
+        } else {
+            $(this).removeClass("invalid").addClass("valid");
+        }
+    });
+
     $("#buscar").click(function () {
 
         $("#menu").css("display", "none");
@@ -49,13 +57,6 @@ $(document).ready(function(){
         }
     });
 
-    $("#passwordConfirm").on("keyup", function (e) {
-        if ($("#password").val() != $(this).val()) {
-            $(this).removeClass("valid").addClass("invalid");
-        } else {
-            $(this).removeClass("invalid").addClass("valid");
-        }
-    });
 
     $(function () {
         $('#logar').submit(function (event) {

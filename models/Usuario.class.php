@@ -338,6 +338,12 @@ class Usuario {
                 echo json_encode($retorno);
                 return 0;
          }
+
+         else if($_POST['Email']!=$_POST['Email2']){
+            $retorno = array('codigo' => 1, 'mensagem' => 'Seus e-mails não coincidem');
+            echo json_encode($retorno);
+            return 0;
+        }
          
          $queryValidarEmail = $this->con->con()->prepare("SELECT `nome` from `usuario` where `Email` = :email");
             $queryValidarEmail->bindParam(":email", $_POST['Email'], PDO::PARAM_STR);
@@ -378,11 +384,17 @@ class Usuario {
         
         if(sha1($_POST['senha_atual'])!=$retorno[0]){
             
-            $retorno = array('codigo' => 1, 'mensagem' => 'Senha incorreta');
+            $retorno = array('codigo' => 1, 'mensagem' => 'Sua Senha atual está incorreta');
             echo json_encode($retorno);
             return 0;
  
-        }else{
+        }
+        else if($_POST['nova_senha']!=$_POST['nova_senha2']){
+            $retorno = array('codigo' => 1, 'mensagem' => 'Suas novas senhas não coincidem');
+            echo json_encode($retorno);
+            return 0;
+        }
+        else{
             
           $senha =   sha1($_POST['nova_senha']);
           $queryValidarSenha = $this->con->con()->prepare("UPDATE usuario set Senha = :senha where ID = :id");

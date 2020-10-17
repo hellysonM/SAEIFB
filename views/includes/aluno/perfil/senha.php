@@ -16,7 +16,7 @@
         <span class="helper-text" data-error="Insira uma Senha válida" data-success="">Deve possuir 8 caracteres </span>
     </div>
     <div class="input-field col s6 offset-s1">
-        <input id="passwordConfirm" type="password" required>
+        <input id="passwordConfirm" name="nova_senha2" type="password" required>
         <label for="passwordConfirm">Repita</label>
         <span class="helper-text" data-error="As senhas não coincidem" data-success="">Insira senhas iguais</span>
     </div>
