@@ -1,10 +1,5 @@
 <?php
-
 $usuario = new Usuario();
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,12 +17,12 @@ $usuario = new Usuario();
         <!-- NAV E SIDENAV -->  
         <nav class="teal darken-1 ">
             <div class="nav-wrapper teal darken-3 z-depth-1" id="menu">
-                <a href="/" class="brand-logo">&nbsp;&nbsp;SAE-IFB</a>                
+                <a href="<?=HOME_URL?>/" class="brand-logo">&nbsp;&nbsp;SAE-IFB</a>                
                 <a href="#" data-target="mobile-navbar" class="sidenav-trigger"><i class="material-icons ">menu</i></a>            
                 <ul class="right hide-on-med-and-down">
 
                   <?php if(isset($_SESSION['login']) && $_SESSION['login']=="true") { ?>
-                    <li><a href="/" data-target="" class="modal-trigger waves-effect" ><i class="material-icons left">web</i>Dashboard</a></li>
+                    <li><a href="<?=HOME_URL?>/" data-target="" class="modal-trigger waves-effect" ><i class="material-icons left">web</i>Dashboard</a></li>
                     <?php } else {?>
                     <li><a href="#" data-target="modal1" class="modal-trigger waves-effect" ><i class="material-icons left">exit_to_app</i>Entrar</a></li>
                     <li><a href="#" data-target="modal2" class="modal-trigger waves-effect" ><i class="material-icons left">person_add</i>Cadastre-se</a></li>
@@ -37,7 +32,7 @@ $usuario = new Usuario();
                 </ul>
             </div> 
             <div class="nav-wrapper " id="barra_buscar">
-                <form method="POST" action="/Portal/Pesquisa">
+                <form method="POST" action="<?=HOME_URL?>/Portal/Pesquisa">
                     <div class="input-field ">
                         <input id="search" type="search" name="pesquisa"  >
                         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
@@ -58,7 +53,7 @@ $usuario = new Usuario();
             <li>
                 <nav>  
                     <div class="nav-wrapper teal">
-                        <form method="POST" action="/Portal/Pesquisa">
+                        <form method="POST" action="<?=HOME_URL?>/Portal/Pesquisa">
                             <div class="input-field">
                                 <input  type="search" name="pesquisa" required>
                                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
@@ -78,7 +73,7 @@ $usuario = new Usuario();
             <div class="modal-content">
                 <h4>Entrar</h4>
                 <div class="divider"></div>
-                <form action="/Usuario/Logar" method="post" id="logar">
+                <form action="<?=HOME_URL?>/Usuario/Logar" method="post" id="logar">
 
                     <div class="input-field">
                         <i class="material-icons prefix">person</i>
@@ -121,7 +116,7 @@ $usuario = new Usuario();
             <div class="modal-content">
                 <h4>Cadastre-se</h4>
                 <div class="divider"></div>
-                <form id="cadastrar" class="col s12" method="post" action="/Usuario/Registrar">
+                <form id="cadastrar" class="col s12" method="post" action="<?=HOME_URL?>/Usuario/Registrar">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">face</i>
                         <input type="text" id="nome" name="nome" class="validate" required pattern="[A-Za-zÀ-ú\s]+$"  minlength="2" maxlength="100">
@@ -177,10 +172,6 @@ $usuario = new Usuario();
             <br>
             <div class="row">
 
-
-
-
-
                 <div class="col xl8 s12 offset-xl2">
                     <div class="card-panel z-depth-2">
 
@@ -201,41 +192,16 @@ $usuario = new Usuario();
                             
                             ?>                      
 
-                            <a href="/Portal/Noticia/<?=$k['Titulo']?>" class="collection-item <?php if(URL[2]==$k['Titulo'])echo"active"?>"><?=$k['Titulo']?></a>
+                            <a href="<?=HOME_URL?>/Portal/Noticia/<?=$k['Titulo']?>" class="collection-item <?php if(URL[2]==$k['Titulo'])echo"active"?>"><?=$k['Titulo']?></a>
 
                             <?php } 
                             } ?>
 
                         </div>
                     </div>  
-
                 </div>
-
-               
-
-
-
-
-
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
-
         </main>
-
-
-
-
 
         <!-- SLIDER  -->
         <footer class="page-footer teal darken-1">

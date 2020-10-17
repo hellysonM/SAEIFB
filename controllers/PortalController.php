@@ -8,8 +8,6 @@
 
 class PortalController{
     
-    
-    
    public function indexAction() {
         
         Usuario::authenticateUsuario();
@@ -17,7 +15,6 @@ class PortalController{
         $index_view = new View(ABSPATH . '/views/portal.php');
         $index_view->showContents();
     }  
-    
     
     public function NoticiaAction() {
         
@@ -27,13 +24,10 @@ class PortalController{
         $index_view->showContents();
     } 
     
-    
     public function PesquisaAction(){
         
         $index_view = new View(ABSPATH . '/views/portal_pesquisa.php');
-        $index_view->showContents();
-        
-        
+        $index_view->showContents();  
         
     }
  

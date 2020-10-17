@@ -25,18 +25,13 @@ class Aluno extends Usuario {
             
             exit();
             
-        }else{
-         
+        }else{ 
  
         $this->con = new Connection();
-        $this->functions = new Functions();
-            
+        $this->functions = new Functions();    
         
         }
-        
-        
-
-        
+     
     }
 
     public function checkEvento() {
@@ -92,24 +87,7 @@ class Aluno extends Usuario {
                 header("Location: ".HOME_URL." / ");
                 exit();
             };
-       
-        /*    
-        $id_aluno_curso = URL[2];
-        
-        $query = $this->con->con()->prepare("SELECT aluno_curso.Status FROM aluno_curso where sha1(ID) = :id");
-        $query->bindParam(":id", $id_aluno_curso, PDO::PARAM_STR);
-
-        $query->execute();
-        $retorno = $query->fetch();
-        
-        if($retorno['Status']==1){
-            exit();
-        }
-           */ 
-            
-            
-            
-            
+           
         }
     }
 
@@ -119,8 +97,6 @@ class Aluno extends Usuario {
 
         $query = $this->con->con()->prepare("SELECT curso.Nome,aluno_curso.Ingresso FROM `curso` INNER JOIN aluno_curso ON curso.ID = aluno_curso.IDCurso WHERE sha1(aluno_curso.ID) = :id");
 
-
-     
         $query->bindParam(":id", $url, PDO::PARAM_STR);
         $query->execute();
         $retorno = $query->fetch();
@@ -150,7 +126,6 @@ class Aluno extends Usuario {
 
         $query = $this->con->con()->prepare("SELECT materia.Nome,materia.ID from materia INNER JOIN curso on materia.IDCurso = curso.ID INNER JOIN aluno_curso ON curso.ID = aluno_curso.IDCurso WHERE sha1(aluno_curso.ID) = :id && materia.Semestre = :semestre");
 
-
         $url = URL[3];
         $query->bindParam(":id", $url, PDO::PARAM_STR);
         $query->bindParam(":semestre", $semestre, PDO::PARAM_INT);
@@ -164,7 +139,6 @@ class Aluno extends Usuario {
         
         $id_aluno_curso = URL[2];
                         
-        
         //Se refazer for falso, ele não checa se ja há um solicitação pra aquele aluno_curso. Porque se refazer for true, isso não importará e ele excluirá o último curso sempre.
         if(!$refazer){
         $query = $this->con->con()->prepare("SELECT Status FROM aluno_curso where sha1(ID) = :id ");
@@ -176,7 +150,6 @@ class Aluno extends Usuario {
          exit();
         }}
         
-
         $query = $this->con->con()->prepare("SELECT ID FROM aluno_curso where sha1(ID) = :id ");
         $query->bindParam(":id", $id_aluno_curso, PDO::PARAM_STR);
 
@@ -185,13 +158,13 @@ class Aluno extends Usuario {
 
         $id_aluno_curso = $retorno[0];
 
-
+        $observacao = filter_var($_POST['Obs'],FILTER_SANITIZE_STRING);
 
         $data = $this->functions->dataAtual();
 
         $query = $this->con->con()->prepare("INSERT INTO `solicitacao` (`IDAluno_curso`,`Observacao`,`Data`) values (:id,:observacao,:data)");
         $query->bindParam(":id", $id_aluno_curso, PDO::PARAM_INT);
-        $query->bindParam(":observacao", $_POST['Obs'], PDO::PARAM_STR);
+        $query->bindParam(":observacao", $observacao, PDO::PARAM_STR);
         $query->bindParam(":data", $data, PDO::PARAM_STR);
         $query->execute();
 
@@ -255,9 +228,6 @@ class Aluno extends Usuario {
                     return 0;
                 }
             }
-
-
-
 
             $target_dir = UPABSPATH ."/". sha1($_SESSION['id']) . "/";
 
@@ -331,7 +301,7 @@ class Aluno extends Usuario {
                         $count++; // counting successful uploads
                         $filenames .= ', ' . $rename;
 
-                        $descricao = $_POST['fileToUpload']['description'][$f];
+                        $descricao = filter_var($_POST['fileToUpload']['description'][$f],FILTER_SANITIZE_STRING);
 
                         $query = $this->con->con()->prepare("INSERT INTO `arquivo_solicitacao` (`IDSolicitacao`,`Caminho`,`Descricao`) values (:id,:caminho,:descri)");
                         $query->bindParam(":id", $id_solicitacao, PDO::PARAM_INT);

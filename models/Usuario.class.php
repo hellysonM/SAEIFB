@@ -78,10 +78,10 @@ class Usuario {
                 return 0;
             }
             
-            $this->nome = $_POST['nome'];
+            $this->nome = filter_var($_POST['nome'],FILTER_SANITIZE_STRING);
             $this->email = $_POST['email'];
             $this->cpf = $_POST['cpf'];
-            $this->senha = $_POST['senha'];
+            $this->senha = filter_var($_POST['senha'],FILTER_SANITIZE_STRING);
 
             $this->senha = sha1($this->senha);
             $this->cpf = $this->functions->validaCPF($this->cpf);
@@ -407,8 +407,7 @@ class Usuario {
         }
            
     }
-    
-    
+
     public function updateSenha(){
         
         $queryValidarSenha = $this->con->con()->prepare("Select Senha from usuario where id  = :id");
@@ -529,7 +528,7 @@ class Usuario {
     
     public function listNoticiaPesquisa(){
         
-        $pesquisa = $_POST['pesquisa'];
+        $pesquisa = filter_var($_POST['pesquisa'],FILTER_SANITIZE_STRING);
         
          $query = $this->con->con()->prepare("select usuario.Nome,noticia.ID,noticia.Titulo,noticia.Subtitulo,noticia.Conteudo,DATE_FORMAT(noticia.Data, '%d/%m/%Y %H:%i:%S') as Data from noticia INNER JOIN usuario on noticia.Autor= usuario.ID
          where Titulo like :pesquisa order by id desc limit 5");
