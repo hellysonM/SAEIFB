@@ -1,6 +1,5 @@
 <?php
 
-
 class Professor extends UsuarioAdministrador{
     
     public function __construct() {
@@ -10,8 +9,7 @@ class Professor extends UsuarioAdministrador{
             
             session_start();
         }
-
-        
+  
         if(!(isset($_SESSION['tipo'])) || !(isset($_SESSION['login'])) || $_SESSION['tipo'] != 3 || $_SESSION['login'] != 'true'){
             
             header("Location: ".HOME_URL."/ ");
@@ -23,12 +21,8 @@ class Professor extends UsuarioAdministrador{
         $this->con = new Connection();
         $this->functions = new Functions();
             
-        
         }
    
     }
-    
-    
-    
     
 }

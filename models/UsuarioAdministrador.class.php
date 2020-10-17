@@ -55,8 +55,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $data = array();
 
-     
-
         foreach ($empRecords as $row) {
 
             if ($row['Tipo'] == 1) {
@@ -540,7 +538,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $id_solicitacao = URL[3];
 
-
         $query = $this->con->con()->prepare("SELECT usuario.ID as id_do_usuario from solicitacao INNER JOIN aluno_curso on solicitacao.IDAluno_curso = 
             aluno_curso.ID INNER JOIN aluno on aluno_curso.IDAluno = aluno.ID inner join usuario on aluno.IDUsuario = usuario.ID where sha1(solicitacao.id) = :id
 ");
@@ -702,7 +699,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
     public function listInformation() {
 
-
         $query = $this->con->con()->prepare("select COUNT(usuario.ID) as usuario,(select COUNT(usuario.ID) from usuario where Tipo = 2) as aluno,(select COUNT(usuario.ID) from usuario where Tipo = 3) as professor, (select COUNT(usuario.ID) from usuario where Tipo = 5) as servidor from usuario");
 
         $query->execute();
@@ -712,7 +708,6 @@ abstract class UsuarioAdministrador extends Usuario {
 
         $query->execute();
         $retorno2 = $query->fetchAll();
-        
         
         $query = $this->con->con()->prepare("select COUNT(noticia.ID) as noticia from noticia ");
 
@@ -909,8 +904,6 @@ abstract class UsuarioAdministrador extends Usuario {
         
     }
     
-   
-    
     public function insertNoticia($url){
         
         $titulo = $_POST['titulo'];
@@ -932,7 +925,6 @@ abstract class UsuarioAdministrador extends Usuario {
         header("Location:".$url);
         
     }
-    
     
     public function listNoticiaTable(){
         
@@ -1008,7 +1000,6 @@ abstract class UsuarioAdministrador extends Usuario {
         echo json_encode($response);  
         
     }
-    
     
     public function listNoticiaById(){
         
