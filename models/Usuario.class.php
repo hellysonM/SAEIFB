@@ -16,8 +16,7 @@ class Usuario {
     private $functions;
 
     public function __construct() {
-        //session_cache_expire(1);
-        
+
         if(!isset($_SESSION)) 
            session_start();
         
@@ -72,7 +71,7 @@ class Usuario {
 
             $resposta = json_decode($server_output);
 
-            if(($resposta->{'success'})!='true'){
+            if(($resposta->{'success'})!=true){
                 $retorno = array('codigo' => 1, 'mensagem' => 'A verificação recaptcha está incorreta ou foi expirada.');
                 echo json_encode($retorno);
                 return 0;
@@ -260,28 +259,10 @@ class Usuario {
                 return 0;
             }
             
-
             $this->cpf = $_POST['cpf'];
             $this->senha = sha1($_POST['senha']);
 
             $this->cpf = $this->functions->validaCPF($this->cpf);
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS,
-            "secret=".RECAPT_PRIVATE_KEY."&response=".$_POST['g-recaptcha-response']);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $server_output = curl_exec($ch);
-            curl_close ($ch);
-
-            $resposta = json_decode($server_output);
-
-            if(($resposta->{'success'})!='true'){
-                $retorno = array('codigo' => 1, 'mensagem' => 'A verificação recaptcha está incorreta ou foi expirada.');
-                echo json_encode($retorno);
-                return 0;
-            }
 
             $query = $this->con->con()->prepare("SELECT `ID`, `Email`,`Nome`,`CPF`,`Tipo` FROM `usuario` WHERE `CPF` = :cpf AND `Senha` = :senha;");
 

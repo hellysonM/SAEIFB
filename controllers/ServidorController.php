@@ -98,7 +98,7 @@ class ServidorController {
     
         public function inserirNoticiaAction(){
         
-        $this->servidor->insertNoticia("/Dashboard/Servidor/Noticias");
+        $this->servidor->insertNoticia(HOME_URL."/Dashboard/Servidor/Noticias");
         
     }
     
@@ -110,7 +110,7 @@ class ServidorController {
     
     public function atualizarNoticiaAction(){
         
-        $this->servidor->updateNoticia("/Dashboard/Servidor/Noticias");
+        $this->servidor->updateNoticia(HOME_URL."/Dashboard/Servidor/Noticias");
     }
     
     public function deletarNoticiaAction(){

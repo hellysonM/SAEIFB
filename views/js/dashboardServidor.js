@@ -707,10 +707,8 @@ $(document).ready(function () {
                             url: HOME_URL+"/Servidor/DeletarMateria",
                             method: "POST",
                             data: {ID: ID},
-
                             success: function (data)
                             {
-
                                 M.toast({html: 'Materia deletada'});
                                 $('#materia').DataTable().ajax.reload();
 
@@ -720,7 +718,6 @@ $(document).ready(function () {
 
                             }
                         });
-
                     }
                 },
                 Cancelar: function () {

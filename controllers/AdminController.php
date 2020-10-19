@@ -145,7 +145,7 @@ class AdminController {
     
     public function inserirNoticiaAction(){
         
-        $this->admin->insertNoticia("/Dashboard/Admin/Noticias");
+        $this->admin->insertNoticia(HOME_URL."/Dashboard/Admin/Noticias");
         
     }
     
@@ -157,7 +157,7 @@ class AdminController {
     
     public function atualizarNoticiaAction(){
         
-        $this->admin->updateNoticia("/Dashboard/Admin/Noticias");
+        $this->admin->updateNoticia(HOME_URL."/Dashboard/Admin/Noticias");
     }
     
     public function deletarNoticiaAction(){

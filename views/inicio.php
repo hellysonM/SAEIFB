@@ -80,7 +80,7 @@
 
 
                 
-                <div class="g-recaptcha" data-sitekey="<?=RECAPT_PUBLIC_KEY?>"></div><br>
+               <!-- <div class="g-recaptcha" data-sitekey="<?=RECAPT_PUBLIC_KEY?>"></div><br>-->
                  
 
                 <div class="container center-align">
@@ -180,7 +180,7 @@
                         <li>
                         <img src="" class='teal lighten-2 responsive-img'> 
                             <div class="caption center-align">
-                                <h3 ><a class="white-text" href="<?=HOME_URL?>Portal/Noticia/<?=$k['Titulo']?>"><?=$k['Titulo']?></a></h3>
+                                <h3 ><a class="white-text" href="<?=HOME_URL?>/Portal/Noticia/<?=$k['Titulo']?>"><?=$k['Titulo']?></a></h3>
                               <h5 class="light teal-text text-darken-2"><?=$k['Subtitulo']?></h5>
                             </div>
                         </li>

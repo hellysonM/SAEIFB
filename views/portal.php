@@ -20,7 +20,7 @@ if(URL[1]=="Noticia")
     <head>     
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">  
-        <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>views/css/inicio.css"/>
+        <link type="text/css" rel="stylesheet" href="<?php echo HOME_URL ?>/views/css/inicio.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -31,14 +31,12 @@ if(URL[1]=="Noticia")
         <!-- NAV E SIDENAV -->  
         <nav class="teal darken-1 ">
             <div class="nav-wrapper teal darken-3 z-depth-1" id="menu">
-                <a href="/" class="brand-logo">&nbsp;&nbsp;SAE-IFB</a>                
+                <a href="<?=HOME_URL?>/" class="brand-logo">&nbsp;&nbsp;SAE-IFB</a>                
                 <a href="#" data-target="mobile-navbar" class="sidenav-trigger"><i class="material-icons ">menu</i></a>            
                 <ul class="right hide-on-med-and-down">
                     <?php if(isset($_SESSION['login']) && $_SESSION['login']=="true") { ?>
-                    <li><a href="/" data-target="" class="modal-trigger waves-effect" ><i class="material-icons left">web</i>Dashboard</a></li>
+                    <li><a href="<?=HOME_URL?>/" data-target="" class="modal-trigger waves-effect" ><i class="material-icons left">web</i>Dashboard</a></li>
                     <?php } else {?>
-                    <li><a href="#" data-target="modal1" class="modal-trigger waves-effect" ><i class="material-icons left">exit_to_app</i>Entrar</a></li>
-                    <li><a href="#" data-target="modal2" class="modal-trigger waves-effect" ><i class="material-icons left">person_add</i>Cadastre-se</a></li>
                     <?php } ?>
                     
                     <li><a href="#" id="buscar"><i class="material-icons">search</i></a></li>
@@ -46,7 +44,7 @@ if(URL[1]=="Noticia")
                 </ul>
             </div> 
             <div class="nav-wrapper " id="barra_buscar">
-                <form method="POST" action="/Portal/Pesquisa">
+                <form method="POST" action="<?=HOME_URL?>/Portal/Pesquisa">
                     <div class="input-field ">
                         <input id="search" type="search" name="pesquisa" >
                         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
@@ -57,7 +55,7 @@ if(URL[1]=="Noticia")
         </nav>
 
         <ul class="sidenav" id="mobile-navbar">
-            <?php if(!isset($_SESSION['login'])) { ?>
+            <?php if(false) { ?>
             <li><a href="#" data-target="modal1" class="modal-trigger waves-effect" ><i class="material-icons left">arrow_drop_down</i>Entrar</a></li>
             <li><a href="#" data-target="modal2" class="modal-trigger waves-effect" ><i class="material-icons left">person_add</i>Cadastre-se</a></li>
             <?php } ?>
@@ -84,7 +82,7 @@ if(URL[1]=="Noticia")
             <div class="modal-content">
                 <h4>Entrar</h4>
                 <div class="divider"></div>
-                <form action="/Usuario/Logar" method="post" id="logar">
+                <form action="<?=HOME_URL?>/Usuario/Logar" method="post" id="logar">
 
                     <div class="input-field">
                         <i class="material-icons prefix">person</i>
@@ -127,7 +125,7 @@ if(URL[1]=="Noticia")
             <div class="modal-content">
                 <h4>Cadastre-se</h4>
                 <div class="divider"></div>
-                <form id="cadastrar" class="col s12" method="post" action="/Usuario/Registrar">
+                <form id="cadastrar" class="col s12" method="post" action="<?=HOME_URL?>/Usuario/Registrar">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">face</i>
                         <input type="text" id="nome" name="nome" class="validate" required pattern="[A-Za-zÀ-ú\s]+$"  minlength="2" maxlength="100">
@@ -157,11 +155,14 @@ if(URL[1]=="Noticia")
                             <span class="helper-text" data-error="Insira uma Senha válida com no mínimo 8 caracteres" data-success="">Deve possuir 8 caracteres </span>
                         </div>
                         <div class="input-field col s6">
-                            <input id="passwordConfirm" type="password">
+                            <input id="passwordConfirm" name="senhaConfirm" type="password">
                             <label for="passwordConfirm">Repita</label>
                             <span class="helper-text" data-error="As senhas não coincidem" data-success="">Insira senhas iguais</span>
                         </div>
                     </div>
+
+                    <div class="g-recaptcha" data-sitekey="<?=RECAPT_PUBLIC_KEY?>"></div>
+
 
                     <div class="container center-align">
                         <button type="submit" class="waves-effect waves-light btn" ><i class="material-icons left">exit_to_app</i>Cadastrar-se</button >
@@ -183,10 +184,6 @@ if(URL[1]=="Noticia")
             <br>
             <div class="row">
 
-
-
-
-
                 <div class="col xl2 s12">
                     <div class="card-panel z-depth-2">
 
@@ -200,10 +197,9 @@ if(URL[1]=="Noticia")
                             
                             foreach ($retorno as $k){
                             
-                            
                             ?>                      
 
-                            <a href="/Portal/Noticia/<?=$k['Titulo']?>" class="collection-item <?php if(URL[2]==$k['Titulo'])echo"active"?>"><?=$k['Titulo']?></a>
+                            <a href="<?=HOME_URL?>/Portal/Noticia/<?=$k['Titulo']?>" class="collection-item <?php if(URL[2]==$k['Titulo'])echo"active"?>"><?=$k['Titulo']?></a>
 
                             <?php } ?>
 
@@ -240,30 +236,9 @@ if(URL[1]=="Noticia")
 
                         <?php } ?>
 
-
-
-
-
-
-
-
-
             </div>
 
-
-
-
-
-
-
-
-
         </main>
-
-
-
-
-
         <!-- SLIDER  -->
         <footer class="page-footer teal darken-1">
             <div class="container">
@@ -273,18 +248,16 @@ if(URL[1]=="Noticia")
                         <p class="grey-text text-lighten-4">Com o SAE, o aluno pode solicitar e acompanhar digitalmente o processo de aproveitamento de estudos no Instituto Federal de Brasília</p>
                     </div>
                     <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Mapa do Site</h5>
+                        <h5 class="white-text">Portal do SAE</h5>
                         <ul>
                             
                             <?php if(isset($_SESSION['login']) && $_SESSION['login']=="true") { ?>
                             
-                           <li><a href="/" data-target="modal1" class="white-text" >- Dashboard</a></li>
+                           <li><a href="<?=HOME_URL?>/" data-target="modal1" class="white-text" >- Dashboard</a></li>
 
                             
                             <?php } else{?>
-                            
-                            <li><a href="#" data-target="modal1" class="modal-trigger white-text" >- Entrar</a></li>
-                            <li><a href="#" data-target="modal2" class="modal-trigger white-text" >- Registre-se</a></li>
+                      
                             <?php } ?>
                         </ul>
                     </div>
@@ -318,8 +291,10 @@ if(URL[1]=="Noticia")
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
-        <script type="text/javascript" src="<?php echo HOME_URL ?>views/js/inicio.js"></script>
+        <script type="text/javascript" src="<?php echo HOME_URL ?>/views/js/inicio.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     </body>
 </html>
