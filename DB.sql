@@ -175,9 +175,9 @@ INSERT INTO `solicitacao_status` (`ID`, `Nome`, `Porcentagem`) VALUES
 (1, 'Enviado para avaliação', 33),
 (2, 'Avaliado pelo professor', 66),
 (3, 'Documentação incompleta. Aguardardando finalização', 66),
-(4, 'Finalizado Aprovado', 100),
-(5, 'Retornado ao professor', 66),
-(6, 'Finalizado, recusado por doc incompleta', 100);
+(4, 'Finalizado', 100),
+(5, 'Retornado ao professor para revisão', 66),
+(6, 'Finalizado, recusado por doc. incompleta', 100);
 
 -- --------------------------------------------------------
 
