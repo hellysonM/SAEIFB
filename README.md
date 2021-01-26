@@ -15,7 +15,7 @@ REGISTRE-SE COMO USUÁRIO. Mude o campo Usuario.Tipo do banco de dados para 4(Us
 
 OBS : TIPO 1 (USUARIO COMUM) TIPO 2 (ALUNO) - TIPO 3 (PROFESSOR) - TIPO 4 (ADMINISTRADOR) - TIPO 5 (SERVIDOR).
 
-OBS : Certifique-se que o strict mode do mysql esteja desabilitado.
+Certifique-se que o strict mode do mysql esteja desabilitado.
 Do contrário, execute a seguinte linha no terminal do mysql:
 ```
 SET GLOBAL sql_mode = '';
