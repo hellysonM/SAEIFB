@@ -1,4 +1,4 @@
-# SAEIFB-1.0-BETA
+# SAEIFB-1.0-BETA por Hellyson M.
 
 ### Programa Web Para Gestão escolar para o Insitituto Federal de Brasília Utilizando PHP MVC OO JQUERY JAVASCRIPT CSS3 HTML5 PHPMAILER DOMPDF E MATERIALIZE FRAMEWORK
 Dependências Materialize, CSS ,JQUERY PHP MAILER, DOMPDF.
@@ -9,7 +9,7 @@ Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.2.31
 
 IMPORTE O ARQUIVO SQL PARA SEU BANCO DE DADOS.
 
-CONFIGURE O NOME DO SEU BANCO DE DADOS COM USUARIO E SENHA EM /lib/ini-config.ini e o sistema de roteamento.
+CONFIGURE O NOME DO SEU BANCO DE DADOS COM USUARIO E SENHA EM /lib/ini-config.ini, o sistema de roteamento e as chaves da API Google Maps(obrigátorio).
 
 REGISTRE-SE COMO USUÁRIO. Mude o campo Usuario.Tipo do banco de dados para 4(Usuário administrador). 
 
@@ -21,3 +21,7 @@ Do contrário, execute a seguinte linha no terminal do mysql:
 SET GLOBAL sql_mode = '';
 
 ```
+## SMTP
+
+Configure seu servidor SMTP em => /lib/classes/Functions.class.php
+Sua configuração não é obrigatória, mas algumas funcionalidades dependem de um servidor de SMTP corretamente configurado.
